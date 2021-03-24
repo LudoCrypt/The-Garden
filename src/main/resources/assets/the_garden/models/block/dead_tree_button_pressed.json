@@ -1,0 +1,6 @@
+{
+	"parent": "block/button_pressed",
+	"textures": {
+		"texture": "the_garden:block/dead_tree_planks"
+	}
+}

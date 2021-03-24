@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "the_garden",
+	"version": "${version}",
+	"name": "The Garden",
+	"description": "A magical garden of mulch, bones, and almond milk. Textures by Slice. Music by LudoCrypt and Y. Development by LudoCrypt and shadowmaster435 (rendering help)",
+	"authors": [
+		"LudoCrypt",
+		"shadowmaster435",
+		"Y",
+		"Slice"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "LGPLv3",
+	"icon": "assets/the_garden/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.ludocrypt.the_garden.TheGarden"
+		],
+		"client": [
+			"net.ludocrypt.the_garden.client.TheClientGarden"
+		],
+		"mm:early_risers": [
+			"net.ludocrypt.the_garden.PreInitialize::initialize"
+		]
+	},
+	"accessWidener": "the_garden.accesswidener",
+	"mixins": [
+		"the_garden.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.7.4",
+		"fabric": "*",
+		"minecraft": "1.16.x"
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "net.ludocrypt.the_garden.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"BoatItemAccessor",
+		"HoeItemMixin",
+		"CryingObsidianBlockMixin",
+		"PointOfInterestTypeAccessor",
+		"EntityMixin",
+		"DimensionOptionsMixin",
+		"MineshaftPartMixin"
+	],
+	"client": [
+		"MinecraftClientMixin",
+		"SkyPropertiesMixin",
+		"ClientWorldMixin",
+		"WaterSuspendParticleAccessor",
+		"WorldRendererMixin",
+		"RenderPhaseAccessor",
+		"ClientWorldPropertiesMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

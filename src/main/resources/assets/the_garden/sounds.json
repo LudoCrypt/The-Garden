@@ -1,0 +1,38 @@
+{
+	"music.point_one": {
+		"sounds": [
+			{
+				"name": "the_garden:music/ballad_of_the_garden",
+				"stream": true
+			},
+			{
+				"name": "the_garden:music/pancake",
+				"stream": true
+			}
+		]
+	},
+	"music.point_two": {
+		"sounds": [
+			{
+				"name": "the_garden:music/ballad_of_the_garden",
+				"stream": true
+			},
+			{
+				"name": "the_garden:music/pancake",
+				"stream": true
+			}
+		]
+	},
+	"music.menu": {
+		"sounds": [
+			{
+				"name": "the_garden:music/mesce",
+				"stream": true
+			},
+			{
+				"name": "the_garden:music/nimis",
+				"stream": true
+			}
+		]
+	}
+}

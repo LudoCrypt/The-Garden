@@ -1,0 +1,90 @@
+{
+	"type": "the_garden:point_one",
+	"generator": {
+		"type": "minecraft:noise",
+		"biome_source": {
+			"type": "minecraft:multi_noise",
+			"altitude_noise": {
+				"firstOctave": -8,
+				"amplitudes": [
+					1,
+					-1
+				]
+			},
+			"temperature_noise": {
+				"firstOctave": -7,
+				"amplitudes": [
+					1,
+					1
+				]
+			},
+			"humidity_noise": {
+				"firstOctave": -6,
+				"amplitudes": [
+					0.75,
+					1
+				]
+			},
+			"weirdness_noise": {
+				"firstOctave": -7,
+				"amplitudes": [
+					1,
+					1
+				]
+			},
+			"biomes": [
+				{
+					"biome": "the_garden:point_one",
+					"parameters": {
+						"altitude": 0,
+						"temperature": 0,
+						"humidity": 0,
+						"weirdness": 0,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "the_garden:pseudo_corkwood_plains",
+					"parameters": {
+						"altitude": 0,
+						"temperature": 0,
+						"humidity": -0.2,
+						"weirdness": 0,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "the_garden:corkwood_plains",
+					"parameters": {
+						"altitude": 0,
+						"temperature": 0,
+						"humidity": -0.375,
+						"weirdness": 0,
+						"offset": 0
+					}
+				},
+				{
+					"biome": "the_garden:playpen",
+					"parameters": {
+						"altitude": 0,
+						"temperature": 0,
+						"humidity": 0.3,
+						"weirdness": 0,
+						"offset": 0.275
+					}
+				},
+				{
+					"biome": "the_garden:churchpark",
+					"parameters": {
+						"altitude": 0.4,
+						"temperature": 0,
+						"humidity": 0,
+						"weirdness": 0,
+						"offset": 0.325
+					}
+				}
+			]
+		},
+		"settings": "the_garden:point_one"
+	}
+}

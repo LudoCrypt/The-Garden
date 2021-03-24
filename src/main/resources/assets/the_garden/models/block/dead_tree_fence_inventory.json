@@ -1,0 +1,6 @@
+{
+	"parent": "block/fence_inventory",
+	"textures": {
+		"texture": "the_garden:block/dead_tree_planks"
+	}
+}

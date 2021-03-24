@@ -1,0 +1,43 @@
+{
+	"bedrock_roof_position": -10,
+	"bedrock_floor_position": 0,
+	"sea_level": 255,
+	"disable_mob_generation": false,
+	"default_block": {
+		"Name": "the_garden:playdirt"
+	},
+	"default_fluid": {
+		"Name": "minecraft:air"
+	},
+	"noise": {
+		"height": 256,
+		"density_factor": 2.1399846,
+		"density_offset": 1.8662893,
+		"size_horizontal": 1,
+		"size_vertical": 2,
+		"simplex_surface_noise": true,
+		"random_density_offset": true,
+		"island_noise_override": false,
+		"amplified": false,
+		"sampling": {
+			"xz_scale": 0.514507745,
+			"y_scale": 0.693358845,
+			"xz_factor": 50.928453884,
+			"y_factor": 128.954865687
+		},
+		"bottom_slide": {
+			"target": -30,
+			"size": 0,
+			"offset": 0
+		},
+		"top_slide": {
+			"target": 0,
+			"size": 0,
+			"offset": 0
+		}
+	},
+	"structures": {
+		"structures": {
+		}
+	}
+}

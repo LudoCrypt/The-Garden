@@ -1,0 +1,8 @@
+{
+	"parent": "block/slab_top",
+	"textures": {
+		"bottom": "the_garden:block/dead_tree_planks",
+		"top": "the_garden:block/dead_tree_planks",
+		"side": "the_garden:block/dead_tree_planks"
+	}
+}

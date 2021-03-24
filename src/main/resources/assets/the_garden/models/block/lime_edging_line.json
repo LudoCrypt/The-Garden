@@ -1,0 +1,7 @@
+{
+	"parent": "the_garden:block/edging_line",
+	"textures": {
+		"plastic": "the_garden:block/lime_edging",
+		"particle": "the_garden:block/lime_edging"
+	}
+}

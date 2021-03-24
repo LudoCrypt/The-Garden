@@ -1,0 +1,16 @@
+{
+	"ultrawarm": false,
+	"natural": false,
+	"piglin_safe": false,
+	"respawn_anchor_works": true,
+	"bed_works": false,
+	"has_raids": false,
+	"has_skylight": true,
+	"has_ceiling": false,
+	"coordinate_scale": 7,
+	"ambient_light": 0.3,
+	"fixed_time": 300,
+	"logical_height": 256,
+	"effects": "the_garden:point_two",
+	"infiniburn": "minecraft:infiniburn_overworld"
+}

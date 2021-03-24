@@ -1,0 +1,140 @@
+{
+	"variants": {
+		"layers=1": [
+			{
+				"model": "the_garden:block/mulch_block_1"
+			},
+			{
+				"model": "the_garden:block/mulch_block_1",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/mulch_block_1",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/mulch_block_1",
+				"y": 270
+			}
+		],
+		"layers=2": [
+			{
+				"model": "the_garden:block/mulch_block_2"
+			},
+			{
+				"model": "the_garden:block/mulch_block_2",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/mulch_block_2",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/mulch_block_2",
+				"y": 270
+			}
+		],
+		"layers=3": [
+			{
+				"model": "the_garden:block/mulch_block_3"
+			},
+			{
+				"model": "the_garden:block/mulch_block_3",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/mulch_block_3",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/mulch_block_3",
+				"y": 270
+			}
+		],
+		"layers=4": [
+			{
+				"model": "the_garden:block/mulch_block_4"
+			},
+			{
+				"model": "the_garden:block/mulch_block_4",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/mulch_block_4",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/mulch_block_4",
+				"y": 270
+			}
+		],
+		"layers=5": [
+			{
+				"model": "the_garden:block/mulch_block_5"
+			},
+			{
+				"model": "the_garden:block/mulch_block_5",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/mulch_block_5",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/mulch_block_5",
+				"y": 270
+			}
+		],
+		"layers=6": [
+			{
+				"model": "the_garden:block/mulch_block_6"
+			},
+			{
+				"model": "the_garden:block/mulch_block_6",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/mulch_block_6",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/mulch_block_6",
+				"y": 270
+			}
+		],
+		"layers=7": [
+			{
+				"model": "the_garden:block/mulch_block_7"
+			},
+			{
+				"model": "the_garden:block/mulch_block_7",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/mulch_block_7",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/mulch_block_7",
+				"y": 270
+			}
+		],
+		"layers=8": [
+			{
+				"model": "the_garden:block/mulch_block_8"
+			},
+			{
+				"model": "the_garden:block/mulch_block_8",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/mulch_block_8",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/mulch_block_8",
+				"y": 270
+			}
+		]
+	}
+}

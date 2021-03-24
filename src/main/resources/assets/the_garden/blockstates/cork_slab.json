@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"type=bottom": {
+			"model": "the_garden:block/cork_slab"
+		},
+		"type=double": {
+			"model": "the_garden:block/cork"
+		},
+		"type=top": {
+			"model": "the_garden:block/cork_slab_top"
+		}
+	}
+}

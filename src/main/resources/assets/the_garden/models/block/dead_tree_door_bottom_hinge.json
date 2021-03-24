@@ -1,0 +1,7 @@
+{
+	"parent": "block/door_bottom_rh",
+	"textures": {
+		"top": "the_garden:block/dead_tree_door_top",
+		"bottom": "the_garden:block/dead_tree_door_bottom"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "the_garden:block/edging_big_cube",
+	"textures": {
+		"plastic": "the_garden:block/brown_edging",
+		"particle": "the_garden:block/brown_edging"
+	}
+}

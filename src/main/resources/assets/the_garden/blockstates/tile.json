@@ -1,0 +1,22 @@
+{
+	"variants": {
+		"facing=up": {
+			"model": "the_garden:block/tile_up"
+		},
+		"facing=down": {
+			"model": "the_garden:block/tile_down"
+		},
+		"facing=south": {
+			"model": "the_garden:block/tile_south"
+		},
+		"facing=north": {
+			"model": "the_garden:block/tile_north"
+		},
+		"facing=east": {
+			"model": "the_garden:block/tile_east"
+		},
+		"facing=west": {
+			"model": "the_garden:block/tile_west"
+		}
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"type=bottom": {
+			"model": "the_garden:block/osb_slab"
+		},
+		"type=double": {
+			"model": "the_garden:block/osb_board"
+		},
+		"type=top": {
+			"model": "the_garden:block/osb_slab_top"
+		}
+	}
+}

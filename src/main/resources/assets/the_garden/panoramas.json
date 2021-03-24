@@ -1,0 +1,12 @@
+{
+	"Point One": {
+		"name": "the_garden:point_one",
+		"panoramaId": "the_garden:textures/panoramas/point_one/panorama",
+		"musicId": "the_garden:music.menu"
+	},
+	"Playgrounds": {
+		"name": "the_garden:playgrounds",
+		"panoramaId": "the_garden:textures/panoramas/playgrounds/panorama",
+		"musicId": "the_garden:music.menu"
+	}
+}

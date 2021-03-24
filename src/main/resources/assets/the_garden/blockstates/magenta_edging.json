@@ -1,0 +1,80 @@
+{
+	"multipart": [
+		{
+			"when": {
+				"north": "true"
+			},
+			"apply": {
+				"model": "the_garden:block/magenta_edging_line",
+				"y": 180
+			}
+		},
+		{
+			"when": {
+				"east": "true"
+			},
+			"apply": {
+				"model": "the_garden:block/magenta_edging_line",
+				"y": 270
+			}
+		},
+		{
+			"when": {
+				"south": "true"
+			},
+			"apply": {
+				"model": "the_garden:block/magenta_edging_line",
+				"y": 0
+			}
+		},
+		{
+			"when": {
+				"west": "true"
+			},
+			"apply": {
+				"model": "the_garden:block/magenta_edging_line",
+				"y": 90
+			}
+		},
+		{
+			"when": {
+				"north": "false",
+				"west": "true"
+			},
+			"apply": {
+				"model": "the_garden:block/magenta_edging_cube",
+				"y": 90
+			}
+		},
+		{
+			"when": {
+				"east": "false",
+				"north": "true"
+			},
+			"apply": {
+				"model": "the_garden:block/magenta_edging_cube",
+				"y": 180
+			}
+		},
+		{
+			"when": {
+				"south": "false",
+				"east": "true"
+			},
+			"apply": {
+				"model": "the_garden:block/magenta_edging_cube",
+				"y": 270
+			}
+		},
+		{
+			"when": {
+				"west": "false",
+				"south": "true"
+			},
+			"apply": {
+				"model": "the_garden:block/magenta_edging_cube",
+				"y": 0
+			}
+		}
+	]
+}

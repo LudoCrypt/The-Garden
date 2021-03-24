@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"type=bottom": {
+			"model": "the_garden:block/dead_tree_slab"
+		},
+		"type=double": {
+			"model": "the_garden:block/dead_tree_planks"
+		},
+		"type=top": {
+			"model": "the_garden:block/dead_tree_slab_top"
+		}
+	}
+}

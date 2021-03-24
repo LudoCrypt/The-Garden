@@ -1,0 +1,8 @@
+{
+	"parent": "block/outer_stairs",
+	"textures": {
+		"bottom": "the_garden:block/cork",
+		"top": "the_garden:block/cork",
+		"side": "the_garden:block/cork"
+	}
+}

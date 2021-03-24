@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"down": "the_garden:block/tile_east",
+		"up": "the_garden:block/tile_east",
+		"north": "the_garden:block/tile_west",
+		"east": "the_garden:block/tile",
+		"south": "the_garden:block/tile_east",
+		"west": "the_garden:block/tile",
+		"particle": "the_garden:block/tile"
+	}
+}

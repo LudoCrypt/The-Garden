@@ -1,0 +1,22 @@
+{
+	"variants": {
+		"": [
+			{
+				"model": "the_garden:block/osb_board"
+			},
+			{
+				"model": "the_garden:block/osb_board",
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/osb_board",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/osb_board",
+				"y": 180,
+				"x": 180
+			}
+		]
+	}
+}

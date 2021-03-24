@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "the_garden:osb_wall",
+    "the_garden:cork_wall",
+    "the_garden:cork_brick_wall"
+  ]
+}

@@ -1,0 +1,78 @@
+{
+	"variants": {
+		"": [
+			{
+				"model": "the_garden:block/cork"
+			},
+			{
+				"model": "the_garden:block/cork",
+				"x": 90
+			},
+			{
+				"model": "the_garden:block/cork",
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/cork",
+				"x": 270
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 90,
+				"x": 90
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 90,
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 90,
+				"x": 270
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 180,
+				"x": 90
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 180,
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 180,
+				"x": 270
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 270
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 270,
+				"x": 90
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 270,
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/cork",
+				"y": 270,
+				"x": 270
+			}
+		]
+	}
+}

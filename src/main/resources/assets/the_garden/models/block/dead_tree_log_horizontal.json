@@ -1,0 +1,7 @@
+{
+	"parent": "block/cube_column_horizontal",
+	"textures": {
+		"end": "the_garden:block/dead_tree_log_top",
+		"side": "the_garden:block/dead_tree_log"
+	}
+}

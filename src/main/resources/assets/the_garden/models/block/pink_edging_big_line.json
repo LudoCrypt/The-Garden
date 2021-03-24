@@ -1,0 +1,7 @@
+{
+	"parent": "the_garden:block/edging_big_line",
+	"textures": {
+		"plastic": "the_garden:block/pink_edging",
+		"particle": "the_garden:block/pink_edging"
+	}
+}
