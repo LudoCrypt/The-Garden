@@ -5,21 +5,24 @@
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
 		"BoatItemAccessor",
-		"HoeItemMixin",
+		"ChunkGeneratorSettingsAccessor",
 		"CryingObsidianBlockMixin",
-		"PointOfInterestTypeAccessor",
 		"EntityMixin",
+		"HoeItemMixin",
+		"MineshaftPartMixin",
+		"MultiNoiseBiomeSourceAccessor",
+		"DimensionTypeMixin",
 		"DimensionOptionsMixin",
-		"MineshaftPartMixin"
+		"DimensionTypeAccessor"
 	],
 	"client": [
-		"MinecraftClientMixin",
-		"SkyPropertiesMixin",
 		"ClientWorldMixin",
-		"WaterSuspendParticleAccessor",
-		"WorldRendererMixin",
+		"ClientWorldPropertiesMixin",
+		"MinecraftClientMixin",
 		"RenderPhaseAccessor",
-		"ClientWorldPropertiesMixin"
+		"SkyPropertiesMixin",
+		"WaterSuspendParticleAccessor",
+		"WorldRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -30,9 +30,9 @@ public class PlaypenBiome {
 		generationSettings.carver(GenerationStep.Carver.AIR, GardenCarvers.POINT_ONE_CONFIGURED_CARVER);
 		generationSettings.surfaceBuilder(GardenSurfaces.POINT_ONE);
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_ONE_TILES);
-		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.DEAD_TREE);
 		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.PUDDLE);
 		generationSettings.feature(Feature.LAKES, ConfiguredFeatures.LAKE_WATER);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.DEAD_TREE);
 		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.BURIED_BOX);
 		generationSettings.feature(Feature.UNDERGROUND_ORES, GardenFeatures.COAL_ORE_POINT_ONE);
 		generationSettings.structureFeature(GardenFeatures.PLAYGROUND);

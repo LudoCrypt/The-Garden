@@ -40,7 +40,7 @@ public class CorkSpikeFeature extends Feature<DefaultFeatureConfig> {
 
 		if (random.nextBoolean() && random.nextBoolean() && random.nextBoolean()) {
 
-			List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.CORK.getDefaultState(), Blocks.AIR.getDefaultState());
+			List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.CORK.getDefaultState());
 			BlockPos.Mutable mut = world.getTopPosition(Heightmap.Type.WORLD_SURFACE_WG, pos).mutableCopy();
 
 			while (!WHITELIST.contains(world.getBlockState(mut.down())) && mut.getY() > 0) {

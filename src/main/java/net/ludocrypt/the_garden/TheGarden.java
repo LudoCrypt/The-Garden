@@ -10,6 +10,8 @@ import net.ludocrypt.the_garden.init.GardenGroups;
 import net.ludocrypt.the_garden.init.GardenItems;
 import net.ludocrypt.the_garden.init.GardenParticles;
 import net.ludocrypt.the_garden.init.GardenSurfaces;
+import net.ludocrypt.the_garden.world.PointOne;
+import net.ludocrypt.the_garden.world.PointTwo;
 import net.minecraft.util.Identifier;
 
 public class TheGarden implements ModInitializer {
@@ -25,6 +27,8 @@ public class TheGarden implements ModInitializer {
 		GardenBlocks.init();
 		GardenItems.init();
 		GardenBoats.init();
+		PointOne.init();
+		PointTwo.init();
 	}
 
 	public static Identifier id(String id) {

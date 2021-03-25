@@ -41,7 +41,7 @@ public class BuriedBoxFeature extends Feature<DefaultFeatureConfig> {
 
 		if (random.nextBoolean()) {
 
-			List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.CORK.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState(), Blocks.AIR.getDefaultState());
+			List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.CORK.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState(), Blocks.AIR.getDefaultState());
 
 			BlockPos.Mutable mut = world.getTopPosition(Heightmap.Type.WORLD_SURFACE_WG, pos).mutableCopy();
 

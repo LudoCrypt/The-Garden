@@ -59,7 +59,7 @@ public class CorkwoodPlainsBiome {
 		biome.precipitation(Biome.Precipitation.NONE);
 		biome.category(GardenEnum.POINT_ONE_BIOME);
 
-		biome.depth(-2.3F);
+		biome.depth(-0.3F);
 		biome.scale(0.1F);
 
 		biome.temperature(-0.2F);

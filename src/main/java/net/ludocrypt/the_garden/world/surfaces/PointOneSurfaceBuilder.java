@@ -12,7 +12,6 @@ import com.mojang.serialization.Codec;
 import net.ludocrypt.the_garden.blocks.MulchLayerBlock;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Direction;
@@ -37,10 +36,6 @@ public class PointOneSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig>
 	public void generate(Random random, Chunk chunk, Biome biome, int x, int z, int height, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, long seed, TernarySurfaceConfig surfaceBlocks) {
 		SurfaceBuilder.DEFAULT.generate(random, chunk, biome, x, z, height, noise, defaultBlock, defaultFluid, seaLevel, seed, surfaceBlocks);
 		BlockPos pos = new BlockPos(x, height, z);
-
-		while (chunk.getBlockState(pos.up()).getBlock() != Blocks.AIR) {
-			pos = pos.up();
-		}
 
 		if (chunk.getBlockState(pos.down()).getBlock() == GardenBlocks.MULCH_BLOCK) {
 			int layer = 0;

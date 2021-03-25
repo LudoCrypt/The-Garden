@@ -42,8 +42,6 @@ dependencies {
 	includeMod "com.terraformersmc.terraform-api:terraform-wood-api-v1:${project.terraform_wood_api_version}"
 	includeMod "com.terraformersmc.terraform-api:terraform-dirt-api-v1:${project.terraform_dirt_api_version}"
 
-	includeMod "dev.hephaestus:seedy-behavior:${project.seedy_version}"	
-
 	includeMod "com.terraformersmc:vistas:${project.vistas_version}"
 	includeMod "com.github.Chocohead:Fabric-ASM:${project.fabric_asm_version}"
 }
