@@ -23,6 +23,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.block.FallingBlock;
+import net.minecraft.block.OreBlock;
+import net.minecraft.block.RedstoneOreBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.WallBlock;
 import net.minecraft.block.entity.BlockEntity;
@@ -51,9 +53,13 @@ public class GardenBlocks {
 	// Point One
 	public static final Block TILE = add("tile", new TileBlock(FabricBlockSettings.copyOf(Blocks.STONE).breakByTool(FabricToolTags.PICKAXES).requiresTool().materialColor(DyeColor.WHITE)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block PLAYDIRT = add("playdirt", new Block(FabricBlockSettings.copyOf(Blocks.DIRT).breakByTool(FabricToolTags.SHOVELS).materialColor(DyeColor.BROWN)), ItemGroup.BUILDING_BLOCKS);
-	public static final Block PLAYDIRT_IRON_ORE = add("playdirt_iron_ore", new Block(FabricBlockSettings.copyOf(Blocks.IRON_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
-	public static final Block PLAYDIRT_COAL_ORE = add("playdirt_coal_ore", new Block(FabricBlockSettings.copyOf(Blocks.COAL_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
-	public static final Block PLAYDIRT_EMERALD_ORE = add("playdirt_emerald_ore", new Block(FabricBlockSettings.copyOf(Blocks.EMERALD_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PLAYDIRT_GOLD_ORE = add("playdirt_gold_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.GOLD_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PLAYDIRT_IRON_ORE = add("playdirt_iron_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.IRON_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PLAYDIRT_COAL_ORE = add("playdirt_coal_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.COAL_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PLAYDIRT_LAPIS_ORE = add("playdirt_lapis_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.LAPIS_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PLAYDIRT_DIAMOND_ORE = add("playdirt_diamond_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PLAYDIRT_REDSTONE_ORE = add("playdirt_redstone_ore", new RedstoneOreBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PLAYDIRT_EMERALD_ORE = add("playdirt_emerald_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.EMERALD_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block MULCH_BLOCK = add("mulch_block", new MulchBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).breakByTool(FabricToolTags.SHOVELS).strength(0.2F).ticksRandomly().materialColor(DyeColor.BROWN)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block MULCH_LAYER_BLOCK = add("mulch_layer_block", new MulchLayerBlock(FabricBlockSettings.copyOf(MULCH_BLOCK).breakByTool(FabricToolTags.SHOVELS).materialColor(DyeColor.BROWN)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block OSB_BOARD = add("osb_board", new Block(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(3.5F).breakByTool(FabricToolTags.AXES).materialColor(DyeColor.YELLOW)), ItemGroup.BUILDING_BLOCKS);

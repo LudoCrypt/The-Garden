@@ -31,7 +31,7 @@ public class PointOneCarver extends CaveCarver {
 
 	@Override
 	protected int getCaveY(Random random) {
-		return (random.nextInt(50) * 2) + 40;
+		return random.nextInt(105) + 60;
 	}
 
 	@Override
