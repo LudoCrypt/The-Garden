@@ -1,5 +1,7 @@
 package net.ludocrypt.the_garden.mixin;
 
+import java.util.Random;
+
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -7,6 +9,7 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 
@@ -17,7 +20,6 @@ import net.ludocrypt.the_garden.world.PointOne;
 import net.ludocrypt.the_garden.world.PointTwo;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.BufferBuilder;
-import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.client.render.WorldRenderer;
@@ -25,8 +27,7 @@ import net.minecraft.client.texture.TextureManager;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.client.util.math.Vector3f;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Matrix4f;
@@ -48,6 +49,15 @@ public class WorldRendererMixin {
 
 	@Unique
 	private static final Identifier POINT_ONE_SKY = new Identifier("textures/environment/end_sky.png");
+
+	@Inject(method = "processWorldEvent", at = @At("TAIL"), locals = LocalCapture.CAPTURE_FAILHARD)
+	private void theGarden_worldEvents(PlayerEntity source, int eventId, BlockPos pos, int data, CallbackInfo ci, Random random) {
+		switch (eventId) {
+		case 5485720:
+//			this.client.getSoundManager().play(PositionedSoundInstance.ambient(SoundEvents.BLOCK_GRAVEL_STEP, 0.5F, 0.25F));
+			break;
+		}
+	}
 
 	@Inject(method = "renderSky", at = @At("HEAD"))
 	private void theGarden_renderSky(MatrixStack matrices, float tickDelta, CallbackInfo ci) {
@@ -114,17 +124,6 @@ public class WorldRendererMixin {
 		RenderSystem.enableTexture();
 		RenderSystem.disableBlend();
 		RenderSystem.enableAlphaTest();
-	}
-
-	@Inject(method = "processGlobalEvent", at = @At("HEAD"))
-	private void theGarden_processGlobalEvent(int eventId, BlockPos pos, int i, CallbackInfo ci) {
-		Camera camera = this.client.gameRenderer.getCamera();
-		if (camera.isReady()) {
-			if (eventId == 648572) {
-				this.world.playSound(camera.getPos().x, camera.getPos().y, camera.getPos().z, SoundEvents.ENTITY_BLAZE_HURT, SoundCategory.HOSTILE, 1.0F, 1.0F, false);
-				this.world.playSound(camera.getPos().x, camera.getPos().y, camera.getPos().z, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.HOSTILE, 1.0F, 1.0F, false);
-			}
-		}
 	}
 
 }

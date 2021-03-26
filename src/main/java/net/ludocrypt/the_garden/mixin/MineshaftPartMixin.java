@@ -7,7 +7,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.ludocrypt.the_garden.init.GardenBlocks;
-import net.ludocrypt.the_garden.init.GardenEnum;
+import net.ludocrypt.the_garden.init.GardenFeatures;
 import net.minecraft.block.BlockState;
 import net.minecraft.structure.MineshaftGenerator.MineshaftPart;
 import net.minecraft.world.gen.feature.MineshaftFeature;
@@ -20,14 +20,14 @@ public class MineshaftPartMixin {
 
 	@Inject(method = "getPlanksType", at = @At("HEAD"), cancellable = true)
 	private void garden_deadTreePlanksType(CallbackInfoReturnable<BlockState> ci) {
-		if (this.mineshaftType.equals(GardenEnum.DEAD_TREE_MINESHAFT)) {
+		if (this.mineshaftType.equals(GardenFeatures.DEAD_TREE_MINESHAFT_TYPE)) {
 			ci.setReturnValue(GardenBlocks.DEAD_TREE.planks.getDefaultState());
 		}
 	}
 
 	@Inject(method = "getFenceType", at = @At("HEAD"), cancellable = true)
 	private void garden_deadTreeFenceType(CallbackInfoReturnable<BlockState> ci) {
-		if (this.mineshaftType.equals(GardenEnum.DEAD_TREE_MINESHAFT)) {
+		if (this.mineshaftType.equals(GardenFeatures.DEAD_TREE_MINESHAFT_TYPE)) {
 			ci.setReturnValue(GardenBlocks.DEAD_TREE.fence.getDefaultState());
 		}
 	}

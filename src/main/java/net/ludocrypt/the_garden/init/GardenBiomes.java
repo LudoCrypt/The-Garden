@@ -3,6 +3,8 @@ package net.ludocrypt.the_garden.init;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import com.chocohead.mm.api.ClassTinkerers;
+
 import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.util.GardenMulchEffects;
 import net.ludocrypt.the_garden.world.PointOne;
@@ -23,6 +25,9 @@ import net.minecraft.world.biome.Biome.MixedNoisePoint;
 public class GardenBiomes {
 
 	private static final Map<Identifier, Biome> BIOMES = new LinkedHashMap<>();
+
+	public static final Biome.Category POINT_ONE_BIOME_CATEGORY = ClassTinkerers.getEnum(Biome.Category.class, GardenEarlyRisers.POINT_ONE_KEY);
+	public static final Biome.Category POINT_TWO_BIOME_CATEGORY = ClassTinkerers.getEnum(Biome.Category.class, GardenEarlyRisers.POINT_TWO_KEY);
 
 	public static final RegistryKey<Biome> POINT_ONE = add("point_one", PointOneBiome.create(), PointOneBiome.mulchColor);
 	public static final RegistryKey<Biome> PLAYPEN = add("playpen", PlaypenBiome.create(), PlaypenBiome.mulchColor);

@@ -12,19 +12,19 @@ import net.minecraft.util.registry.Registry;
 
 public class GardenSounds {
 
-	// Acts as a kind of local registry for sound events added by The Backrooms
 	private static final Map<Identifier, SoundEvent> SOUND_EVENTS = new LinkedHashMap<>();
 
-	public static final SoundEvent POINT_ONE_MUSIC = add(TheGarden.id("music.point_one"));
-	public static final SoundEvent POINT_TWO_MUSIC = add(TheGarden.id("music.point_two"));
-	public static final SoundEvent THE_GARDEN_MENU_MUSIC = add(TheGarden.id("music.menu"));
-
+	// Music
+	public static final SoundEvent POINT_ONE_MUSIC = add("music.point_one");
+	public static final SoundEvent POINT_TWO_MUSIC = add("music.point_two");
+	public static final SoundEvent THE_GARDEN_MENU_MUSIC = add("music.menu");
 	public static final MusicSound POINT_ONE = MusicType.createIngameMusic(POINT_ONE_MUSIC);
 	public static final MusicSound POINT_TWO = MusicType.createIngameMusic(POINT_TWO_MUSIC);
 
-	private static SoundEvent add(Identifier id) {
-		SoundEvent S = new SoundEvent(id);
-		SOUND_EVENTS.put(id, S);
+	private static SoundEvent add(String id) {
+		Identifier realId = TheGarden.id(id);
+		SoundEvent S = new SoundEvent(realId);
+		SOUND_EVENTS.put(realId, S);
 		return S;
 	}
 

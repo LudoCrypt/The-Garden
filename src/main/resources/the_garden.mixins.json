@@ -13,7 +13,8 @@
 		"MultiNoiseBiomeSourceAccessor",
 		"DimensionTypeMixin",
 		"DimensionOptionsMixin",
-		"DimensionTypeAccessor"
+		"DimensionTypeAccessor",
+		"ServerPlayerEntityMixin"
 	],
 	"client": [
 		"ClientWorldMixin",

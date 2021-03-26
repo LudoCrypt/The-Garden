@@ -25,7 +25,7 @@
 			"net.ludocrypt.the_garden.client.TheClientGarden"
 		],
 		"mm:early_risers": [
-			"net.ludocrypt.the_garden.PreInitialize::initialize"
+			"net.ludocrypt.the_garden.init.GardenEarlyRisers"
 		]
 	},
 	"accessWidener": "the_garden.accesswidener",

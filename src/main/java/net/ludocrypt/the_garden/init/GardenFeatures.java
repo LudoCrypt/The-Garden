@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import com.chocohead.mm.api.ClassTinkerers;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 
@@ -38,6 +39,7 @@ import net.minecraft.world.gen.feature.ConfiguredStructureFeature;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.FeatureConfig;
+import net.minecraft.world.gen.feature.MineshaftFeature;
 import net.minecraft.world.gen.feature.MineshaftFeatureConfig;
 import net.minecraft.world.gen.feature.OreFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
@@ -51,6 +53,8 @@ public class GardenFeatures {
 	private static final Map<Identifier, ConfiguredStructureFeature<? extends FeatureConfig, ? extends StructureFeature<? extends FeatureConfig>>> CONFIGURED_STRUCTURE_FEATURES = new HashMap<>();
 	private static final Map<Identifier, Decorator<? extends DecoratorConfig>> DECORATORS = new HashMap<>();
 	private static final Map<Identifier, Feature<? extends FeatureConfig>> FEATURES = new HashMap<>();
+
+	public static final MineshaftFeature.Type DEAD_TREE_MINESHAFT_TYPE = ClassTinkerers.getEnum(MineshaftFeature.Type.class, GardenEarlyRisers.DEAD_TREE_KEY);
 
 	public static final Decorator<ChanceDecoratorConfig> TILE_FEATURE_DECORATOR = add("tile_feature_decorator", new TileFeatureDecorator(ChanceDecoratorConfig.CODEC));
 
@@ -66,7 +70,7 @@ public class GardenFeatures {
 
 	public static final ConfiguredStructureFeature<?, ?> PLAYGROUND = add("playground", PLAYGROUND_STRUCTURE.configure(new StructurePoolFeatureConfig(() -> PlaygroundStructure.STAIRCASES, 7)));
 	public static final ConfiguredStructureFeature<?, ?> BIG_PLAYGROUND = add("big_playground", BIG_PLAYGROUND_STRUCTURE.configure(new StructurePoolFeatureConfig(() -> PlaygroundStructure.PLAYWALKS_TALL, 20)));
-	public static final ConfiguredStructureFeature<?, ?> DEAD_TREE_MINESHAFT = add("dead_tree_mineshaft", DEAD_TREE_MINESHAFT_STRUCTURE.configure(new MineshaftFeatureConfig(0.001F, GardenEnum.DEAD_TREE_MINESHAFT)));
+	public static final ConfiguredStructureFeature<?, ?> DEAD_TREE_MINESHAFT = add("dead_tree_mineshaft", DEAD_TREE_MINESHAFT_STRUCTURE.configure(new MineshaftFeatureConfig(0.001F, DEAD_TREE_MINESHAFT_TYPE)));
 
 	public static final Feature<DefaultFeatureConfig> TILE_FEATURE = add("tile_feature", new TileFeature(DefaultFeatureConfig.CODEC));
 	public static final Feature<EllipsoidFeatureConfig> CORK_STUMP_FEATURE = add("cork_stump_feature", new CorkStumpFeature(EllipsoidFeatureConfig.CODEC));

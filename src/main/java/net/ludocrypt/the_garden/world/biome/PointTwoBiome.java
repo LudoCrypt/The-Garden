@@ -1,7 +1,7 @@
 package net.ludocrypt.the_garden.world.biome;
 
+import net.ludocrypt.the_garden.init.GardenBiomes;
 import net.ludocrypt.the_garden.init.GardenBlocks;
-import net.ludocrypt.the_garden.init.GardenEnum;
 import net.ludocrypt.the_garden.init.GardenFeatures;
 import net.ludocrypt.the_garden.init.GardenSounds;
 import net.ludocrypt.the_garden.util.Color;
@@ -40,7 +40,7 @@ public class PointTwoBiome {
 		biome.effects(effects);
 
 		biome.precipitation(Biome.Precipitation.NONE);
-		biome.category(GardenEnum.POINT_TWO_BIOME);
+		biome.category(GardenBiomes.POINT_ONE_BIOME_CATEGORY);
 
 		biome.depth(0.1F);
 		biome.scale(0.1F);

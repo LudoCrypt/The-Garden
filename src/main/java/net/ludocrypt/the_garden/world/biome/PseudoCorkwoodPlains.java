@@ -1,7 +1,7 @@
 package net.ludocrypt.the_garden.world.biome;
 
+import net.ludocrypt.the_garden.init.GardenBiomes;
 import net.ludocrypt.the_garden.init.GardenCarvers;
-import net.ludocrypt.the_garden.init.GardenEnum;
 import net.ludocrypt.the_garden.init.GardenFeatures;
 import net.ludocrypt.the_garden.init.GardenParticles;
 import net.ludocrypt.the_garden.init.GardenSounds;
@@ -60,7 +60,7 @@ public class PseudoCorkwoodPlains {
 		biome.effects(effects);
 
 		biome.precipitation(Biome.Precipitation.NONE);
-		biome.category(GardenEnum.POINT_ONE_BIOME);
+		biome.category(GardenBiomes.POINT_ONE_BIOME_CATEGORY);
 
 		biome.depth(0.0F);
 		biome.scale(0.1F);
