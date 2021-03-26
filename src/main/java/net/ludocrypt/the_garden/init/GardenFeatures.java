@@ -28,6 +28,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.UniformIntDistribution;
 import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
@@ -81,7 +82,8 @@ public class GardenFeatures {
 	public static final Feature<DefaultFeatureConfig> CORK_SPIKE_FEATURE = add("cork_spike_feature", new CorkSpikeFeature(DefaultFeatureConfig.CODEC));
 
 	public static final ConfiguredFeature<?, ?> POINT_ONE_TILES = add("point_one_tiles", TILE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(TILE_FEATURE_DECORATOR.configure(new ChanceDecoratorConfig(255))));
-	public static final ConfiguredFeature<?, ?> CORK_STUMP = add("cork_stump", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(6, 2, 5, GardenBlocks.CORK.getDefaultState(), Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.MULCH_LAYER_BLOCK.getDefaultState()))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.5F, 5))));
+	public static final ConfiguredFeature<?, ?> CORK_STUMP_SPREAD = add("cork_stump_spread", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(6, 2, 5, GardenBlocks.CORK.getDefaultState(), Lists.newArrayList(GardenBlocks.CORK.getDefaultState(), GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.MULCH_LAYER_BLOCK.getDefaultState()))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(UniformIntDistribution.of(3, 5)))));
+	public static final ConfiguredFeature<?, ?> CORK_STUMP = add("cork_stump", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(6, 2, 5, GardenBlocks.CORK.getDefaultState(), Lists.newArrayList(GardenBlocks.CORK.getDefaultState(), GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.MULCH_LAYER_BLOCK.getDefaultState()))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.5F, 5))));
 	public static final ConfiguredFeature<?, ?> POINT_TWO_TILES = add("point_two_tiles", TILE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(TILE_FEATURE_DECORATOR.configure(new ChanceDecoratorConfig(0))));
 	public static final ConfiguredFeature<?, ?> DEAD_TREE = add("dead_tree", DEAD_TREE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(3, 0.3F, 3))));
 	public static final ConfiguredFeature<?, ?> CHURCHPARK_EDGE = add("churchpark_edge", CHURCHPARK_EDGE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(TILE_FEATURE_DECORATOR.configure(new ChanceDecoratorConfig(255))));
