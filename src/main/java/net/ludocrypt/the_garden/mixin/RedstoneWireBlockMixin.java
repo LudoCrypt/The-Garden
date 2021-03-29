@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-import me.shedaniel.cloth.clothconfig.shadowed.blue.endless.jankson.annotation.Nullable;
 import net.ludocrypt.the_garden.blocks.InsulationBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.RedstoneWireBlock;
@@ -24,17 +23,14 @@ public class RedstoneWireBlockMixin {
 		int power = ci.getReturnValueI();
 
 		if (isInsulated(world, pos)) {
-			power = Math.max(0, power - 5);
-		}
-		if (isCloselyInsulated(world, pos)) {
-			power = 0;
+			power = Math.max(0, power - 4);
 		}
 
 		ci.setReturnValue(power);
 	}
 
 	@Unique
-	private static boolean isInsulated(WorldView world, BlockPos pos, int search, @Nullable Block block, boolean isOf) {
+	private static boolean isInsulated(WorldView world, BlockPos pos, int search, Block block) {
 		Iterator<BlockPos> i = BlockPos.iterate(pos.add(-search, -search, -search), pos.add(search, search, search)).iterator();
 
 		BlockPos blockPos;
@@ -44,7 +40,7 @@ public class RedstoneWireBlockMixin {
 			}
 
 			blockPos = i.next();
-		} while (isOf ? !(world.getBlockState(blockPos).isOf(block)) : !(world.getBlockState(blockPos).getBlock() instanceof InsulationBlock));
+		} while (!(world.getBlockState(blockPos).isOf(block)));
 
 		return true;
 	}
@@ -55,7 +51,7 @@ public class RedstoneWireBlockMixin {
 
 		for (Block block : InsulationBlock.INSULATED_BLOCKS.keySet()) {
 			if (!insulated) {
-				insulated = isInsulated(world, pos, InsulationBlock.INSULATED_BLOCKS.get(block).first, block, true);
+				insulated = isInsulated(world, pos, InsulationBlock.INSULATED_BLOCKS.get(block).first, block);
 			}
 			if (insulated) {
 				break;
@@ -63,11 +59,6 @@ public class RedstoneWireBlockMixin {
 		}
 
 		return insulated;
-	}
-
-	@Unique
-	private static boolean isCloselyInsulated(WorldView world, BlockPos pos) {
-		return isInsulated(world, pos, 1, null, false);
 	}
 
 }

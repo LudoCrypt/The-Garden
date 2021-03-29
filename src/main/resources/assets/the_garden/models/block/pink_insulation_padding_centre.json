@@ -1,0 +1,6 @@
+{
+	"parent": "the_garden:block/insulation_padding_centre",
+	"textures": {
+		"insulatant": "the_garden:block/pink_insulation"
+	}
+}

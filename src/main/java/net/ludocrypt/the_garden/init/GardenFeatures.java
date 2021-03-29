@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.function.Function;
 
 import com.chocohead.mm.api.ClassTinkerers;
-import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 
 import net.fabricmc.fabric.api.structure.v1.FabricStructureBuilder;
@@ -17,6 +16,7 @@ import net.ludocrypt.the_garden.world.features.CorkSpikeFeature;
 import net.ludocrypt.the_garden.world.features.CorkStumpFeature;
 import net.ludocrypt.the_garden.world.features.DeadTreeFeature;
 import net.ludocrypt.the_garden.world.features.EllipsoidFeatureConfig;
+import net.ludocrypt.the_garden.world.features.PseudoBaseFeature;
 import net.ludocrypt.the_garden.world.features.PuddleFeature;
 import net.ludocrypt.the_garden.world.features.TileFeature;
 import net.ludocrypt.the_garden.world.features.structures.ExtendedStructurePoolFeatureConfig;
@@ -28,7 +28,6 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.GenerationStep;
-import net.minecraft.world.gen.UniformIntDistribution;
 import net.minecraft.world.gen.decorator.ChanceDecoratorConfig;
 import net.minecraft.world.gen.decorator.CountExtraDecoratorConfig;
 import net.minecraft.world.gen.decorator.Decorator;
@@ -80,17 +79,21 @@ public class GardenFeatures {
 	public static final Feature<DefaultFeatureConfig> PUDDLE_FEATURE = add("puddle_feature", new PuddleFeature(DefaultFeatureConfig.CODEC));
 	public static final Feature<DefaultFeatureConfig> BURIED_BOX_FEATURE = add("buried_box_feature", new BuriedBoxFeature(DefaultFeatureConfig.CODEC));
 	public static final Feature<DefaultFeatureConfig> CORK_SPIKE_FEATURE = add("cork_spike_feature", new CorkSpikeFeature(DefaultFeatureConfig.CODEC));
+	public static final Feature<DefaultFeatureConfig> PSEUDO_BASE_FEATURE = add("pseudo_base_feature", new PseudoBaseFeature(DefaultFeatureConfig.CODEC));
 
 	public static final ConfiguredFeature<?, ?> POINT_ONE_TILES = add("point_one_tiles", TILE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(TILE_FEATURE_DECORATOR.configure(new ChanceDecoratorConfig(255))));
-	public static final ConfiguredFeature<?, ?> CORK_STUMP_SPREAD = add("cork_stump_spread", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(6, 2, 5, GardenBlocks.CORK.getDefaultState(), Lists.newArrayList(GardenBlocks.CORK.getDefaultState(), GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.MULCH_LAYER_BLOCK.getDefaultState()))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(UniformIntDistribution.of(3, 5)))));
-	public static final ConfiguredFeature<?, ?> CORK_STUMP = add("cork_stump", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(6, 2, 5, GardenBlocks.CORK.getDefaultState(), Lists.newArrayList(GardenBlocks.CORK.getDefaultState(), GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.MULCH_LAYER_BLOCK.getDefaultState()))).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.5F, 5))));
+	public static final ConfiguredFeature<?, ?> CORK_STUMP = add("cork_stump", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(6, 2, 5, GardenBlocks.CORK.getDefaultState())).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(1, 0.5F, 1))));
 	public static final ConfiguredFeature<?, ?> POINT_TWO_TILES = add("point_two_tiles", TILE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(TILE_FEATURE_DECORATOR.configure(new ChanceDecoratorConfig(0))));
 	public static final ConfiguredFeature<?, ?> DEAD_TREE = add("dead_tree", DEAD_TREE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(3, 0.3F, 3))));
 	public static final ConfiguredFeature<?, ?> CHURCHPARK_EDGE = add("churchpark_edge", CHURCHPARK_EDGE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(TILE_FEATURE_DECORATOR.configure(new ChanceDecoratorConfig(255))));
 	public static final ConfiguredFeature<?, ?> PUDDLE = add("puddle", PUDDLE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.5F, 1))));
 	public static final ConfiguredFeature<?, ?> BURIED_BOX = add("buried_box", BURIED_BOX_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.05F, 1))));
-	public static final ConfiguredFeature<?, ?> CORK_SPIKE_SPREAD = add("cork_spike_spread", CORK_SPIKE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(1))));
-	public static final ConfiguredFeature<?, ?> CORK_SPIKE_EXTRA = add("cork_spike_extra", CORK_SPIKE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.3F, 2))));
+	public static final ConfiguredFeature<?, ?> CORK_SPIKE_SPREAD = add("cork_spike_spread", CORK_SPIKE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(3))));
+	public static final ConfiguredFeature<?, ?> CORK_SPIKE_EXTRA = add("cork_spike_extra", CORK_SPIKE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.7F, 2))));
+	public static final ConfiguredFeature<?, ?> GREEN_INSULATION_BALL = add("green_insulation_ball", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(3, 2, 6, GardenBlocks.GREEN_INSULATION.getDefaultState())).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.8F, 1))));
+	public static final ConfiguredFeature<?, ?> PINK_INSULATION_BALL = add("pink_insulation_ball", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(3, 2, 6, GardenBlocks.PINK_INSULATION.getDefaultState())).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.3F, 1))));
+	public static final ConfiguredFeature<?, ?> BROWN_INSULATION_BALL = add("brown_insulation_ball", CORK_STUMP_FEATURE.configure(new EllipsoidFeatureConfig(3, 2, 6, GardenBlocks.BROWN_INSULATION.getDefaultState())).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.5F, 1))));
+	public static final ConfiguredFeature<?, ?> PSEUDO_BASE = add("pseudo_base", PSEUDO_BASE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.5F, 1))));
 
 	public static final ConfiguredFeature<?, ?> COAL_ORE_POINT_ONE = add("coal_ore_point_one", Feature.ORE.configure(new OreFeatureConfig(new BlockMatchRuleTest(GardenBlocks.PLAYDIRT), GardenBlocks.PLAYDIRT_COAL_ORE.getDefaultState(), 10)).decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(20, 0, 40))).spreadHorizontally().repeat(20));
 

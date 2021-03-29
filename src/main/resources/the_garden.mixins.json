@@ -16,7 +16,8 @@
 		"DimensionTypeAccessor",
 		"ServerPlayerEntityMixin",
 		"ItemStackMixin",
-		"RedstoneWireBlockMixin"
+		"RedstoneWireBlockMixin",
+		"TeleportCommandAccessor"
 	],
 	"client": [
 		"ClientWorldMixin",

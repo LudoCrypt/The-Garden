@@ -1,0 +1,6 @@
+{
+	"parent": "the_garden:block/insulation_padding_full",
+	"textures": {
+		"insulatant": "the_garden:block/white_insulation"
+	}
+}

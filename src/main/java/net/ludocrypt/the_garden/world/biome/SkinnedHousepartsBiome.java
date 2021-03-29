@@ -18,7 +18,7 @@ import net.minecraft.world.gen.GenerationStep.Feature;
 
 public class SkinnedHousepartsBiome {
 
-	public static int mulchColor = Color.of(135, 117, 95);
+	public static int mulchColor = Color.of(137, 97, 105);
 
 	public static Biome create() {
 		Biome.Builder biome = new Biome.Builder();
@@ -29,11 +29,19 @@ public class SkinnedHousepartsBiome {
 		generationSettings.carver(GenerationStep.Carver.AIR, GardenCarvers.POINT_ONE_CONFIGURED_CARVER);
 		generationSettings.surfaceBuilder(GardenSurfaces.SKINNED_HOUSEPARTS);
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_ONE_TILES);
+		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.PUDDLE);
+		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.GREEN_INSULATION_BALL);
+		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.GREEN_INSULATION_BALL);
+		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.GREEN_INSULATION_BALL);
+		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.PINK_INSULATION_BALL);
+		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.BROWN_INSULATION_BALL);
+		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.BROWN_INSULATION_BALL);
+		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.PSEUDO_BASE);
 
 		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
 		biomeEffects.skyColor(Color.of(255, 255, 255));
-		biomeEffects.waterColor(Color.of(188, 171, 111));
-		biomeEffects.waterFogColor(Color.of(188, 171, 111));
+		biomeEffects.waterColor(Color.of(153, 111, 142));
+		biomeEffects.waterFogColor(Color.of(153, 111, 142));
 		biomeEffects.fogColor(Color.of(255, 255, 255));
 		biomeEffects.grassColor(Color.of(226, 202, 132));
 		biomeEffects.moodSound(BiomeMoodSound.CAVE);
@@ -48,8 +56,8 @@ public class SkinnedHousepartsBiome {
 		biome.precipitation(Biome.Precipitation.NONE);
 		biome.category(GardenBiomes.POINT_ONE_BIOME_CATEGORY);
 
-		biome.depth(-0.5F);
-		biome.scale(0.25F);
+		biome.depth(-0.6F);
+		biome.scale(0.1F);
 
 		biome.temperature(0.5F);
 		biome.downfall(0.0F);

@@ -87,7 +87,7 @@ public class PointOneSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig>
 		Builder<Integer, OctavePerlinNoiseSampler> builder = new Builder<Integer, OctavePerlinNoiseSampler>();
 
 		for (UnmodifiableIterator<Integer> var4 = states.iterator(); var4.hasNext(); ++seed) {
-			Integer layer = (Integer) var4.next();
+			Integer layer = var4.next();
 			builder.put(layer, new OctavePerlinNoiseSampler(new ChunkRandom(seed), ImmutableList.of(-4)));
 		}
 

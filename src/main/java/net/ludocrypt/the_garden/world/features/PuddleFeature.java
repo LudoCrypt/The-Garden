@@ -35,7 +35,7 @@ public class PuddleFeature extends Feature<DefaultFeatureConfig> {
 	@Override
 	public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, DefaultFeatureConfig config) {
 
-		List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.CORK.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState(), Blocks.WATER.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState());
+		List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.CORK.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState(), GardenBlocks.OSB_BOARD.getDefaultState(), GardenBlocks.PINK_INSULATION.getDefaultState(), Blocks.WATER.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState());
 
 		pos = world.getTopPosition(Type.WORLD_SURFACE_WG, pos);
 

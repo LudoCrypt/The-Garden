@@ -27,17 +27,16 @@ public class InsulationBlock extends Block {
 
 	@Override
 	public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-		insulate(world, pos, state);
+		insulate(world, pos, state, INSULATED_BLOCKS.get(state.getBlock()).first);
 	}
 
 	@Override
 	public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
-		insulate(world, pos, state);
+		insulate(world, pos, state, INSULATED_BLOCKS.get(state.getBlock()).first);
 		super.onBroken(world, pos, state);
 	}
 
-	public void insulate(WorldAccess world, BlockPos pos, BlockState state) {
-		int range = INSULATED_BLOCKS.get(state.getBlock()).first;
+	public void insulate(WorldAccess world, BlockPos pos, BlockState state, int range) {
 		BlockPos.iterate(pos.add(-range, -range, -range), pos.add(range, range, range)).forEach((blockPos) -> {
 			world.updateNeighbors(blockPos, world.getBlockState(blockPos).getBlock());
 		});

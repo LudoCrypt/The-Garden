@@ -1,7 +1,5 @@
 package net.ludocrypt.the_garden.world.features;
 
-import java.util.List;
-
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
@@ -19,8 +17,6 @@ public class EllipsoidFeatureConfig implements FeatureConfig {
 			return config.height;
 		}), BlockState.CODEC.fieldOf("state").forGetter((config) -> {
 			return config.state;
-		}), Codec.list(BlockState.CODEC).fieldOf("safelist").forGetter((config) -> {
-			return config.safelist;
 		})).apply(instance, EllipsoidFeatureConfig::new);
 	});
 
@@ -28,18 +24,16 @@ public class EllipsoidFeatureConfig implements FeatureConfig {
 	private final double length;
 	private final double height;
 	private final BlockState state;
-	private final List<BlockState> safelist;
 
-	public EllipsoidFeatureConfig(double width, double length, double height, BlockState state, List<BlockState> safelist) {
+	public EllipsoidFeatureConfig(double width, double length, double height, BlockState state) {
 		this.width = width;
 		this.length = length;
 		this.height = height;
 		this.state = state;
-		this.safelist = safelist;
 	}
 
-	public EllipsoidFeatureConfig(double width, BlockState state, List<BlockState> safelist) {
-		this(width, width, width, state, safelist);
+	public EllipsoidFeatureConfig(double width, BlockState state) {
+		this(width, width, width, state);
 	}
 
 	public double getWidth() {
@@ -56,10 +50,6 @@ public class EllipsoidFeatureConfig implements FeatureConfig {
 
 	public BlockState getState() {
 		return state;
-	}
-
-	public List<BlockState> getSafelist() {
-		return safelist;
 	}
 
 }

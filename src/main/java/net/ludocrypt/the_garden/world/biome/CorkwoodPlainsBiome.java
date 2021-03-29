@@ -31,8 +31,6 @@ public class CorkwoodPlainsBiome {
 		generationSettings.surfaceBuilder(GardenSurfaces.CORKWOOD_PLAINS);
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_ONE_TILES);
 		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.CORK_STUMP);
-		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.CORK_STUMP_SPREAD);
-		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.CORK_SPIKE_SPREAD);
 		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.CORK_SPIKE_EXTRA);
 		generationSettings.feature(Feature.LAKES, ConfiguredFeatures.LAKE_WATER);
 		generationSettings.feature(Feature.UNDERGROUND_ORES, GardenFeatures.COAL_ORE_POINT_ONE);
