@@ -14,7 +14,9 @@
 		"DimensionTypeMixin",
 		"DimensionOptionsMixin",
 		"DimensionTypeAccessor",
-		"ServerPlayerEntityMixin"
+		"ServerPlayerEntityMixin",
+		"ItemStackMixin",
+		"RedstoneWireBlockMixin"
 	],
 	"client": [
 		"ClientWorldMixin",
@@ -23,7 +25,9 @@
 		"RenderPhaseAccessor",
 		"SkyPropertiesMixin",
 		"WaterSuspendParticleAccessor",
-		"WorldRendererMixin"
+		"WorldRendererMixin",
+		"FishingRodPredicateAccessor",
+		"FishingBobberEntityRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

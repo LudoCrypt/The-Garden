@@ -24,7 +24,7 @@ import net.minecraft.block.entity.LootableContainerBlockEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.Heightmap;
+import net.minecraft.world.Heightmap.Type;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -42,24 +42,21 @@ public class BuriedBoxFeature extends Feature<DefaultFeatureConfig> {
 		if (random.nextBoolean()) {
 
 			List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.CORK.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState(), Blocks.AIR.getDefaultState());
-
-			BlockPos.Mutable mut = world.getTopPosition(Heightmap.Type.WORLD_SURFACE_WG, pos).mutableCopy();
-
-			while (!WHITELIST.contains(world.getBlockState(mut.down())) && mut.getY() > 0) {
-				mut.move(Direction.DOWN);
-			}
-
-			if (world.getBlockState(mut).isOf(GardenBlocks.MULCH_LAYER_BLOCK)) {
-				mut.move(Direction.DOWN);
-			}
-
-			BlockPos blockPos = mut.toImmutable();
-
 			WHITELIST.addAll(GardenBlocks.MULCH_LAYER_BLOCK.getStateManager().getStates());
 
-			BlockState state = world.getBlockState(blockPos.down());
+			pos = world.getTopPosition(Type.WORLD_SURFACE_WG, pos);
+
+			while (world.getBlockState(pos).isOf(GardenBlocks.MULCH_LAYER_BLOCK) && pos.getY() > 0) {
+				pos = pos.down();
+			}
+
+			BlockState state = world.getBlockState(pos.down());
 
 			if (WHITELIST.contains(state)) {
+
+				boolean isAir = state.isOf(GardenBlocks.MULCH_LAYER_BLOCK);
+
+				final BlockPos blockPos = pos;
 
 				double x = MathHelper.lerp(random.nextDouble(), -5, 5);
 				double y = random.nextDouble() * 360;
@@ -85,9 +82,9 @@ public class BuriedBoxFeature extends Feature<DefaultFeatureConfig> {
 						.applyLayer(new TranslateLayer(Position.of(blockPos)))
 						/* Placement */
 						.validate(new SafelistValidator(world, WHITELIST), (validShape) -> {
-							validShape.fill(new SimpleFiller(world, state));
+							validShape.fill(new SimpleFiller(world, isAir ? Blocks.AIR.getDefaultState() : state));
 
-							if (random.nextBoolean() && random.nextBoolean()) {
+							if (random.nextBoolean() && random.nextBoolean() && !isAir) {
 								world.setBlockState(blockPos.down(), Blocks.CHEST.getDefaultState().with(ChestBlock.FACING, Direction.byId(random.nextInt(4) + 2)), 2);
 								LootableContainerBlockEntity.setLootTable(world, random, blockPos.down(), TheGarden.id("chests/buried_box"));
 							}

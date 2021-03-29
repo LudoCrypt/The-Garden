@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.ludocrypt.the_garden.TheGarden;
+import net.ludocrypt.the_garden.world.surfaces.PatternSurfaceConfig;
+import net.ludocrypt.the_garden.world.surfaces.PatternSurfaceConfig.PatternPair;
 import net.ludocrypt.the_garden.world.surfaces.PointOneSurfaceBuilder;
+import net.ludocrypt.the_garden.world.surfaces.SkinnedHousepartsSurfaceBuilder;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -19,10 +22,12 @@ public class GardenSurfaces {
 	private static final Map<Identifier, ConfiguredSurfaceBuilder<? extends SurfaceConfig>> CONFIGURED_SURFACE_BUILDERS = new HashMap<>();
 
 	public static final SurfaceBuilder<TernarySurfaceConfig> POINT_ONE_SURFACE_BUILDER = add("point_one_surface_builder", new PointOneSurfaceBuilder(TernarySurfaceConfig.CODEC));
+	public static final SurfaceBuilder<PatternSurfaceConfig> SKINNED_HOUSEPARTS_SURFACE_BUILDER = add("skinned_houseparts_surface_builder", new SkinnedHousepartsSurfaceBuilder(PatternSurfaceConfig.CODEC));
 
 	public static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> POINT_ONE = add("point_one", POINT_ONE_SURFACE_BUILDER.withConfig(new TernarySurfaceConfig(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.MULCH_BLOCK.getDefaultState())));
 	public static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CORKWOOD_PLAINS = add("corkwood_plains", POINT_ONE_SURFACE_BUILDER.withConfig(new TernarySurfaceConfig(GardenBlocks.CORK.getDefaultState(), GardenBlocks.CORK.getDefaultState(), GardenBlocks.CORK.getDefaultState())));
 	public static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> CHURCHPARK = add("churchpark", POINT_ONE_SURFACE_BUILDER.withConfig(new TernarySurfaceConfig(GardenBlocks.PEA_GRAVEL.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState())));
+	public static final ConfiguredSurfaceBuilder<PatternSurfaceConfig> SKINNED_HOUSEPARTS = add("skinned_houseparts", SKINNED_HOUSEPARTS_SURFACE_BUILDER.withConfig(PatternSurfaceConfig.of(PatternPair.of(GardenBlocks.OSB_BOARD.getDefaultState(), 1), PatternPair.of(GardenBlocks.PINK_INSULATION.getDefaultState()), PatternPair.of(GardenBlocks.PINK_INSULATION.getDefaultState()), PatternPair.of(GardenBlocks.OSB_BOARD.getDefaultState(), 1), PatternPair.of(GardenBlocks.PINK_INSULATION.getDefaultState()), PatternPair.of(GardenBlocks.PINK_INSULATION.getDefaultState()), PatternPair.of(GardenBlocks.PINK_INSULATION.getDefaultState()), PatternPair.of(GardenBlocks.OSB_BOARD.getDefaultState(), 1), PatternPair.of(GardenBlocks.PINK_INSULATION.getDefaultState()), PatternPair.of(GardenBlocks.PINK_INSULATION.getDefaultState()), PatternPair.of(GardenBlocks.OSB_BOARD.getDefaultState(), 1), PatternPair.of(GardenBlocks.PINK_INSULATION.getDefaultState()))));
 
 	private static <S extends SurfaceBuilder<? extends SurfaceConfig>> S add(String name, S s) {
 		SURFACE_BUILDERS.put(TheGarden.id(name), s);

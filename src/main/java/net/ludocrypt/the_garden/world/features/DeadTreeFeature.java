@@ -19,9 +19,8 @@ import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.Heightmap;
+import net.minecraft.world.Heightmap.Type;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -37,13 +36,12 @@ public class DeadTreeFeature extends Feature<DefaultFeatureConfig> {
 	public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, DefaultFeatureConfig config) {
 
 		List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.DEAD_TREE.log.getDefaultState(), Blocks.AIR.getDefaultState());
-		BlockPos.Mutable mut = world.getTopPosition(Heightmap.Type.WORLD_SURFACE_WG, pos).mutableCopy();
 
-		while (!WHITELIST.contains(world.getBlockState(mut.down())) && mut.getY() > 0) {
-			mut.move(Direction.DOWN);
+		pos = world.getTopPosition(Type.WORLD_SURFACE_WG, pos);
+
+		if (world.getBlockState(pos).isOf(GardenBlocks.MULCH_LAYER_BLOCK)) {
+			pos = pos.down();
 		}
-
-		BlockPos newPos = mut.toImmutable();
 
 		double x = MathHelper.lerp(random.nextDouble(), -15, 15);
 		double y = random.nextDouble() * 360;
@@ -64,7 +62,7 @@ public class DeadTreeFeature extends Feature<DefaultFeatureConfig> {
 				/* Movement */
 				.applyLayer(new TranslateLayer(Position.of(0, -1.5, 0)))
 				/* Movement */
-				.applyLayer(new TranslateLayer(Position.of(newPos)))
+				.applyLayer(new TranslateLayer(Position.of(pos)))
 				/* Placement */
 				.validate(new SafelistValidator(world, WHITELIST), (validShape) -> {
 					validShape.fill(new SimpleFiller(world, GardenBlocks.DEAD_TREE.log.getDefaultState()));

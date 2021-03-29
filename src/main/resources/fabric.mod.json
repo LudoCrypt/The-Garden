@@ -3,7 +3,7 @@
 	"id": "the_garden",
 	"version": "${version}",
 	"name": "The Garden",
-	"description": "A magical garden of mulch, bones, and almond milk. Textures by Slice. Music by LudoCrypt and Y. Development by LudoCrypt and shadowmaster435 (rendering help)",
+	"description": "A strange land of Mulch, Wood, and Bones!\nTextures by Slice, shadowmaster432 and LudoCrypt.\nMusic by LudoCrypt and Y.\nDevelopment by LudoCrypt and shadowmaster435 (rendering help)",
 	"authors": [
 		"LudoCrypt",
 		"shadowmaster435",
@@ -12,7 +12,8 @@
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/LudoCrypt/The-Garden",
+		"issues": "https://github.com/LudoCrypt/The-Garden/issues"
 	},
 	"license": "LGPLv3",
 	"icon": "assets/the_garden/icon.png",

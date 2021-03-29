@@ -1,0 +1,14 @@
+{
+	"parent": "item/handheld_rod",
+	"textures": {
+		"layer0": "the_garden:item/wormed_fishing_rod"
+	},
+	"overrides": [
+		{
+			"predicate": {
+				"cast": 1
+			},
+			"model": "the_garden:item/wormed_fishing_rod_cast"
+		}
+	]
+}

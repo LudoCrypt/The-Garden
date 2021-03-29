@@ -60,8 +60,8 @@ public class ChargedObsidianShardItem extends Item {
 				world.setBlockState(pos.add(i, 0, j), GardenBlocks.MULCH_PORTAL.getDefaultState(), 2);
 			}
 		}
-		world.playSound(null, pos, SoundEvents.ENTITY_BLAZE_HURT, SoundCategory.BLOCKS, 1.0F, 0.5F);
-		world.playSound(null, pos, SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, 0.875F);
+		world.playSound(null, pos.add(1, 0, 1), SoundEvents.ENTITY_BLAZE_HURT, SoundCategory.BLOCKS, 1.0F, 0.5F);
+		world.playSound(null, pos.add(1, 0, 1), SoundEvents.BLOCK_FIRE_EXTINGUISH, SoundCategory.BLOCKS, 1.0F, 0.875F);
 	}
 
 }

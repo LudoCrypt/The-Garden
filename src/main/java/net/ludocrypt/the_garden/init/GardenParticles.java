@@ -23,6 +23,11 @@ public class GardenParticles {
 	public static final DefaultParticleType LEAF = add("leaf", FabricParticleTypes.simple(true));
 	public static final DefaultParticleType THROWN_TWIG = add("thrown_twig", FabricParticleTypes.simple(true));
 	public static final DefaultParticleType CORK_SPORE = add("cork_spore", FabricParticleTypes.simple(true));
+	public static final DefaultParticleType SAWDUST = add("sawdust", FabricParticleTypes.simple(true));
+	public static final DefaultParticleType GREEN_INSULATION = add("green_insulation", FabricParticleTypes.simple(true));
+	public static final DefaultParticleType BROWN_INSULATION = add("brown_insulation", FabricParticleTypes.simple(true));
+	public static final DefaultParticleType PINK_INSULATION = add("pink_insulation", FabricParticleTypes.simple(true));
+	public static final DefaultParticleType WHITE_INSULATION = add("white_insulation", FabricParticleTypes.simple(true));
 
 	public static final ArrayList<ParticleEffect> MULCH_PARTICLES = Lists.newArrayList(TWIG, LEAF);
 

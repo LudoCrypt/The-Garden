@@ -15,6 +15,7 @@ import com.terraformersmc.terraform.shapes.impl.layer.transform.RotateLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.TranslateLayer;
 import com.terraformersmc.terraform.shapes.impl.validator.SafelistValidator;
 
+import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -37,6 +38,10 @@ public class CorkStumpFeature extends Feature<EllipsoidFeatureConfig> {
 		WHITELIST.addAll(config.getSafelist());
 
 		pos = world.getTopPosition(Type.WORLD_SURFACE_WG, pos);
+
+		if (world.getBlockState(pos).isOf(GardenBlocks.MULCH_LAYER_BLOCK)) {
+			pos = pos.down();
+		}
 
 		double x = MathHelper.lerp(random.nextDouble(), -30, 30);
 		double y = random.nextDouble() * 360;

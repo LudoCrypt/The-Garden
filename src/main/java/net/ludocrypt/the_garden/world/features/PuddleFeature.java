@@ -20,6 +20,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.Heightmap.Type;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -34,11 +35,13 @@ public class PuddleFeature extends Feature<DefaultFeatureConfig> {
 	@Override
 	public boolean generate(StructureWorldAccess world, ChunkGenerator chunkGenerator, Random random, BlockPos pos, DefaultFeatureConfig config) {
 
-		while ((world.isAir(pos.down()) && pos.getY() >= 0) || pos.getY() >= 255) {
+		List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.CORK.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState(), Blocks.WATER.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState());
+
+		pos = world.getTopPosition(Type.WORLD_SURFACE_WG, pos);
+
+		if (world.getBlockState(pos).isOf(GardenBlocks.MULCH_LAYER_BLOCK)) {
 			pos = pos.down();
 		}
-
-		List<BlockState> WHITELIST = Lists.newArrayList(GardenBlocks.MULCH_BLOCK.getDefaultState(), GardenBlocks.CORK.getDefaultState(), GardenBlocks.PEA_GRAVEL.getDefaultState(), Blocks.WATER.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState());
 
 		int count = random.nextInt(6);
 

@@ -15,6 +15,7 @@ import net.ludocrypt.the_garden.world.biome.PlaypenBiome;
 import net.ludocrypt.the_garden.world.biome.PointOneBiome;
 import net.ludocrypt.the_garden.world.biome.PointTwoBiome;
 import net.ludocrypt.the_garden.world.biome.PseudoCorkwoodPlains;
+import net.ludocrypt.the_garden.world.biome.SkinnedHousepartsBiome;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -34,6 +35,7 @@ public class GardenBiomes {
 	public static final RegistryKey<Biome> CORKWOOD_PLAINS = add("corkwood_plains", CorkwoodPlainsBiome.create(), CorkwoodPlainsBiome.mulchColor);
 	public static final RegistryKey<Biome> PSEUDO_CORKWOOD_PLAINS = add("pseudo_corkwood_plains", PseudoCorkwoodPlains.create(), PseudoCorkwoodPlains.mulchColor);
 	public static final RegistryKey<Biome> CHURCHPARK = add("churchpark", ChurchparkBiome.create(), ChurchparkBiome.mulchColor);
+	public static final RegistryKey<Biome> SKINNED_HOUSEPARTS = add("skinned_houseparts", SkinnedHousepartsBiome.create(), SkinnedHousepartsBiome.mulchColor);
 
 	public static final RegistryKey<Biome> POINT_TWO = add("point_two", PointTwoBiome.create(), GardenMulchEffects.defaultMulchColor.getRGB());
 
@@ -47,6 +49,7 @@ public class GardenBiomes {
 		PointOne.addBiome(CORKWOOD_PLAINS, new MixedNoisePoint(0.0F, -0.375F, 0.0F, 0.0F, 0.0F));
 		PointOne.addBiome(PLAYPEN, new MixedNoisePoint(0.0F, 0.3F, 0.0F, 0.0F, 0.275F));
 		PointOne.addBiome(CHURCHPARK, new MixedNoisePoint(0.0F, 0.0F, 0.4F, 0.0F, 0.325F));
+		PointOne.addBiome(SKINNED_HOUSEPARTS, new MixedNoisePoint(0.0F, 0.25F, 0.1F, 0.0F, 0.25F));
 
 		PointTwo.addBiome(POINT_TWO, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
 	}

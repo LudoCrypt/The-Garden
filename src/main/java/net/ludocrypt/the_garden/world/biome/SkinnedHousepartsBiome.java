@@ -15,11 +15,10 @@ import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.GenerationStep.Feature;
-import net.minecraft.world.gen.feature.ConfiguredFeatures;
 
-public class PlaypenBiome {
+public class SkinnedHousepartsBiome {
 
-	public static int mulchColor = Color.of(182, 82, 120);
+	public static int mulchColor = Color.of(135, 117, 95);
 
 	public static Biome create() {
 		Biome.Builder biome = new Biome.Builder();
@@ -28,25 +27,18 @@ public class PlaypenBiome {
 
 		GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
 		generationSettings.carver(GenerationStep.Carver.AIR, GardenCarvers.POINT_ONE_CONFIGURED_CARVER);
-		generationSettings.surfaceBuilder(GardenSurfaces.POINT_ONE);
+		generationSettings.surfaceBuilder(GardenSurfaces.SKINNED_HOUSEPARTS);
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_ONE_TILES);
-		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.PUDDLE);
-		generationSettings.feature(Feature.LAKES, ConfiguredFeatures.LAKE_WATER);
-		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.BURIED_BOX);
-		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.DEAD_TREE);
-		generationSettings.feature(Feature.UNDERGROUND_ORES, GardenFeatures.COAL_ORE_POINT_ONE);
-		generationSettings.structureFeature(GardenFeatures.PLAYGROUND);
-		generationSettings.structureFeature(GardenFeatures.DEAD_TREE_MINESHAFT);
 
 		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
 		biomeEffects.skyColor(Color.of(255, 255, 255));
-		biomeEffects.waterColor(Color.of(182, 82, 120));
-		biomeEffects.waterFogColor(Color.of(182, 82, 120));
+		biomeEffects.waterColor(Color.of(188, 171, 111));
+		biomeEffects.waterFogColor(Color.of(188, 171, 111));
 		biomeEffects.fogColor(Color.of(255, 255, 255));
 		biomeEffects.grassColor(Color.of(226, 202, 132));
 		biomeEffects.moodSound(BiomeMoodSound.CAVE);
 		biomeEffects.music(GardenSounds.POINT_ONE);
-		biomeEffects.particleConfig(new BiomeParticleConfig(GardenParticles.THROWN_TWIG, 0.000629776F));
+		biomeEffects.particleConfig(new BiomeParticleConfig(GardenParticles.SAWDUST, 0.053846894F));
 		BiomeEffects effects = biomeEffects.build();
 
 		biome.spawnSettings(spawnSettings.build());
@@ -56,10 +48,10 @@ public class PlaypenBiome {
 		biome.precipitation(Biome.Precipitation.NONE);
 		biome.category(GardenBiomes.POINT_ONE_BIOME_CATEGORY);
 
-		biome.depth(0.2F);
-		biome.scale(0.05F);
+		biome.depth(-0.5F);
+		biome.scale(0.25F);
 
-		biome.temperature(0.4F);
+		biome.temperature(0.5F);
 		biome.downfall(0.0F);
 
 		return biome.build();
