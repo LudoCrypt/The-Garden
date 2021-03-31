@@ -1,0 +1,8 @@
+{
+	"parent": "block/slab",
+	"textures": {
+		"bottom": "the_garden:block/ivory_bricks",
+		"top": "the_garden:block/ivory_bricks",
+		"side": "the_garden:block/ivory_bricks"
+	}
+}

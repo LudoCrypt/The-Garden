@@ -1,0 +1,53 @@
+{
+    "display": {
+        "gui": {
+            "rotation": [ 30, 45, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 0.625, 0.625, 0.625 ]
+        },
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 0],
+            "scale":[ 0.25, 0.25, 0.25 ]
+        },
+        "head": {
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 1, 1, 1]
+        },
+        "fixed": {
+            "rotation": [ 0, 180, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 0.5, 0.5, 0.5 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 75, 315, 0 ],
+            "translation": [ 0, 2.5, 0],
+            "scale": [ 0.375, 0.375, 0.375 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, 315, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale": [ 0.4, 0.4, 0.4 ]
+        }
+    },
+	"textures": {
+		"particle": "#insulation"
+	},
+	"elements": [
+		{
+			"name": "Down",
+			"from": [0, 0, 0],
+			"to": [16, 2, 16],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 14, 16, 16], "rotation": 180, "texture": "#insulation"},
+				"east": {"uv": [0, 0, 2, 16], "rotation": 90, "texture": "#insulation"},
+				"south": {"uv": [0, 0, 16, 2], "texture": "#insulation"},
+				"west": {"uv": [14, 0, 16, 16], "rotation": 270, "texture": "#insulation"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#insulation"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#insulation"}
+			}
+		}
+	]
+}

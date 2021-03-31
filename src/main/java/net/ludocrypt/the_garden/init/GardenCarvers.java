@@ -5,6 +5,7 @@ import java.util.Map;
 
 import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.world.carver.PointOneCarver;
+import net.ludocrypt.the_garden.world.carver.PointTwoCarver;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -19,7 +20,10 @@ public class GardenCarvers {
 	private static final Map<Identifier, ConfiguredCarver<? extends CarverConfig>> CONFIGURED_CARVERS = new HashMap<>();
 
 	public static final Carver<ProbabilityConfig> POINT_ONE_CARVER = add("point_one_carver", new PointOneCarver(ProbabilityConfig.CODEC, 256));
-	public static final ConfiguredCarver<ProbabilityConfig> POINT_ONE_CONFIGURED_CARVER = add("point_one_carver", POINT_ONE_CARVER.configure(new ProbabilityConfig(0.364896F)));
+	public static final ConfiguredCarver<ProbabilityConfig> POINT_ONE_CONFIGURED_CARVER = add("point_one", POINT_ONE_CARVER.configure(new ProbabilityConfig(0.364896F)));
+
+	public static final Carver<ProbabilityConfig> POINT_TWO_CARVER = add("point_two_carver", new PointTwoCarver(ProbabilityConfig.CODEC, 256));
+	public static final ConfiguredCarver<ProbabilityConfig> POINT_TWO_CONFIGURED_CARVER = add("point_two", POINT_TWO_CARVER.configure(new ProbabilityConfig(0.046875F)));
 
 	private static <C extends CarverConfig> Carver<C> add(String name, Carver<C> c) {
 		CARVERS.put(TheGarden.id(name), c);

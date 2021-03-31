@@ -1,6 +1,6 @@
 package net.ludocrypt.the_garden.blocks;
 
-import net.ludocrypt.the_garden.util.PairedHashmap;
+import net.ludocrypt.the_garden.util.TripplePair;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -34,7 +34,7 @@ public class InsulationPaddingBlock extends InsulationBlock {
 	public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0, 0, 0, 2, 16, 16);
 	public static final VoxelShape UP_SHAPE = Block.createCuboidShape(0, 14, 0, 16, 16, 16);
 	public static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 2, 16);
-	public static final PairedHashmap<BooleanProperty, Direction, VoxelShape> DIRECTION_PROPERTIES = PairedHashmap.newPairedHashMap();
+	public static final TripplePair<BooleanProperty, Direction, VoxelShape> DIRECTION_PROPERTIES = TripplePair.newTripplePair();
 
 	public InsulationPaddingBlock(Settings settings, int range, ParticleEffect effect) {
 		super(settings, range, effect);
@@ -74,7 +74,15 @@ public class InsulationPaddingBlock extends InsulationBlock {
 		boolean canReplace = false;
 
 		if (stack.getItem().equals(Item.fromBlock(this))) {
-			canReplace = true;
+			if (state.isOf(this)) {
+				if (ctx.getPlayer().isSneaking()) {
+					canReplace = !state.get(DIRECTION_PROPERTIES.getAFromB(ctx.getPlayerLookDirection()));
+				} else {
+					canReplace = !state.get(DIRECTION_PROPERTIES.getAFromB(ctx.getSide().getOpposite()));
+				}
+			} else {
+				canReplace = true;
+			}
 		}
 
 		return canReplace;

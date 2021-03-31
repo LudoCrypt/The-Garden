@@ -1,0 +1,21 @@
+{
+	"textures": {
+		"particle": "#insulation"
+	},
+	"elements": [
+		{
+			"name": "Up",
+			"from": [0, 14.02, 0],
+			"to": [16, 16.02, 16],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 2], "rotation": 180, "texture": "#insulation"},
+				"east": {"uv": [0, 0, 2, 16], "rotation": 270, "texture": "#insulation"},
+				"south": {"uv": [0, 14, 16, 16], "texture": "#insulation"},
+				"west": {"uv": [14, 0, 16, 16], "rotation": 90, "texture": "#insulation"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#insulation"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#insulation"}
+			}
+		}
+	]
+}

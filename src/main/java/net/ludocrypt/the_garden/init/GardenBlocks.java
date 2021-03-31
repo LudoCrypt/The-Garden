@@ -4,6 +4,9 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
+import com.terraformersmc.terraform.dirt.DirtBlocks;
+import com.terraformersmc.terraform.dirt.TerraformDirtRegistry;
+import com.terraformersmc.terraform.dirt.block.TerraformFarmlandBlock;
 import com.terraformersmc.terraform.wood.block.TerraformStairsBlock;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -30,6 +33,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.ComposterBlock;
 import net.minecraft.block.FallingBlock;
 import net.minecraft.block.OreBlock;
+import net.minecraft.block.PillarBlock;
 import net.minecraft.block.RedstoneOreBlock;
 import net.minecraft.block.SlabBlock;
 import net.minecraft.block.WallBlock;
@@ -66,6 +70,7 @@ public class GardenBlocks {
 	public static final Block PLAYDIRT_DIAMOND_ORE = add("playdirt_diamond_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.DIAMOND_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block PLAYDIRT_REDSTONE_ORE = add("playdirt_redstone_ore", new RedstoneOreBlock(FabricBlockSettings.copyOf(Blocks.REDSTONE_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block PLAYDIRT_EMERALD_ORE = add("playdirt_emerald_ore", new OreBlock(FabricBlockSettings.copyOf(Blocks.EMERALD_ORE).sounds(BlockSoundGroup.GRAVEL)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PLAYDIRT_FARMLAND = add("playdirt_farmland", new TerraformFarmlandBlock(FabricBlockSettings.copyOf(Blocks.DIRT).breakByTool(FabricToolTags.SHOVELS).materialColor(DyeColor.BROWN)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block MULCH_BLOCK = add("mulch_block", new MulchBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).breakByTool(FabricToolTags.SHOVELS).strength(0.2F).ticksRandomly().materialColor(DyeColor.BROWN)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block MULCH_LAYER_BLOCK = add("mulch_layer_block", new MulchLayerBlock(FabricBlockSettings.copyOf(MULCH_BLOCK).breakByTool(FabricToolTags.SHOVELS).materialColor(DyeColor.BROWN)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block OSB_BOARD = add("osb_board", new OSBBlock(FabricBlockSettings.copyOf(Blocks.OAK_PLANKS).strength(3.5F, 6.5F).breakByTool(FabricToolTags.AXES).materialColor(DyeColor.YELLOW)), ItemGroup.BUILDING_BLOCKS);
@@ -93,7 +98,27 @@ public class GardenBlocks {
 	public static final DyeUtil EDGING_FACE = add("edging_face", DyeUtil.ofEdgingFace("edging_face", FabricBlockSettings.copyOf(Blocks.OAK_FENCE), new FabricItemSettings()));
 
 	// Woods
-	public static WoodBlocks DEAD_TREE = add("dead_tree", WoodBlocks.generate("dead_tree", WoodColors.DEAD_TREE, false, () -> GardenBoats.DEAD_TREE_BOAT));
+	public static WoodBlocks DEAD_TREE = add("dead_tree", WoodBlocks.generate("dead_tree", WoodColors.DEAD_TREE, true, () -> GardenBoats.DEAD_TREE_BOAT));
+
+	// Point Two
+	public static final Block IVORY_BLOCK = add("ivory_block", new Block(FabricBlockSettings.copyOf(Blocks.QUARTZ_BLOCK).sounds(BlockSoundGroup.BONE).breakByTool(FabricToolTags.PICKAXES).materialColor(DyeColor.WHITE)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_STAIRS = add("ivory_stairs", new TerraformStairsBlock(IVORY_BLOCK, FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_SLAB = add("ivory_slab", new SlabBlock(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_WALL = add("ivory_wall", new WallBlock(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+
+	public static final Block SMOOTH_IVORY_BLOCK = add("smooth_ivory", new Block(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block SMOOTH_IVORY_STAIRS = add("smooth_ivory_stairs", new TerraformStairsBlock(SMOOTH_IVORY_BLOCK, FabricBlockSettings.copyOf(SMOOTH_IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block SMOOTH_IVORY_SLAB = add("smooth_ivory_slab", new SlabBlock(FabricBlockSettings.copyOf(SMOOTH_IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block SMOOTH_IVORY_WALL = add("smooth_ivory_wall", new WallBlock(FabricBlockSettings.copyOf(SMOOTH_IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+
+	public static final Block IVORY_BRICKS = add("ivory_bricks", new Block(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_BRICK_STAIRS = add("ivory_brick_stairs", new TerraformStairsBlock(IVORY_BRICKS, FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_BRICK_SLAB = add("ivory_brick_slab", new SlabBlock(FabricBlockSettings.copyOf(IVORY_BRICKS)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_BRICK_WALL = add("ivory_brick_wall", new WallBlock(FabricBlockSettings.copyOf(IVORY_BRICKS)), ItemGroup.BUILDING_BLOCKS);
+
+	public static final Block CHISELED_IVORY = add("chiseled_ivory", new Block(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_PILLAR = add("ivory_pillar", new PillarBlock(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_MARROW = add("ivory_marrow", new PillarBlock(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK).sounds(BlockSoundGroup.NETHER_STEM).breakByTool(FabricToolTags.HOES).materialColor(DyeColor.WHITE)), ItemGroup.BUILDING_BLOCKS);
 
 	private static <B extends Block, T extends BlockEntity> BlockEntityType<T> add(String name, B block, Supplier<T> supplier) {
 		Identifier id = TheGarden.id(name);
@@ -148,6 +173,7 @@ public class GardenBlocks {
 			DYED_BLOCKS.get(id).registerAll();
 		}
 
+		registerDirt();
 		registerCompostableBlocks();
 		registerFlammableBlocks();
 	}
@@ -163,8 +189,22 @@ public class GardenBlocks {
 		registry.add(MULCH_LAYER_BLOCK, 5, 5);
 
 		registry.add(OSB_BOARD, 5, 15);
+		registry.add(OSB_STAIRS, 5, 15);
+		registry.add(OSB_SLAB, 5, 15);
+		registry.add(OSB_WALL, 5, 15);
 
 		registry.add(CORK, 5, 10);
+		registry.add(CORK_STAIRS, 5, 10);
+		registry.add(CORK_SLAB, 5, 10);
+		registry.add(CORK_WALL, 5, 10);
+
 		registry.add(CORK_BRICKS, 5, 5);
+		registry.add(CORK_BRICK_STAIRS, 5, 5);
+		registry.add(CORK_BRICK_SLAB, 5, 5);
+		registry.add(CORK_BRICK_WALL, 5, 5);
+	}
+
+	private static void registerDirt() {
+		TerraformDirtRegistry.register(new DirtBlocks(PLAYDIRT, null, null, null, (TerraformFarmlandBlock) PLAYDIRT_FARMLAND));
 	}
 }

@@ -1,0 +1,13 @@
+{
+	"variants": {
+		"type=bottom": {
+			"model": "the_garden:block/smooth_ivory_slab"
+		},
+		"type=double": {
+			"model": "the_garden:block/smooth_ivory"
+		},
+		"type=top": {
+			"model": "the_garden:block/smooth_ivory_slab_top"
+		}
+	}
+}

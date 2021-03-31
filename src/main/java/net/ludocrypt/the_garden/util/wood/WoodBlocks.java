@@ -150,8 +150,8 @@ public class WoodBlocks {
 	public WoodBlocks register() {
 		registerManufactured();
 
-		if (hasLeaves || this.leaves != null) {
-			register(name + "_leaves", new LeavesBlock(FabricBlockSettings.copyOf(Blocks.OAK_LEAVES).breakByTool(FabricToolTags.HOES).materialColor(colors.leaves).allowsSpawning(WoodBlocks::canSpawnOnLeaves).suffocates(WoodBlocks::never).blockVision(WoodBlocks::never)));
+		if (hasLeaves && this.leaves != null) {
+			register(name + "_leaves", leaves);
 		}
 
 		register("stripped_" + name + "_log", strippedLog);
@@ -192,7 +192,7 @@ public class WoodBlocks {
 		registerBlockItem(name + "_wood", this.wood, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 		registerBlockItem("stripped_" + name + "_log", this.strippedLog, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
 		registerBlockItem("stripped_" + name + "_wood", this.strippedWood, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
-		if (this.leaves != null || this.hasLeaves) {
+		if (this.leaves != null && this.hasLeaves) {
 			registerBlockItem(name + "_leaves", this.leaves, new FabricItemSettings().group(ItemGroup.DECORATIONS));
 		}
 		registerBlockItem(name + "_planks", this.planks, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS));
@@ -223,7 +223,7 @@ public class WoodBlocks {
 			registry.add(strippedWood, 5, 5);
 		}
 
-		if (leaves != null) {
+		if (leaves != null && this.hasLeaves) {
 			registry.add(leaves, 30, 60);
 		}
 	}

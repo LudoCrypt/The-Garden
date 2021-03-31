@@ -10,7 +10,6 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Fertilizable;
 import net.minecraft.block.Material;
-import net.minecraft.block.PlantBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ShovelItem;
@@ -54,24 +53,20 @@ public class MulchBlock extends Block {
 
 	@Override
 	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-		if (random.nextInt(5) == 0) {
+		if (random.nextInt(8) == 0) {
 			if (world.getBlockState(pos.down()).getMaterial().equals(Material.SOIL)) {
-				Iterator<BlockPos> i = BlockPos.iterate(pos.add(-5, -1, -5), pos.add(5, 1, 5)).iterator();
-				while (i.hasNext()) {
-					BlockPos blockPos = i.next();
-					BlockState blockState = world.getBlockState(blockPos);
-					if (random.nextBoolean() && random.nextBoolean() && random.nextBoolean() && random.nextBoolean()) {
-						if (blockState.getBlock() instanceof Fertilizable) {
-							if (isWaterNearby(world, blockPos, 4)) {
-								if (((Fertilizable) blockState.getBlock()).canGrow(world, random, blockPos, blockState)) {
-									((Fertilizable) blockState.getBlock()).grow(world, random, blockPos, blockState);
+				if (isWaterNearby(world, pos, 4)) {
+					Iterator<BlockPos> i = BlockPos.iterate(pos.add(-5, -1, -5), pos.add(5, 2, 5)).iterator();
+					while (i.hasNext()) {
+						BlockPos blockPos = i.next();
+						BlockState blockState = world.getBlockState(blockPos);
+						if (random.nextBoolean() && random.nextBoolean() && random.nextBoolean()) {
+							if (blockState.getBlock() instanceof Fertilizable) {
+								Fertilizable fertile = (Fertilizable) blockState.getBlock();
+								if (fertile.canGrow(world, random, blockPos, blockState)) {
+									fertile.grow(world, random, blockPos, blockState);
 									world.spawnParticles(ParticleTypes.COMPOSTER, blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), random.nextInt(5) + 3, 0.1, 0.1, 0.1, random.nextDouble() / 100);
 								}
-							}
-						} else if (blockState.getBlock() instanceof PlantBlock) {
-							if (isWaterNearby(world, blockPos, 4)) {
-								blockState.randomTick(world, blockPos, random);
-								world.spawnParticles(ParticleTypes.COMPOSTER, blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), random.nextInt(5) + 3, 0.1, 0.1, 0.1, random.nextDouble() / 100);
 							}
 						}
 					}

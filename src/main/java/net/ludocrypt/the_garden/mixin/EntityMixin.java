@@ -72,7 +72,7 @@ public class EntityMixin {
 		spiral: for (int s = 0; s < 5; s++) {
 			for (int i = 0; i < 4; i++) {
 				for (int w = 0; w < l - 1; w++) {
-					if (world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.UP)) {
+					if ((world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.UP) || world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.DOWN)) && !world.getBlockState(pos).isFullCube(world, pos)) {
 						suitable = true;
 						break spiral;
 					}

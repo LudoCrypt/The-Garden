@@ -27,6 +27,7 @@ import net.ludocrypt.the_garden.mixin.FishingRodPredicateAccessor;
 import net.ludocrypt.the_garden.util.Color;
 import net.ludocrypt.the_garden.util.GardenMulchEffects;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
@@ -40,8 +41,10 @@ public class TheClientGarden implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
+
+		// Mulch
 		ColorProviderRegistryImpl.BLOCK.register((state, view, pos, tintIndex) -> {
-			if (client.world != null && pos != null) {
+			if (view != null && pos != null) {
 				return GardenMulchEffects.getMulchColor(view, pos);
 			}
 			return GardenMulchEffects.defaultMulchColor.getRGB();
@@ -54,6 +57,21 @@ public class TheClientGarden implements ClientModInitializer {
 			return GardenMulchEffects.defaultMulchColor.getRGB();
 		}, GardenBlocks.MULCH_BLOCK, GardenBlocks.MULCH_LAYER_BLOCK);
 
+		// Leaves
+		ColorProviderRegistryImpl.BLOCK.register((state, view, pos, tintIndex) -> {
+			if (view != null && pos != null) {
+				return BiomeColors.getFoliageColor(view, pos);
+			}
+			return GardenMulchEffects.defaultMulchColor.getRGB();
+		}, GardenBlocks.DEAD_TREE.leaves);
+
+		ColorProviderRegistryImpl.ITEM.register((stack, tintIndex) -> {
+			if (client.world != null && client.player != null) {
+				return BiomeColors.getFoliageColor(client.world, client.player.getBlockPos());
+			}
+			return GardenMulchEffects.defaultMulchColor.getRGB();
+		}, GardenBlocks.DEAD_TREE.leaves);
+
 		BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(), GardenBlocks.DEAD_TREE.trapdoor, GardenBlocks.DEAD_TREE.door);
 
 		SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ((TerraformSignBlock) GardenBlocks.DEAD_TREE.sign).getTexture()));
@@ -64,18 +82,10 @@ public class TheClientGarden implements ClientModInitializer {
 		ParticleFactoryRegistry.getInstance().register(GardenParticles.THROWN_TWIG, ThrownTwigParticle.Factory::new);
 		ParticleFactoryRegistry.getInstance().register(GardenParticles.CORK_SPORE, CorkSporeFactory::new);
 		ParticleFactoryRegistry.getInstance().register(GardenParticles.SAWDUST, SawdustFactory::new);
-		ParticleFactoryRegistry.getInstance().register(GardenParticles.GREEN_INSULATION, (provider) -> {
-			return new InsulationFactory(provider, Color.colorOf(102, 183, 123));
-		});
-		ParticleFactoryRegistry.getInstance().register(GardenParticles.BROWN_INSULATION, (provider) -> {
-			return new InsulationFactory(provider, Color.colorOf(114, 100, 74));
-		});
-		ParticleFactoryRegistry.getInstance().register(GardenParticles.PINK_INSULATION, (provider) -> {
-			return new InsulationFactory(provider, Color.colorOf(165, 111, 152));
-		});
-		ParticleFactoryRegistry.getInstance().register(GardenParticles.WHITE_INSULATION, (provider) -> {
-			return new InsulationFactory(provider, Color.colorOf(162, 165, 160));
-		});
+		ParticleFactoryRegistry.getInstance().register(GardenParticles.GREEN_INSULATION, (provider) -> new InsulationFactory(provider, Color.colorOf(102, 183, 123)));
+		ParticleFactoryRegistry.getInstance().register(GardenParticles.BROWN_INSULATION, (provider) -> new InsulationFactory(provider, Color.colorOf(114, 100, 74)));
+		ParticleFactoryRegistry.getInstance().register(GardenParticles.PINK_INSULATION, (provider) -> new InsulationFactory(provider, Color.colorOf(165, 111, 152)));
+		ParticleFactoryRegistry.getInstance().register(GardenParticles.WHITE_INSULATION, (provider) -> new InsulationFactory(provider, Color.colorOf(162, 165, 160)));
 
 		BlockEntityRendererRegistry.INSTANCE.register(GardenBlocks.MULCH_PORTAL_BLOCK_ENTITY, MulchPortalBlockEntityRenderer::new);
 

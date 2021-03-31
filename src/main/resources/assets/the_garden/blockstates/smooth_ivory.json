@@ -1,0 +1,78 @@
+{
+	"variants": {
+		"": [
+			{
+				"model": "the_garden:block/smooth_ivory"
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"x": 90
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"x": 270
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 90
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 90,
+				"x": 90
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 90,
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 90,
+				"x": 270
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 180
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 180,
+				"x": 90
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 180,
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 180,
+				"x": 270
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 270
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 270,
+				"x": 90
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 270,
+				"x": 180
+			},
+			{
+				"model": "the_garden:block/smooth_ivory",
+				"y": 270,
+				"x": 270
+			}
+		]
+	}
+}

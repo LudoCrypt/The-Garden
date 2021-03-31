@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.OptionalLong;
 import java.util.function.Supplier;
 
+import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
 
 import net.ludocrypt.the_garden.TheGarden;
@@ -58,7 +59,7 @@ public class PointTwo {
 	public static final MultiNoiseBiomeSource.Preset BIOME_SOURCE_PRESET = new MultiNoiseBiomeSource.Preset(IDENTIFIER, (preset, registry, seed) -> {
 		List<Pair<Biome.MixedNoisePoint, Supplier<Biome>>> biomes = new ArrayList<>();
 		getNoisePoints().forEach((biomeKey, noisePoint) -> biomes.add(Pair.of(noisePoint, () -> registry.getOrThrow(biomeKey))));
-		return MultiNoiseBiomeSourceAccessor.createMultiNoiseBiomeSource(seed, biomes, Optional.of(Pair.of(registry, preset)));
+		return MultiNoiseBiomeSourceAccessor.createMultiNoiseBiomeSource(seed, biomes, new MultiNoiseBiomeSource.NoiseParameters(-7, ImmutableList.of(1.0D, 1.0D)), new MultiNoiseBiomeSource.NoiseParameters(-8, ImmutableList.of(0.2D, 0.75D)), new MultiNoiseBiomeSource.NoiseParameters(-6, ImmutableList.of(2.75D, 0.5D)), new MultiNoiseBiomeSource.NoiseParameters(-6, ImmutableList.of(-0.75D, 2.0D)), Optional.of(Pair.of(registry, preset)));
 	});
 
 	private static ChunkGeneratorSettings createSettings() {

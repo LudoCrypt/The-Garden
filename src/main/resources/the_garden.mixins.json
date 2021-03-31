@@ -8,7 +8,6 @@
 		"ChunkGeneratorSettingsAccessor",
 		"CryingObsidianBlockMixin",
 		"EntityMixin",
-		"HoeItemMixin",
 		"MineshaftPartMixin",
 		"MultiNoiseBiomeSourceAccessor",
 		"DimensionTypeMixin",

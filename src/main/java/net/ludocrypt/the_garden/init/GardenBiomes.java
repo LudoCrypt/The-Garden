@@ -11,6 +11,8 @@ import net.ludocrypt.the_garden.world.PointOne;
 import net.ludocrypt.the_garden.world.PointTwo;
 import net.ludocrypt.the_garden.world.biome.ChurchparkBiome;
 import net.ludocrypt.the_garden.world.biome.CorkwoodPlainsBiome;
+import net.ludocrypt.the_garden.world.biome.GravityFallsBiome;
+import net.ludocrypt.the_garden.world.biome.IvoryShallowsBiome;
 import net.ludocrypt.the_garden.world.biome.PlaypenBiome;
 import net.ludocrypt.the_garden.world.biome.PointOneBiome;
 import net.ludocrypt.the_garden.world.biome.PointTwoBiome;
@@ -38,6 +40,8 @@ public class GardenBiomes {
 	public static final RegistryKey<Biome> SKINNED_HOUSEPARTS = add("skinned_houseparts", SkinnedHousepartsBiome.create(), SkinnedHousepartsBiome.mulchColor);
 
 	public static final RegistryKey<Biome> POINT_TWO = add("point_two", PointTwoBiome.create(), GardenMulchEffects.defaultMulchColor.getRGB());
+	public static final RegistryKey<Biome> GRAVITY_FALLS = add("gravity_falls", GravityFallsBiome.create(), GardenMulchEffects.defaultMulchColor.getRGB());
+	public static final RegistryKey<Biome> IVORY_SHALLOWS = add("ivory_shallows", IvoryShallowsBiome.create(), GardenMulchEffects.defaultMulchColor.getRGB());
 
 	public static void init() {
 		for (Identifier id : BIOMES.keySet()) {
@@ -52,6 +56,8 @@ public class GardenBiomes {
 		PointOne.addBiome(SKINNED_HOUSEPARTS, new MixedNoisePoint(0.0F, 0.25F, 0.1F, 0.0F, 0.25F));
 
 		PointTwo.addBiome(POINT_TWO, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
+		PointTwo.addBiome(GRAVITY_FALLS, new MixedNoisePoint(0.0F, 0.3F, 0.0F, 0.0F, 0.0F));
+		PointTwo.addBiome(IVORY_SHALLOWS, new MixedNoisePoint(0.0F, 0.0F, 0.2F, 0.2F, 0.0F));
 	}
 
 	private static RegistryKey<Biome> add(String s, Biome b, int rgb) {

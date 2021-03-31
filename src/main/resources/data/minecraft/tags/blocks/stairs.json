@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"the_garden:osb_stairs",
+		"the_garden:cork_stairs",
+		"the_garden:cork_brick_stairs",
+		"the_garden:ivory_stairs",
+		"the_garden:ivory_brick_stairs",
+		"the_garden:smooth_ivory_stairs"
+	]
+}

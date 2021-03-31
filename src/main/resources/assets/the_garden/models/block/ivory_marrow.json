@@ -1,0 +1,7 @@
+{
+	"parent": "block/cube_column",
+	"textures": {
+		"end": "the_garden:block/ivory_marrow_top",
+		"side": "the_garden:block/ivory_marrow_side"
+	}
+}
