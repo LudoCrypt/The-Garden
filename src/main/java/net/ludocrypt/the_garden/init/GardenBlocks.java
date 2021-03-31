@@ -185,23 +185,33 @@ public class GardenBlocks {
 	private static void registerFlammableBlocks() {
 		FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
 
-		registry.add(MULCH_BLOCK, 5, 5);
-		registry.add(MULCH_LAYER_BLOCK, 5, 5);
+		registry.add(MULCH_BLOCK, 2, 10);
+		registry.add(MULCH_LAYER_BLOCK, 2, 10);
 
-		registry.add(OSB_BOARD, 5, 15);
-		registry.add(OSB_STAIRS, 5, 15);
-		registry.add(OSB_SLAB, 5, 15);
-		registry.add(OSB_WALL, 5, 15);
+		registry.add(OSB_BOARD, 25, 5);
+		registry.add(OSB_STAIRS, 25, 5);
+		registry.add(OSB_SLAB, 25, 5);
+		registry.add(OSB_WALL, 25, 5);
 
-		registry.add(CORK, 5, 10);
-		registry.add(CORK_STAIRS, 5, 10);
-		registry.add(CORK_SLAB, 5, 10);
-		registry.add(CORK_WALL, 5, 10);
+		registry.add(CORK, 15, 5);
+		registry.add(CORK_STAIRS, 15, 5);
+		registry.add(CORK_SLAB, 15, 5);
+		registry.add(CORK_WALL, 15, 5);
 
-		registry.add(CORK_BRICKS, 5, 5);
-		registry.add(CORK_BRICK_STAIRS, 5, 5);
-		registry.add(CORK_BRICK_SLAB, 5, 5);
-		registry.add(CORK_BRICK_WALL, 5, 5);
+		registry.add(CORK_BRICKS, 20, 3);
+		registry.add(CORK_BRICK_STAIRS, 20, 3);
+		registry.add(CORK_BRICK_SLAB, 20, 3);
+		registry.add(CORK_BRICK_WALL, 20, 3);
+
+		registry.add(WHITE_INSULATION, 1, 7);
+		registry.add(BROWN_INSULATION, 1, 7);
+		registry.add(GREEN_INSULATION, 1, 7);
+		registry.add(PINK_INSULATION, 1, 7);
+
+		registry.add(WHITE_INSULATION_PADDING, 1, 6);
+		registry.add(BROWN_INSULATION_PADDING, 1, 6);
+		registry.add(GREEN_INSULATION_PADDING, 1, 6);
+		registry.add(PINK_INSULATION_PADDING, 1, 6);
 	}
 
 	private static void registerDirt() {
