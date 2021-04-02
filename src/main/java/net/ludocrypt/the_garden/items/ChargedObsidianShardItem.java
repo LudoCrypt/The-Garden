@@ -1,6 +1,9 @@
 package net.ludocrypt.the_garden.items;
 
+import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
+import net.ludocrypt.the_garden.compat.impl.entity.MulchPortalEntity;
 import net.ludocrypt.the_garden.init.GardenBlocks;
+import net.ludocrypt.the_garden.world.PointOne;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.BlockPatternBuilder;
@@ -51,13 +54,24 @@ public class ChargedObsidianShardItem extends Item {
 				}
 			}
 		}
+
 		return ActionResult.PASS;
+
 	}
 
 	private void createPortal(BlockPos pos, World world) {
 		for (int i = 0; i < 2; ++i) {
 			for (int j = 0; j < 2; ++j) {
 				world.setBlockState(pos.add(i, 0, j), GardenBlocks.MULCH_PORTAL.getDefaultState(), 2);
+			}
+		}
+		if (GardenImmersivePortalsCompat.isInstalled) {
+			if (!world.isClient) {
+				if (world.getRegistryKey().equals(PointOne.WORLD)) {
+					MulchPortalEntity.generateToOverworld(world, pos, world.getServer());
+				} else {
+					MulchPortalEntity.generateToPointOne(world, pos, world.getServer());
+				}
 			}
 		}
 		world.playSound(null, pos.add(1, 0, 1), SoundEvents.ENTITY_BLAZE_HURT, SoundCategory.BLOCKS, 1.0F, 0.5F);

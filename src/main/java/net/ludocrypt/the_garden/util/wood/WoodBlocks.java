@@ -160,8 +160,24 @@ public class WoodBlocks {
 		register(name + "_wood", wood);
 
 		this.addTreeFireInfo();
+		this.addTreeFuel();
 
 		return this;
+	}
+
+	public void addTreeFuel() {
+		FuelRegistry registry = FuelRegistry.INSTANCE;
+
+		registry.add(log, 300);
+		registry.add(strippedLog, 300);
+
+		if (wood != log) {
+			registry.add(wood, 300);
+		}
+
+		if (strippedWood != strippedLog) {
+			registry.add(strippedWood, 300);
+		}
 	}
 
 	public WoodBlocks registerManufactured() {
@@ -179,9 +195,27 @@ public class WoodBlocks {
 		register(name + "_wall_sign", wallSign);
 
 		this.addManufacturedFireInfo();
+		this.registerManufacturedFuel();
 
 		FuelRegistry.INSTANCE.add(this.fence, 300);
 		FuelRegistry.INSTANCE.add(this.fenceGate, 300);
+
+		return this;
+	}
+
+	public WoodBlocks registerManufacturedFuel() {
+		FuelRegistry registry = FuelRegistry.INSTANCE;
+
+		registry.add(planks, 300);
+		registry.add(slab, 150);
+		registry.add(stairs, 300);
+		registry.add(door, 200);
+		registry.add(button, 100);
+		registry.add(pressurePlate, 300);
+		registry.add(trapdoor, 300);
+
+		registry.add(sign, 0);
+		registry.add(wallSign, 0);
 
 		return this;
 	}

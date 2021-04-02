@@ -27,6 +27,9 @@
 		],
 		"mm:early_risers": [
 			"net.ludocrypt.the_garden.init.GardenEarlyRisers"
+		],
+		"modmenu": [
+			"net.ludocrypt.the_garden.compat.GardenConfigModmenuCompat"
 		]
 	},
 	"accessWidener": "the_garden.accesswidener",

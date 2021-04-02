@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "wooden_stairs",
+	"pattern": [
+		"#  ",
+		"## ",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:smooth_ivory"
+		}
+	},
+	"result": {
+		"item": "the_garden:smooth_ivory_stairs",
+		"count": 4
+	}
+}

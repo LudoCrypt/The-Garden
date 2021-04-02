@@ -19,6 +19,7 @@ import net.ludocrypt.the_garden.client.particle.LeafParticle;
 import net.ludocrypt.the_garden.client.particle.SawdustFactory;
 import net.ludocrypt.the_garden.client.particle.ThrownTwigParticle;
 import net.ludocrypt.the_garden.client.particle.TwigParticle;
+import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.init.GardenBoats;
 import net.ludocrypt.the_garden.init.GardenItems;
@@ -90,6 +91,10 @@ public class TheClientGarden implements ClientModInitializer {
 		BlockEntityRendererRegistry.INSTANCE.register(GardenBlocks.MULCH_PORTAL_BLOCK_ENTITY, MulchPortalBlockEntityRenderer::new);
 
 		FabricModelPredicateProviderRegistry.register(GardenItems.WORMED_FISHING_ROD, new Identifier("cast"), FishingRodPredicateAccessor::invokeMethod_27883);
+
+		if (GardenImmersivePortalsCompat.isInstalled) {
+			GardenImmersivePortalsCompat.clientInit();
+		}
 	}
 
 }

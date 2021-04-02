@@ -1,0 +1,17 @@
+{
+	"variants": {
+		"axis=x": {
+			"model": "the_garden:block/ivory_marrow_horizontal",
+			"x": 90,
+			"y": 90
+		},
+		"axis=y": {
+			"model": "the_garden:block/ivory_marrow",
+			"y": 0
+		},
+		"axis=z": {
+			"model": "the_garden:block/ivory_marrow_horizontal",
+			"x": 90
+		}
+	}
+}

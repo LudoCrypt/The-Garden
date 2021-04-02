@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"##"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:brown_insulation"
+		}
+	},
+	"result": {
+		"item": "the_garden:brown_insulation_padding",
+		"count": 12
+	}
+}

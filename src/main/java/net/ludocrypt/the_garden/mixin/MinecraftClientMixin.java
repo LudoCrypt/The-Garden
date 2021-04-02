@@ -26,6 +26,7 @@ public class MinecraftClientMixin {
 	@Shadow
 	public ClientWorld world;
 
+	@Environment(EnvType.CLIENT)
 	@Inject(method = "getMusicType", at = @At("HEAD"), cancellable = true)
 	private void theGarden_getMusicType(CallbackInfoReturnable<MusicSound> ci) {
 		if (this.player != null) {

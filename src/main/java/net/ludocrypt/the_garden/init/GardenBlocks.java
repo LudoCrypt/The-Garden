@@ -12,10 +12,12 @@ import com.terraformersmc.terraform.wood.block.TerraformStairsBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.blocks.InsulationBlock;
 import net.ludocrypt.the_garden.blocks.InsulationPaddingBlock;
+import net.ludocrypt.the_garden.blocks.IvoryNoteBlock;
 import net.ludocrypt.the_garden.blocks.MulchBlock;
 import net.ludocrypt.the_garden.blocks.MulchLayerBlock;
 import net.ludocrypt.the_garden.blocks.MulchPortalBlock;
@@ -56,7 +58,7 @@ public class GardenBlocks {
 	private static final Map<Identifier, WoodBlocks> WOOD_BLOCKS = new LinkedHashMap<>();
 	private static final Map<Identifier, DyeUtil> DYED_BLOCKS = new LinkedHashMap<>();
 
-	public static final Block CRACKED_OBSIDIAN = add("cracked_obsidian", new Block(FabricBlockSettings.copyOf(Blocks.OBSIDIAN).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool()), ItemGroup.BUILDING_BLOCKS);
+	public static final Block CRACKED_OBSIDIAN = add("cracked_obsidian", new Block(FabricBlockSettings.copyOf(Blocks.OBSIDIAN).strength(35.0F, 500.0F).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool()), ItemGroup.BUILDING_BLOCKS);
 	public static final Block MULCH_PORTAL = add("mulch_portal", new MulchPortalBlock(FabricBlockSettings.copyOf(Blocks.END_PORTAL).dropsNothing()));
 	public static final BlockEntityType<MulchPortalBlockEntity> MULCH_PORTAL_BLOCK_ENTITY = add("mulch_portal", MULCH_PORTAL, MulchPortalBlockEntity::new);
 
@@ -77,14 +79,14 @@ public class GardenBlocks {
 	public static final Block OSB_STAIRS = add("osb_stairs", new OSBStairBlock(OSB_BOARD, FabricBlockSettings.copyOf(OSB_BOARD)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block OSB_SLAB = add("osb_slab", new OSBSlabBlock(FabricBlockSettings.copyOf(OSB_BOARD)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block OSB_WALL = add("osb_wall", new OSBWallBlock(FabricBlockSettings.copyOf(OSB_BOARD)), ItemGroup.DECORATIONS);
-	public static final Block WHITE_INSULATION = add("white_insulation", new InsulationBlock(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).breakByTool(FabricToolTags.SHEARS).requiresTool().materialColor(DyeColor.WHITE), 8, GardenParticles.WHITE_INSULATION), ItemGroup.BUILDING_BLOCKS);
-	public static final Block BROWN_INSULATION = add("brown_insulation", new InsulationBlock(FabricBlockSettings.copyOf(Blocks.BROWN_WOOL).breakByTool(FabricToolTags.SHEARS).requiresTool().materialColor(DyeColor.BROWN), 9, GardenParticles.BROWN_INSULATION), ItemGroup.BUILDING_BLOCKS);
-	public static final Block GREEN_INSULATION = add("green_insulation", new InsulationBlock(FabricBlockSettings.copyOf(Blocks.GREEN_WOOL).breakByTool(FabricToolTags.SHEARS).requiresTool().materialColor(DyeColor.GREEN), 10, GardenParticles.GREEN_INSULATION), ItemGroup.BUILDING_BLOCKS);
-	public static final Block PINK_INSULATION = add("pink_insulation", new InsulationBlock(FabricBlockSettings.copyOf(Blocks.PINK_WOOL).breakByTool(FabricToolTags.SHEARS).requiresTool().materialColor(DyeColor.PINK), 11, GardenParticles.PINK_INSULATION), ItemGroup.BUILDING_BLOCKS);
-	public static final Block WHITE_INSULATION_PADDING = add("white_insulation_padding", new InsulationPaddingBlock(FabricBlockSettings.copyOf(WHITE_INSULATION), 3, GardenParticles.WHITE_INSULATION), ItemGroup.BUILDING_BLOCKS);
-	public static final Block BROWN_INSULATION_PADDING = add("brown_insulation_padding", new InsulationPaddingBlock(FabricBlockSettings.copyOf(BROWN_INSULATION), 4, GardenParticles.BROWN_INSULATION), ItemGroup.BUILDING_BLOCKS);
-	public static final Block GREEN_INSULATION_PADDING = add("green_insulation_padding", new InsulationPaddingBlock(FabricBlockSettings.copyOf(GREEN_INSULATION), 5, GardenParticles.GREEN_INSULATION), ItemGroup.BUILDING_BLOCKS);
-	public static final Block PINK_INSULATION_PADDING = add("pink_insulation_padding", new InsulationPaddingBlock(FabricBlockSettings.copyOf(PINK_INSULATION), 6, GardenParticles.PINK_INSULATION), ItemGroup.BUILDING_BLOCKS);
+	public static final Block WHITE_INSULATION = add("white_insulation", new InsulationBlock(FabricBlockSettings.copyOf(Blocks.WHITE_WOOL).breakByTool(FabricToolTags.HOES).materialColor(DyeColor.WHITE), 8, GardenParticles.WHITE_INSULATION), ItemGroup.BUILDING_BLOCKS);
+	public static final Block BROWN_INSULATION = add("brown_insulation", new InsulationBlock(FabricBlockSettings.copyOf(Blocks.BROWN_WOOL).breakByTool(FabricToolTags.HOES).materialColor(DyeColor.BROWN), 9, GardenParticles.BROWN_INSULATION), ItemGroup.BUILDING_BLOCKS);
+	public static final Block GREEN_INSULATION = add("green_insulation", new InsulationBlock(FabricBlockSettings.copyOf(Blocks.GREEN_WOOL).breakByTool(FabricToolTags.HOES).materialColor(DyeColor.GREEN), 10, GardenParticles.GREEN_INSULATION), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PINK_INSULATION = add("pink_insulation", new InsulationBlock(FabricBlockSettings.copyOf(Blocks.PINK_WOOL).breakByTool(FabricToolTags.HOES).materialColor(DyeColor.PINK), 11, GardenParticles.PINK_INSULATION), ItemGroup.BUILDING_BLOCKS);
+	public static final Block WHITE_INSULATION_PADDING = add("white_insulation_padding", new InsulationPaddingBlock(FabricBlockSettings.copyOf(WHITE_INSULATION).nonOpaque(), 3, GardenParticles.WHITE_INSULATION), ItemGroup.BUILDING_BLOCKS);
+	public static final Block BROWN_INSULATION_PADDING = add("brown_insulation_padding", new InsulationPaddingBlock(FabricBlockSettings.copyOf(BROWN_INSULATION).nonOpaque(), 4, GardenParticles.BROWN_INSULATION), ItemGroup.BUILDING_BLOCKS);
+	public static final Block GREEN_INSULATION_PADDING = add("green_insulation_padding", new InsulationPaddingBlock(FabricBlockSettings.copyOf(GREEN_INSULATION).nonOpaque(), 5, GardenParticles.GREEN_INSULATION), ItemGroup.BUILDING_BLOCKS);
+	public static final Block PINK_INSULATION_PADDING = add("pink_insulation_padding", new InsulationPaddingBlock(FabricBlockSettings.copyOf(PINK_INSULATION).nonOpaque(), 6, GardenParticles.PINK_INSULATION), ItemGroup.BUILDING_BLOCKS);
 	public static final Block CORK = add("cork", new Block(FabricBlockSettings.copyOf(Blocks.WARPED_HYPHAE).strength(3.0F, 8.0F).breakByTool(FabricToolTags.AXES).materialColor(DyeColor.YELLOW)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block CORK_STAIRS = add("cork_stairs", new TerraformStairsBlock(CORK, FabricBlockSettings.copyOf(CORK)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block CORK_SLAB = add("cork_slab", new SlabBlock(FabricBlockSettings.copyOf(CORK)), ItemGroup.BUILDING_BLOCKS);
@@ -118,7 +120,9 @@ public class GardenBlocks {
 
 	public static final Block CHISELED_IVORY = add("chiseled_ivory", new Block(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
 	public static final Block IVORY_PILLAR = add("ivory_pillar", new PillarBlock(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.BUILDING_BLOCKS);
-	public static final Block IVORY_MARROW = add("ivory_marrow", new PillarBlock(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK).sounds(BlockSoundGroup.NETHER_STEM).breakByTool(FabricToolTags.HOES).materialColor(DyeColor.WHITE)), ItemGroup.BUILDING_BLOCKS);
+	public static final Block IVORY_MARROW_BLOCK = add("ivory_marrow_block", new PillarBlock(FabricBlockSettings.copyOf(Blocks.BONE_BLOCK).sounds(BlockSoundGroup.NETHER_STEM).breakByTool(FabricToolTags.HOES).materialColor(DyeColor.WHITE)), ItemGroup.BUILDING_BLOCKS);
+
+	public static final Block IVORY_NOTE_BLOCK = add("ivory_note_block", new IvoryNoteBlock(FabricBlockSettings.copyOf(IVORY_BLOCK)), ItemGroup.REDSTONE);
 
 	private static <B extends Block, T extends BlockEntity> BlockEntityType<T> add(String name, B block, Supplier<T> supplier) {
 		Identifier id = TheGarden.id(name);
@@ -176,6 +180,7 @@ public class GardenBlocks {
 		registerDirt();
 		registerCompostableBlocks();
 		registerFlammableBlocks();
+		registerFuels();
 	}
 
 	private static void registerCompostableBlocks() {
@@ -185,33 +190,60 @@ public class GardenBlocks {
 	private static void registerFlammableBlocks() {
 		FlammableBlockRegistry registry = FlammableBlockRegistry.getDefaultInstance();
 
-		registry.add(MULCH_BLOCK, 2, 10);
-		registry.add(MULCH_LAYER_BLOCK, 2, 10);
+		registry.add(MULCH_BLOCK, 40, 20);
+		registry.add(MULCH_LAYER_BLOCK, 40, 20);
 
-		registry.add(OSB_BOARD, 25, 5);
-		registry.add(OSB_STAIRS, 25, 5);
-		registry.add(OSB_SLAB, 25, 5);
-		registry.add(OSB_WALL, 25, 5);
+		registry.add(OSB_BOARD, 35, 10);
+		registry.add(OSB_STAIRS, 35, 10);
+		registry.add(OSB_SLAB, 35, 10);
+		registry.add(OSB_WALL, 35, 10);
 
 		registry.add(CORK, 15, 5);
 		registry.add(CORK_STAIRS, 15, 5);
 		registry.add(CORK_SLAB, 15, 5);
 		registry.add(CORK_WALL, 15, 5);
 
-		registry.add(CORK_BRICKS, 20, 3);
-		registry.add(CORK_BRICK_STAIRS, 20, 3);
-		registry.add(CORK_BRICK_SLAB, 20, 3);
-		registry.add(CORK_BRICK_WALL, 20, 3);
+		registry.add(CORK_BRICKS, 5, 3);
+		registry.add(CORK_BRICK_STAIRS, 5, 3);
+		registry.add(CORK_BRICK_SLAB, 5, 3);
+		registry.add(CORK_BRICK_WALL, 5, 3);
 
-		registry.add(WHITE_INSULATION, 1, 7);
-		registry.add(BROWN_INSULATION, 1, 7);
-		registry.add(GREEN_INSULATION, 1, 7);
-		registry.add(PINK_INSULATION, 1, 7);
+		registry.add(WHITE_INSULATION, 95, 35);
+		registry.add(BROWN_INSULATION, 95, 35);
+		registry.add(GREEN_INSULATION, 95, 35);
+		registry.add(PINK_INSULATION, 95, 35);
 
-		registry.add(WHITE_INSULATION_PADDING, 1, 6);
-		registry.add(BROWN_INSULATION_PADDING, 1, 6);
-		registry.add(GREEN_INSULATION_PADDING, 1, 6);
-		registry.add(PINK_INSULATION_PADDING, 1, 6);
+		registry.add(WHITE_INSULATION_PADDING, 95, 30);
+		registry.add(BROWN_INSULATION_PADDING, 95, 30);
+		registry.add(GREEN_INSULATION_PADDING, 95, 30);
+		registry.add(PINK_INSULATION_PADDING, 95, 30);
+	}
+
+	private static void registerFuels() {
+		FuelRegistry registry = FuelRegistry.INSTANCE;
+
+		registry.add(MULCH_BLOCK, 400);
+		registry.add(MULCH_LAYER_BLOCK, 50);
+
+		registry.add(OSB_BOARD, 800);
+		registry.add(OSB_STAIRS, 800);
+		registry.add(OSB_SLAB, 800);
+		registry.add(OSB_WALL, 800);
+
+		registry.add(CORK, 500);
+		registry.add(CORK_STAIRS, 500);
+		registry.add(CORK_SLAB, 500);
+		registry.add(CORK_WALL, 500);
+
+		registry.add(WHITE_INSULATION, 100);
+		registry.add(BROWN_INSULATION, 100);
+		registry.add(GREEN_INSULATION, 100);
+		registry.add(PINK_INSULATION, 100);
+
+		registry.add(WHITE_INSULATION_PADDING, 100);
+		registry.add(BROWN_INSULATION_PADDING, 100);
+		registry.add(GREEN_INSULATION_PADDING, 100);
+		registry.add(PINK_INSULATION_PADDING, 100);
 	}
 
 	private static void registerDirt() {

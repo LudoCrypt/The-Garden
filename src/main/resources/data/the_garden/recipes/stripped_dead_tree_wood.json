@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "bark",
+	"pattern": [
+		"##",
+		"##"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:stripped_dead_tree_log"
+		}
+	},
+	"result": {
+		"item": "the_garden:stripped_dead_tree_wood",
+		"count": 3
+	}
+}

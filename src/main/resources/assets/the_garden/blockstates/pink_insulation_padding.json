@@ -5,8 +5,10 @@
 				"north": true
 			},
 			"apply": {
-				"model": "the_garden:block/pink_insulation_padding_north",
-				"uvlock": true
+				"model": "the_garden:block/pink_insulation_padding",
+				"uvlock": true,
+				"x": 270,
+				"y": 0
 			}
 		},
 		{
@@ -14,8 +16,10 @@
 				"east": true
 			},
 			"apply": {
-				"model": "the_garden:block/pink_insulation_padding_east",
-				"uvlock": true
+				"model": "the_garden:block/pink_insulation_padding",
+				"uvlock": true,
+				"x": 270,
+				"y": 90
 			}
 		},
 		{
@@ -23,8 +27,10 @@
 				"south": true
 			},
 			"apply": {
-				"model": "the_garden:block/pink_insulation_padding_south",
-				"uvlock": true
+				"model": "the_garden:block/pink_insulation_padding",
+				"uvlock": true,
+				"x": 270,
+				"y": 180
 			}
 		},
 		{
@@ -32,8 +38,10 @@
 				"west": true
 			},
 			"apply": {
-				"model": "the_garden:block/pink_insulation_padding_west",
-				"uvlock": true
+				"model": "the_garden:block/pink_insulation_padding",
+				"uvlock": true,
+				"x": 270,
+				"y": 270
 			}
 		},
 		{
@@ -41,8 +49,9 @@
 				"up": true
 			},
 			"apply": {
-				"model": "the_garden:block/pink_insulation_padding_up",
-				"uvlock": true
+				"model": "the_garden:block/pink_insulation_padding",
+				"uvlock": true,
+				"x": 180
 			}
 		},
 		{
@@ -50,7 +59,7 @@
 				"down": true
 			},
 			"apply": {
-				"model": "the_garden:block/pink_insulation_padding_down",
+				"model": "the_garden:block/pink_insulation_padding",
 				"uvlock": true
 			}
 		}

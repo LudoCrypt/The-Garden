@@ -23,8 +23,11 @@ public class GardenItems {
 
 	public static final Item OBSIDIAN_SHARD = add("obsidian_shard", new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 	public static final Item CHARGED_OBSIDIAN_SHARD = add("charged_obsidian_shard", new ChargedObsidianShardItem(new FabricItemSettings().group(ItemGroup.MISC)));
-	public static final Item WORM = add("worm", new Item(new FabricItemSettings().food(new FoodComponent.Builder().alwaysEdible().statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 200, 1, false, false), 0.1F).hunger(2).saturationModifier(6.35F).snack().build()).group(ItemGroup.MISC)));
-	public static final Item WORMED_FISHING_ROD = add("wormed_fishing_rod", new WormRodItem(new FabricItemSettings().maxCount(1).group(ItemGroup.TOOLS)));
+	public static final Item WORM = add("worm", new Item(new FabricItemSettings().food(new FoodComponent.Builder().alwaysEdible().statusEffect(new StatusEffectInstance(StatusEffects.HUNGER, 200, 0, false, false), 0.1F).hunger(2).saturationModifier(6.35F).snack().build()).group(ItemGroup.FOOD)));
+	public static final Item WORMED_FISHING_ROD = add("wormed_fishing_rod", new WormRodItem(new FabricItemSettings().maxDamage(64).group(ItemGroup.TOOLS)));
+
+	public static final Item IVORY_SHARD = add("ivory_shard", new Item(new FabricItemSettings().group(ItemGroup.MISC)));
+	public static final Item IVORY_MARROW = add("ivory_marrow", new Item(new FabricItemSettings().food(new FoodComponent.Builder().alwaysEdible().hunger(5).saturationModifier(8.5F).snack().build()).group(ItemGroup.FOOD)));
 
 	private static <I extends Item> I add(String name, I item) {
 		ITEMS.put(TheGarden.id(name), item);

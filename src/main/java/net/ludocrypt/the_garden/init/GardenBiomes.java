@@ -6,12 +6,14 @@ import java.util.Map;
 import com.chocohead.mm.api.ClassTinkerers;
 
 import net.ludocrypt.the_garden.TheGarden;
+import net.ludocrypt.the_garden.config.GardenConfig;
 import net.ludocrypt.the_garden.util.GardenMulchEffects;
 import net.ludocrypt.the_garden.world.PointOne;
 import net.ludocrypt.the_garden.world.PointTwo;
 import net.ludocrypt.the_garden.world.biome.ChurchparkBiome;
 import net.ludocrypt.the_garden.world.biome.CorkwoodPlainsBiome;
 import net.ludocrypt.the_garden.world.biome.GravityFallsBiome;
+import net.ludocrypt.the_garden.world.biome.HolicIslesBiome;
 import net.ludocrypt.the_garden.world.biome.IvoryShallowsBiome;
 import net.ludocrypt.the_garden.world.biome.PlaypenBiome;
 import net.ludocrypt.the_garden.world.biome.PointOneBiome;
@@ -42,22 +44,46 @@ public class GardenBiomes {
 	public static final RegistryKey<Biome> POINT_TWO = add("point_two", PointTwoBiome.create(), GardenMulchEffects.defaultMulchColor.getRGB());
 	public static final RegistryKey<Biome> GRAVITY_FALLS = add("gravity_falls", GravityFallsBiome.create(), GardenMulchEffects.defaultMulchColor.getRGB());
 	public static final RegistryKey<Biome> IVORY_SHALLOWS = add("ivory_shallows", IvoryShallowsBiome.create(), GardenMulchEffects.defaultMulchColor.getRGB());
+	public static final RegistryKey<Biome> HOLIC_ISLES = add("holic_isles", HolicIslesBiome.create(), GardenMulchEffects.defaultMulchColor.getRGB());
 
 	public static void init() {
 		for (Identifier id : BIOMES.keySet()) {
 			Registry.register(BuiltinRegistries.BIOME, id, BIOMES.get(id));
 		}
 
-		PointOne.addBiome(POINT_ONE, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
-		PointOne.addBiome(PSEUDO_CORKWOOD_PLAINS, new MixedNoisePoint(0.0F, -0.2F, 0.0F, 0.0F, 0.0F));
-		PointOne.addBiome(CORKWOOD_PLAINS, new MixedNoisePoint(0.0F, -0.375F, 0.0F, 0.0F, 0.0F));
-		PointOne.addBiome(PLAYPEN, new MixedNoisePoint(0.0F, 0.3F, 0.0F, 0.0F, 0.275F));
-		PointOne.addBiome(CHURCHPARK, new MixedNoisePoint(0.0F, 0.0F, 0.4F, 0.0F, 0.325F));
-		PointOne.addBiome(SKINNED_HOUSEPARTS, new MixedNoisePoint(0.0F, 0.25F, 0.1F, 0.0F, 0.25F));
+		GardenConfig config = GardenConfig.getInstance();
 
-		PointTwo.addBiome(POINT_TWO, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
-		PointTwo.addBiome(GRAVITY_FALLS, new MixedNoisePoint(0.0F, 0.3F, 0.0F, 0.0F, 0.0F));
-		PointTwo.addBiome(IVORY_SHALLOWS, new MixedNoisePoint(0.0F, 0.0F, 0.2F, 0.2F, 0.0F));
+		if (config.enabledBiomes.enablePointOne) {
+			PointOne.addBiome(POINT_ONE, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enablePseudoCorkwoodPlains) {
+			PointOne.addBiome(PSEUDO_CORKWOOD_PLAINS, new MixedNoisePoint(0.0F, -0.2F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enableCorkwoodPlains) {
+			PointOne.addBiome(CORKWOOD_PLAINS, new MixedNoisePoint(0.0F, -0.375F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enablePlaypen) {
+			PointOne.addBiome(PLAYPEN, new MixedNoisePoint(0.0F, 0.3F, 0.0F, 0.0F, 0.275F));
+		}
+		if (config.enabledBiomes.enableChurchpark) {
+			PointOne.addBiome(CHURCHPARK, new MixedNoisePoint(0.0F, 0.0F, 0.4F, 0.0F, 0.325F));
+		}
+		if (config.enabledBiomes.enableSkinnedHouseparts) {
+			PointOne.addBiome(SKINNED_HOUSEPARTS, new MixedNoisePoint(0.0F, 0.25F, 0.1F, 0.0F, 0.25F));
+		}
+
+		if (config.enabledBiomes.enablePointTwo) {
+			PointTwo.addBiome(POINT_TWO, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enableGravityFalls) {
+			PointTwo.addBiome(GRAVITY_FALLS, new MixedNoisePoint(0.0F, 0.3F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enableIvoryShallows) {
+			PointTwo.addBiome(IVORY_SHALLOWS, new MixedNoisePoint(0.0F, 0.0F, 0.2F, 0.2F, 0.0F));
+		}
+		if (config.enabledBiomes.enableHolicIsles) {
+			PointTwo.addBiome(HOLIC_ISLES, new MixedNoisePoint(0.2F, 0.0F, 0.2F, -0.25F, 0.0F));
+		}
 	}
 
 	private static RegistryKey<Biome> add(String s, Biome b, int rgb) {

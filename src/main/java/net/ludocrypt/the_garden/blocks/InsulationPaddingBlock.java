@@ -4,12 +4,14 @@ import net.ludocrypt.the_garden.util.TripplePair;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
+import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
@@ -60,7 +62,11 @@ public class InsulationPaddingBlock extends InsulationBlock {
 		}
 
 		if (player.isSneaking()) {
-			state = state.with(DIRECTION_PROPERTIES.getAFromB(ctx.getPlayerLookDirection()), true);
+			if (state.get(DIRECTION_PROPERTIES.getAFromB(ctx.getPlayerLookDirection()))) {
+				state = state.with(DIRECTION_PROPERTIES.getAFromB(ctx.getPlayerLookDirection().getOpposite()), true);
+			} else {
+				state = state.with(DIRECTION_PROPERTIES.getAFromB(ctx.getPlayerLookDirection()), true);
+			}
 		} else {
 			state = state.with(DIRECTION_PROPERTIES.getAFromB(side), true);
 		}
@@ -74,14 +80,11 @@ public class InsulationPaddingBlock extends InsulationBlock {
 		boolean canReplace = false;
 
 		if (stack.getItem().equals(Item.fromBlock(this))) {
+			canReplace = true;
 			if (state.isOf(this)) {
-				if (ctx.getPlayer().isSneaking()) {
-					canReplace = !state.get(DIRECTION_PROPERTIES.getAFromB(ctx.getPlayerLookDirection()));
-				} else {
-					canReplace = !state.get(DIRECTION_PROPERTIES.getAFromB(ctx.getSide().getOpposite()));
+				if (state.get(DIRECTION_PROPERTIES.getAFromB(ctx.getPlayerLookDirection().getOpposite())) || (state.get(DIRECTION_PROPERTIES.getAFromB(ctx.getSide().getOpposite())) && state.get(DIRECTION_PROPERTIES.getAFromB(ctx.getSide())))) {
+					canReplace = false;
 				}
-			} else {
-				canReplace = true;
 			}
 		}
 
@@ -102,6 +105,17 @@ public class InsulationPaddingBlock extends InsulationBlock {
 	@Override
 	public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
 		entity.handleFallDamage(distance, 0.9F);
+	}
+
+	@Override
+	public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack) {
+		player.incrementStat(Stats.MINED.getOrCreateStat(this));
+		player.addExhaustion(0.005F);
+		DIRECTION_PROPERTIES.getAB_SIDE().forEach((property, direction) -> {
+			if (state.get(property)) {
+				dropStacks(state, world, pos, blockEntity, player, stack);
+			}
+		});
 	}
 
 	static {

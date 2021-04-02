@@ -46,6 +46,12 @@ dependencies {
 
 	includeMod "com.terraformersmc:vistas:${project.vistas_version}"
 	includeMod "com.github.Chocohead:Fabric-ASM:${project.fabric_asm_version}"
+	
+	includeMod "me.shedaniel.cloth:cloth-config-fabric:${project.config_version}"
+
+	modImplementation ("com.github.qouteall.ImmersivePortalsMod:imm_ptl_core:${project.immersive_portals_core_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 }
 
 def includeMod(String dep) {

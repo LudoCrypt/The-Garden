@@ -1,0 +1,21 @@
+{
+	"replace": false,
+	"values": [
+		"the_garden:white_edging",
+		"the_garden:orange_edging",
+		"the_garden:magenta_edging",
+		"the_garden:light_blue_edging",
+		"the_garden:yellow_edging",
+		"the_garden:lime_edging",
+		"the_garden:pink_edging",
+		"the_garden:gray_edging",
+		"the_garden:light_gray_edging",
+		"the_garden:cyan_edging",
+		"the_garden:purple_edging",
+		"the_garden:blue_edging",
+		"the_garden:brown_edging",
+		"the_garden:green_edging",
+		"the_garden:red_edging",
+		"the_garden:black_edging"
+	]
+}

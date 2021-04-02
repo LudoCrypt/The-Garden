@@ -9,6 +9,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.blocks.entity.MulchPortalBlockEntity;
+import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
 import net.ludocrypt.the_garden.mixin.RenderPhaseAccessor;
 import net.ludocrypt.the_garden.util.Color;
 import net.ludocrypt.the_garden.util.GardenMulchEffects;
@@ -37,16 +38,17 @@ public class MulchPortalBlockEntityRenderer extends BlockEntityRenderer<MulchPor
 	}
 
 	public void render(MulchPortalBlockEntity entity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
-		double distance = entity.getPos().getSquaredDistance(this.dispatcher.camera.getPos(), true);
-		int layerCount = this.getLayerCount(distance);
-		float yHeight = this.getYHeight();
-		Matrix4f matrix = matrixStack.peek().getModel();
-		this.render(entity, yHeight, matrix, vertexConsumerProvider.getBuffer(RENDER_LAYERS.get(0)));
+		if (!GardenImmersivePortalsCompat.isInstalled) {
+			double distance = entity.getPos().getSquaredDistance(this.dispatcher.camera.getPos(), true);
+			int layerCount = this.getLayerCount(distance);
+			float yHeight = this.getYHeight();
+			Matrix4f matrix = matrixStack.peek().getModel();
+			this.render(entity, yHeight, matrix, vertexConsumerProvider.getBuffer(RENDER_LAYERS.get(0)));
 
-		for (int l = 1; l < layerCount; ++l) {
-			this.render(entity, yHeight, matrix, vertexConsumerProvider.getBuffer(RENDER_LAYERS.get(l)));
+			for (int l = 1; l < layerCount; ++l) {
+				this.render(entity, yHeight, matrix, vertexConsumerProvider.getBuffer(RENDER_LAYERS.get(l)));
+			}
 		}
-
 	}
 
 	private void render(MulchPortalBlockEntity entity, float yHeight, Matrix4f matrix4f, VertexConsumer vertexConsumer) {

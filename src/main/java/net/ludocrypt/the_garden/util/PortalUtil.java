@@ -2,27 +2,31 @@ package net.ludocrypt.the_garden.util;
 
 import java.util.Iterator;
 
+import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
+import net.ludocrypt.the_garden.compat.impl.entity.MulchPortalEntity;
 import net.ludocrypt.the_garden.init.GardenBlocks;
+import net.ludocrypt.the_garden.world.PointOne;
 import net.minecraft.entity.Entity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.TeleportTarget;
+import net.minecraft.world.World;
 import net.minecraft.world.border.WorldBorder;
 import net.minecraft.world.dimension.DimensionType;
 
 public class PortalUtil {
 
-	public static TeleportTarget getTeleportTarget(BlockPos portal, Entity teleported, ServerWorld destination, boolean bl) {
+	public static TeleportTarget getTeleportTarget(BlockPos portal, World world, Entity teleported, ServerWorld destination, boolean bl) {
 
 		BlockPos pos = portal;
 
-		if (teleported.world.getBlockState(pos.north()).isOf(GardenBlocks.MULCH_PORTAL) && teleported.world.getBlockState(pos.west()).isOf(GardenBlocks.MULCH_PORTAL)) {
+		if (world.getBlockState(pos.north()).isOf(GardenBlocks.MULCH_PORTAL) && world.getBlockState(pos.west()).isOf(GardenBlocks.MULCH_PORTAL)) {
 			pos = pos.west();
-		} else if (teleported.world.getBlockState(pos.south()).isOf(GardenBlocks.MULCH_PORTAL) && teleported.world.getBlockState(pos.west()).isOf(GardenBlocks.MULCH_PORTAL)) {
+		} else if (world.getBlockState(pos.south()).isOf(GardenBlocks.MULCH_PORTAL) && world.getBlockState(pos.west()).isOf(GardenBlocks.MULCH_PORTAL)) {
 			pos = pos.west().south();
-		} else if (teleported.world.getBlockState(pos.south()).isOf(GardenBlocks.MULCH_PORTAL) && teleported.world.getBlockState(pos.east()).isOf(GardenBlocks.MULCH_PORTAL)) {
+		} else if (world.getBlockState(pos.south()).isOf(GardenBlocks.MULCH_PORTAL) && world.getBlockState(pos.east()).isOf(GardenBlocks.MULCH_PORTAL)) {
 			pos = pos.south().east();
 		}
 
@@ -31,7 +35,7 @@ public class PortalUtil {
 		double e = Math.max(-2.9999872E7D, worldBorder.getBoundNorth() + 16.0D);
 		double f = Math.min(2.9999872E7D, worldBorder.getBoundEast() - 16.0D);
 		double g = Math.min(2.9999872E7D, worldBorder.getBoundSouth() - 16.0D);
-		double h = DimensionType.method_31109(teleported.world.getDimension(), destination.getDimension());
+		double h = DimensionType.method_31109(world.getDimension(), destination.getDimension());
 		if (bl) {
 			pos = new BlockPos(MathHelper.clamp(pos.getX() * h, d, f), 0, MathHelper.clamp(pos.getZ() * h, e, g));
 		}
@@ -106,7 +110,7 @@ public class PortalUtil {
 				}
 
 				if (goAgain) {
-					return getTeleportTarget(goAgainPos, teleported, destination, false);
+					return getTeleportTarget(goAgainPos, world, teleported, destination, false);
 				}
 			}
 
@@ -123,10 +127,18 @@ public class PortalUtil {
 				destination.setBlockState(blockPos, GardenBlocks.MULCH_PORTAL.getDefaultState(), 2);
 			});
 
+			if (GardenImmersivePortalsCompat.isInstalled) {
+				if (!world.isClient) {
+					if (destination.getRegistryKey().equals(PointOne.WORLD)) {
+						MulchPortalEntity.generateFromPointOne(world, portal, pos, destination.getServer());
+					}
+				}
+			}
+
 			pos = pos.up().west();
 		}
 
-		return new TeleportTarget(Vec3d.ofCenter(pos), Vec3d.ZERO, teleported.yaw, teleported.pitch);
+		return new TeleportTarget(Vec3d.ofCenter(pos), Vec3d.ZERO, teleported != null ? teleported.yaw : 0, teleported != null ? teleported.pitch : 0);
 	}
 
 }

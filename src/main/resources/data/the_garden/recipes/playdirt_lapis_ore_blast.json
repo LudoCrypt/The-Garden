@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:blasting",
+	"ingredient": {
+		"item": "the_garden:playdirt_lapis_ore"
+	},
+	"result": "minecraft:lapis_lazuli",
+	"experience": 0.3,
+	"cookingtime": 100
+}

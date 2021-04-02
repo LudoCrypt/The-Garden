@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "the_garden:playdirt_redstone_ore"
+	},
+	"result": "minecraft:redstone",
+	"experience": 0.3,
+	"cookingtime": 200
+}

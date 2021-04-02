@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "planks",
+	"ingredients": [
+		{
+			"tag": "the_garden:edging"
+		},
+		{
+			"item": "minecraft:yellow_dye"
+		}
+	],
+	"result": {
+		"item": "the_garden:yellow_edging",
+		"count": 1
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "wooden_stairs",
+	"pattern": [
+		"#  ",
+		"## ",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:osb_board"
+		}
+	},
+	"result": {
+		"item": "the_garden:osb_stairs",
+		"count": 4
+	}
+}

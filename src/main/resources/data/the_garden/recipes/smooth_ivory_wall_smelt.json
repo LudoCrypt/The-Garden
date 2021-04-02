@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "the_garden:ivory_wall"
+	},
+	"result": "the_garden:smooth_ivory_wall",
+	"experience": 0.1,
+	"cookingtime": 150
+}

@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:smooth_ivory"
+		}
+	},
+	"result": {
+		"item": "the_garden:smooth_ivory_wall",
+		"count": 6
+	}
+}

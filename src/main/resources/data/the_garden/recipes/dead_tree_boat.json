@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "boat",
+	"pattern": [
+		"# #",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:dead_tree_planks"
+		}
+	},
+	"result": {
+		"item": "the_garden:dead_tree_boat"
+	}
+}

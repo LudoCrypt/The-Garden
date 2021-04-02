@@ -1,0 +1,13 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "planks",
+	"ingredients": [
+		{
+			"tag": "the_garden:dead_tree_logs"
+		}
+	],
+	"result": {
+		"item": "the_garden:dead_tree_planks",
+		"count": 4
+	}
+}

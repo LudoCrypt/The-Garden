@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:blasting",
+	"ingredient": {
+		"item": "the_garden:playdirt_diamond_ore"
+	},
+	"result": "minecraft:diamond",
+	"experience": 0.3,
+	"cookingtime": 100
+}

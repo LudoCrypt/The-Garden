@@ -1,0 +1,9 @@
+{
+	"type": "minecraft:smelting",
+	"ingredient": {
+		"item": "the_garden:playdirt_iron_ore"
+	},
+	"result": "minecraft:iron_nugget",
+	"experience": 0.3,
+	"cookingtime": 200
+}

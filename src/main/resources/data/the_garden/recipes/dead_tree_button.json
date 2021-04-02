@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"group": "wooden_button",
+	"ingredients": [
+		{
+			"item": "the_garden:dead_tree_planks"
+		}
+	],
+	"result": {
+		"item": "the_garden:dead_tree_button"
+	}
+}

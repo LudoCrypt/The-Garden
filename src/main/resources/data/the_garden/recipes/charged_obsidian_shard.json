@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "the_garden:obsidian_shard"
+		},
+		{
+			"item": "minecraft:blaze_rod"
+		}
+	],
+	"result": {
+		"item": "the_garden:charged_obsidian_shard",
+		"count": 1
+	}
+}

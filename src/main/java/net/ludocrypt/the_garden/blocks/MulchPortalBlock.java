@@ -7,6 +7,7 @@ import com.google.common.collect.ImmutableList;
 
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.ludocrypt.the_garden.blocks.entity.MulchPortalBlockEntity;
+import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.init.GardenParticles;
 import net.ludocrypt.the_garden.util.PortalUtil;
@@ -22,7 +23,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -36,17 +39,26 @@ public class MulchPortalBlock extends Block implements BlockEntityProvider {
 
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+		if (GardenImmersivePortalsCompat.isInstalled) {
+			return VoxelShapes.empty();
+		}
 		return Block.createCuboidShape(0, 0, 0, 16, 14, 16);
 	}
 
 	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-		if (!world.isClient) {
-			ServerWorld serverWorld = (ServerWorld) world;
-			MinecraftServer server = serverWorld.getServer();
-			ServerWorld dimension = world.getRegistryKey() == PointOne.WORLD ? server.getWorld(World.OVERWORLD) : server.getWorld(PointOne.WORLD);
-			FabricDimensions.teleport(entity, dimension, PortalUtil.getTeleportTarget(pos, entity, dimension, true));
+		if (!GardenImmersivePortalsCompat.isInstalled) {
+			if (!world.isClient) {
+				ServerWorld serverWorld = (ServerWorld) world;
+				teleport(serverWorld, entity, pos, PointOne.WORLD);
+			}
 		}
+	}
+
+	private void teleport(ServerWorld world, Entity entity, BlockPos pos, RegistryKey<World> substitute) {
+		MinecraftServer server = world.getServer();
+		ServerWorld dimension = world.getRegistryKey() == substitute ? server.getWorld(World.OVERWORLD) : server.getWorld(substitute);
+		FabricDimensions.teleport(entity, dimension, PortalUtil.getTeleportTarget(pos, world, entity, dimension, true));
 	}
 
 	@Override

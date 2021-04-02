@@ -26,8 +26,9 @@ public class IvoryShallowsBiome {
 		GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
 		generationSettings.carver(GenerationStep.Carver.AIR, GardenCarvers.POINT_TWO_CONFIGURED_CARVER);
 		generationSettings.surfaceBuilder(SurfaceBuilder.NOPE.withConfig(new TernarySurfaceConfig(GardenBlocks.PLAYDIRT.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState())));
-		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.DIRT_PILLAR);
 		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.IVORY_TUSK);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.IVORY_MARROW);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.DIRT_PILLAR);
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_TWO_TILES);
 
 		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();

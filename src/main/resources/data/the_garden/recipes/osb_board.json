@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"MM",
+		"MM"
+	],
+	"key": {
+		"M": {
+			"item": "the_garden:mulch_block"
+		}
+	},
+	"result": {
+		"item": "the_garden:osb_board",
+		"count": 1
+	}
+}

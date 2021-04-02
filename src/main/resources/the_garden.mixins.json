@@ -16,7 +16,8 @@
 		"ServerPlayerEntityMixin",
 		"ItemStackMixin",
 		"RedstoneWireBlockMixin",
-		"TeleportCommandAccessor"
+		"TeleportCommandAccessor",
+		"InstrumentMixin"
 	],
 	"client": [
 		"ClientWorldMixin",

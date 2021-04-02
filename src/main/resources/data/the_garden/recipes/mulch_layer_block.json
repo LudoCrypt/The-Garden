@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"##"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:mulch_block"
+		}
+	},
+	"result": {
+		"item": "the_garden:mulch_layer_block",
+		"count": 8
+	}
+}

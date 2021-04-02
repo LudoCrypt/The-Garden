@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"group": "wooden_slab",
+	"pattern": [
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:smooth_ivory"
+		}
+	},
+	"result": {
+		"item": "the_garden:smooth_ivory_slab",
+		"count": 6
+	}
+}

@@ -62,7 +62,7 @@ public class IvoryTuskFeature extends Feature<DefaultFeatureConfig> {
 
 		int heightToTop = 3;
 
-		while (world.isAir(mut.up()) && mut.getY() < 255) {
+		while (!world.getBlockState(mut.up()).isOf(GardenBlocks.PLAYDIRT) && mut.getY() < 255) {
 			heightToTop++;
 			mut.move(Direction.UP);
 		}

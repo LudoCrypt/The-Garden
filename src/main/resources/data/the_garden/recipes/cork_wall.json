@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "the_garden:cork"
+		}
+	},
+	"result": {
+		"item": "the_garden:cork_wall",
+		"count": 6
+	}
+}

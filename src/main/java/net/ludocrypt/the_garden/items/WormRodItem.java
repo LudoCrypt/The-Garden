@@ -1,6 +1,7 @@
 package net.ludocrypt.the_garden.items;
 
 import net.ludocrypt.the_garden.access.ItemStackCopy;
+import net.ludocrypt.the_garden.config.GardenConfig;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.FishingBobberEntity;
@@ -37,8 +38,9 @@ public class WormRodItem extends FishingRodItem {
 		} else {
 			world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_FISHING_BOBBER_THROW, SoundCategory.NEUTRAL, 0.5F, 0.4F / (RANDOM.nextFloat() * 0.4F + 0.8F));
 			if (!world.isClient) {
-				int i = EnchantmentHelper.getLure(itemStack) + 4;
-				int k = EnchantmentHelper.getLuckOfTheSea(itemStack) + 4;
+				int multiplier = GardenConfig.getInstance().baitMultiplier;
+				int i = EnchantmentHelper.getLure(itemStack) + multiplier;
+				int k = EnchantmentHelper.getLuckOfTheSea(itemStack) + multiplier;
 				world.spawnEntity(new FishingBobberEntity(user, world, k, i));
 			}
 

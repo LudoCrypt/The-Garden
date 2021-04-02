@@ -19,6 +19,7 @@ import net.ludocrypt.the_garden.world.features.DeadTreeFeature;
 import net.ludocrypt.the_garden.world.features.DirtPillarFeature;
 import net.ludocrypt.the_garden.world.features.DirtSpikeFeature;
 import net.ludocrypt.the_garden.world.features.EllipsoidFeatureConfig;
+import net.ludocrypt.the_garden.world.features.IvoryMarrowFeature;
 import net.ludocrypt.the_garden.world.features.IvoryTuskFeature;
 import net.ludocrypt.the_garden.world.features.PseudoBaseFeature;
 import net.ludocrypt.the_garden.world.features.PuddleFeature;
@@ -94,6 +95,7 @@ public class GardenFeatures {
 	public static final Feature<DefaultFeatureConfig> VINE_FEATURE = add("vine_feature", new VineFeature(DefaultFeatureConfig.CODEC));
 	public static final Feature<DefaultFeatureConfig> TWISTED_VINE_FEATURE = add("twisted_vine_feature", new TwistedVineFeature(DefaultFeatureConfig.CODEC));
 	public static final Feature<DefaultFeatureConfig> IVORY_TUSK_FEATURE = add("ivory_tusk_feature", new IvoryTuskFeature(DefaultFeatureConfig.CODEC));
+	public static final Feature<DefaultFeatureConfig> IVORY_MARROW_FEATURE = add("ivory_marrow_feature", new IvoryMarrowFeature(DefaultFeatureConfig.CODEC));
 
 	// Point One
 	public static final ConfiguredFeature<?, ?> POINT_ONE_TILES = add("point_one_tiles", TILE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(TILE_FEATURE_DECORATOR.configure(new ChanceDecoratorConfig(255))));
@@ -119,6 +121,7 @@ public class GardenFeatures {
 	public static final ConfiguredFeature<?, ?> VINE = add("vine", VINE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(1, 0.8F, 2))));
 	public static final ConfiguredFeature<?, ?> TWISTED_VINE = add("twisted_vine", TWISTED_VINE_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.5F, 2))));
 	public static final ConfiguredFeature<?, ?> IVORY_TUSK = add("ivory_tusk", IVORY_TUSK_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.3F, 1))));
+	public static final ConfiguredFeature<?, ?> IVORY_MARROW = add("ivory_marrow", IVORY_MARROW_FEATURE.configure(DefaultFeatureConfig.INSTANCE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.5F, 2))));
 
 	private static <FC extends FeatureConfig, F extends Feature<FC>> ConfiguredFeature<FC, F> add(String name, ConfiguredFeature<FC, F> cf) {
 		CONFIGURED_FEATURES.put(TheGarden.id(name), cf);

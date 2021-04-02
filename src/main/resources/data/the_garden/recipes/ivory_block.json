@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"II",
+		"II"
+	],
+	"key": {
+		"I": {
+			"item": "the_garden:ivory_shard"
+		}
+	},
+	"result": {
+		"item": "the_garden:ivory_block",
+		"count": 1
+	}
+}
