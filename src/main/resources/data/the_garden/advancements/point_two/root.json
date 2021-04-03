@@ -1,0 +1,31 @@
+{
+	"display": {
+		"icon": {
+			"item": "the_garden:playdirt"
+		},
+		"title": {
+			"translate": "the_garden.advancements.point_two.root.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.point_two.root.description"
+		},
+		"frame": "task",
+		"show_toast": false,
+		"announce_to_chat": false,
+		"hidden": false,
+		"background": "the_garden:textures/block/playdirt.png"
+	},
+	"criteria": {
+		"entered_point_two": {
+			"trigger": "minecraft:changed_dimension",
+			"conditions": {
+				"to": "the_garden:point_two"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"entered_point_two"
+		]
+	]
+}

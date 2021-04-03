@@ -1,0 +1,28 @@
+{
+	"parent": "the_garden:point_one/root",
+	"display": {
+		"icon": {
+			"item": "the_garden:mulch_layer_block"
+		},
+		"title": {
+			"translate": "the_garden.advancements.point_one.cultivate_mulch.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.point_one.cultivate_mulch.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"get": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"requirements": [
+		[
+			"get"
+		]
+	]
+}

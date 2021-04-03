@@ -17,7 +17,9 @@
 		"ItemStackMixin",
 		"RedstoneWireBlockMixin",
 		"TeleportCommandAccessor",
-		"InstrumentMixin"
+		"InstrumentMixin",
+		"ServerAdvancementLoaderMixin",
+		"HoeItemMixin"
 	],
 	"client": [
 		"ClientWorldMixin",

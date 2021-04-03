@@ -1,0 +1,35 @@
+{
+	"parent": "minecraft:nether/obtain_crying_obsidian",
+	"display": {
+		"icon": {
+			"item": "the_garden:obsidian_shard"
+		},
+		"title": {
+			"translate": "the_garden.advancements.story.mine_cracked_obsidian.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.story.mine_cracked_obsidian.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"mine": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "the_garden:obsidian_shard"
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"mine"
+		]
+	]
+}

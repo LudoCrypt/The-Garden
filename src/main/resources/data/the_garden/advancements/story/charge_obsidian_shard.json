@@ -1,0 +1,35 @@
+{
+	"parent": "the_garden:story/mine_cracked_obsidian",
+	"display": {
+		"icon": {
+			"item": "the_garden:charged_obsidian_shard"
+		},
+		"title": {
+			"translate": "the_garden.advancements.story.charge_obsidian_shard.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.story.charge_obsidian_shard.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"craft": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "the_garden:charged_obsidian_shard"
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"craft"
+		]
+	]
+}

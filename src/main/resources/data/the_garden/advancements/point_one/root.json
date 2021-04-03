@@ -1,0 +1,31 @@
+{
+	"display": {
+		"icon": {
+			"item": "the_garden:mulch_block"
+		},
+		"title": {
+			"translate": "the_garden.advancements.point_one.root.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.point_one.root.description"
+		},
+		"frame": "task",
+		"show_toast": false,
+		"announce_to_chat": false,
+		"hidden": false,
+		"background": "the_garden:textures/block/osb_board.png"
+	},
+	"criteria": {
+		"entered_point_one": {
+			"trigger": "minecraft:changed_dimension",
+			"conditions": {
+				"to": "the_garden:point_one"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"entered_point_one"
+		]
+	]
+}

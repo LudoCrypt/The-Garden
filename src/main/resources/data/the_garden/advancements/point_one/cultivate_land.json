@@ -1,0 +1,28 @@
+{
+	"parent": "the_garden:point_one/get_dead_tree",
+	"display": {
+		"icon": {
+			"item": "the_garden:playdirt_farmland"
+		},
+		"title": {
+			"translate": "the_garden.advancements.point_one.cultivate_land.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.point_one.cultivate_land.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"get": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"requirements": [
+		[
+			"get"
+		]
+	]
+}

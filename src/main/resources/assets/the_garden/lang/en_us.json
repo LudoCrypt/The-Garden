@@ -133,5 +133,41 @@
 	"biome.the_garden.point_two": "Point Two",
 	"biome.the_garden.gravity_falls": "Gravity Falls",
 	"biome.the_garden.ivory_shallows": "Ivory Shallows",
-	"biome.the_garden.holic_isles": "Holic Isles"
+	"biome.the_garden.holic_isles": "Holic Isles",
+	// Advancements
+	// Story
+	"the_garden.advancements.story.mine_cracked_obsidian.title": "These Tears Break Me",
+	"the_garden.advancements.story.mine_cracked_obsidian.description": "Obtain an Obsidian Shard",
+	"the_garden.advancements.story.charge_obsidian_shard.title": "Light to a New World",
+	"the_garden.advancements.story.charge_obsidian_shard.description": "Heat an Obsidian Shard with a Blaze Rod",
+	"the_garden.advancements.story.go_to_point_one.title": "Crawling In My Skin",
+	"the_garden.advancements.story.go_to_point_one.description": "Go to Point One",
+	// Point One
+	"the_garden.advancements.point_one.root.title": "Point One",
+	"the_garden.advancements.point_one.root.description": "Point One",
+	"the_garden.advancements.point_one.cultivate_mulch.title": "Digging for Treasure",
+	"the_garden.advancements.point_one.cultivate_mulch.description": "Dig up Mulch Layer",
+	"the_garden.advancements.point_one.explore.title": "A True Realter",
+	"the_garden.advancements.point_one.explore.description": "Explore all Point One Biomes",
+	"the_garden.advancements.point_one.get_dead_tree.title": "Getting Wood... Again?",
+	"the_garden.advancements.point_one.get_dead_tree.description": "Get Dead Tree Logs",
+	"the_garden.advancements.point_one.cultivate_land.title": "Playground Cultivation",
+	"the_garden.advancements.point_one.cultivate_land.description": "Till Playdirt",
+	"the_garden.advancements.point_one.get_wormed_fishing_rod.title": "Get Baited lol",
+	"the_garden.advancements.point_one.get_wormed_fishing_rod.description": "Get a Wormed Fishing Rod",
+	"the_garden.advancements.point_one.get_insulation.title": "A Complete Abode",
+	"the_garden.advancements.point_one.get_insulation.description": "Collect all Insulation and OSB",
+	"the_garden.advancements.point_one.go_to_point_two.title": "The Heavens Above",
+	"the_garden.advancements.point_one.go_to_point_two.description": "Enter Point Two",
+	// Point Two
+	"the_garden.advancements.point_two.root.title": "Point Two",
+	"the_garden.advancements.point_two.root.description": "Point Two",
+	"the_garden.advancements.point_two.explore.title": "Christopher Columbus",
+	"the_garden.advancements.point_two.explore.description": "Explore all Point Two Biomes",
+	"the_garden.advancements.point_two.get_ivory.title": "Bones's Little Cousin",
+	"the_garden.advancements.point_two.get_ivory.description": "Get Ivory Shards",
+	"the_garden.advancements.point_two.get_ivory_marrow.title": "Almost Cannibalism",
+	"the_garden.advancements.point_two.get_ivory_marrow.description": "Get Ivory Marrow",
+	"the_garden.advancements.point_two.get_ivory_note_block.title": "\"Extended\" Range",
+	"the_garden.advancements.point_two.get_ivory_note_block.description": "Craft an Ivory Note Block"
 }

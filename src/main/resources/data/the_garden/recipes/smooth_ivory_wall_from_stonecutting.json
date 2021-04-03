@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "the_garden:smooth_ivory"
+	},
+	"result": "the_garden:smooth_ivory_wall",
+	"count": 1
+}

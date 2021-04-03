@@ -1,0 +1,35 @@
+{
+	"parent": "the_garden:point_one/root",
+	"display": {
+		"icon": {
+			"item": "the_garden:dead_tree_log"
+		},
+		"title": {
+			"translate": "the_garden.advancements.point_one.get_dead_tree.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.point_one.get_dead_tree.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"get": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "the_garden:dead_tree_log"
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"get"
+		]
+	]
+}

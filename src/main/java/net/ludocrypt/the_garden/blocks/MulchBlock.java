@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import net.ludocrypt.the_garden.TheGarden;
+import net.ludocrypt.the_garden.advancements.GardenAdvancement;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.init.GardenParticles;
 import net.minecraft.block.Block;
@@ -132,9 +133,11 @@ public class MulchBlock extends Block {
 					double d = player.getX() - pos.getX();
 					double e = player.getY() - pos.getY();
 					double f = player.getZ() - pos.getZ();
-					itemEntity.setVelocity(d * 0.1D, e * 0.1D + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.08D, f * 0.1D);
+					itemEntity.setVelocity(d * 0.3D, e * 0.1D + Math.sqrt(Math.sqrt(d * d + e * e + f * f)) * 0.4D, f * 0.3D);
 					world.spawnEntity(itemEntity);
 				}
+
+				GardenAdvancement.grantAdvancement(player, TheGarden.id("point_one/cultivate_mulch"));
 			}
 
 			return ActionResult.SUCCESS;

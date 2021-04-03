@@ -1,0 +1,35 @@
+{
+	"parent": "the_garden:point_one/get_dead_tree",
+	"display": {
+		"icon": {
+			"item": "the_garden:wormed_fishing_rod"
+		},
+		"title": {
+			"translate": "the_garden.advancements.point_one.get_wormed_fishing_rod.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.point_one.get_wormed_fishing_rod.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"get": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "the_garden:wormed_fishing_rod"
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"get"
+		]
+	]
+}

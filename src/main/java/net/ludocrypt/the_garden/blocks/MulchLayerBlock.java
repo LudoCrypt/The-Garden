@@ -1,5 +1,7 @@
 package net.ludocrypt.the_garden.blocks;
 
+import java.util.Random;
+
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
@@ -7,6 +9,7 @@ import net.minecraft.block.SnowBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -48,6 +51,16 @@ public class MulchLayerBlock extends SnowBlock {
 	@Override
 	public void onSteppedOn(World world, BlockPos pos, Entity entity) {
 		MulchBlock.spawnSteppingParticles(world, pos, entity);
+	}
+
+	@Override
+	public boolean hasRandomTicks(BlockState state) {
+		return false;
+	}
+
+	@Override
+	public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+
 	}
 
 	@Override

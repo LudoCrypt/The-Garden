@@ -1,0 +1,8 @@
+{
+	"type": "minecraft:stonecutting",
+	"ingredient": {
+		"item": "the_garden:ivory_bricks"
+	},
+	"result": "the_garden:ivory_brick_stairs",
+	"count": 1
+}

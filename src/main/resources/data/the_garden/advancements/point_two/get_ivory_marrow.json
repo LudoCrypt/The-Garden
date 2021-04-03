@@ -1,0 +1,35 @@
+{
+	"parent": "the_garden:point_two/get_ivory",
+	"display": {
+		"icon": {
+			"item": "the_garden:ivory_marrow"
+		},
+		"title": {
+			"translate": "the_garden.advancements.point_two.get_ivory_marrow.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.point_two.get_ivory_marrow.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"get": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"item": "the_garden:ivory_marrow"
+					}
+				]
+			}
+		}
+	},
+	"requirements": [
+		[
+			"get"
+		]
+	]
+}
