@@ -113,7 +113,7 @@ public class EdgingBlock extends Block implements Waterloggable {
 	public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack stack) {
 		player.incrementStat(Stats.MINED.getOrCreateStat(this));
 		player.addExhaustion(0.005F);
-		DIRECTION_PROPERTIES.getAB_SIDE().forEach((property, direction) -> {
+		DIRECTION_PROPERTIES.getA_LIST().forEach((property) -> {
 			if (state.get(property)) {
 				dropStacks(state, world, pos, blockEntity, player, stack);
 			}

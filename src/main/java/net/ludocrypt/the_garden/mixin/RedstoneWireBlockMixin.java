@@ -1,5 +1,6 @@
 package net.ludocrypt.the_garden.mixin;
 
+import java.util.Collections;
 import java.util.Iterator;
 
 import org.spongepowered.asm.mixin.Mixin;
@@ -9,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.ludocrypt.the_garden.blocks.InsulationBlock;
-import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneWireBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -30,31 +31,20 @@ public class RedstoneWireBlockMixin {
 	}
 
 	@Unique
-	private static boolean isInsulated(WorldView world, BlockPos pos, int search, Block block) {
-		Iterator<BlockPos> i = BlockPos.iterate(pos.add(-search, -search, -search), pos.add(search, search, search)).iterator();
-
-		BlockPos blockPos;
-		do {
-			if (!i.hasNext()) {
-				return false;
-			}
-
-			blockPos = i.next();
-		} while (!(world.getBlockState(blockPos).isOf(block)));
-
-		return true;
-	}
-
-	@Unique
 	private static boolean isInsulated(WorldView world, BlockPos pos) {
 		boolean insulated = false;
+		int search = Collections.max(InsulationBlock.INSULATED_BLOCKS.getB_LIST());
+		Iterator<BlockPos> i = BlockPos.iterate(pos.add(-search, -search, -search), pos.add(search, search, search)).iterator();
 
-		for (Block block : InsulationBlock.INSULATED_BLOCKS.keySet()) {
-			if (!insulated) {
-				insulated = isInsulated(world, pos, InsulationBlock.INSULATED_BLOCKS.get(block).first, block);
-			}
-			if (insulated) {
-				break;
+		while (i.hasNext()) {
+			BlockPos blockPos = i.next();
+			BlockState state = world.getBlockState(blockPos);
+
+			if (InsulationBlock.INSULATED_BLOCKS.getA_LIST().contains(state.getBlock())) {
+				insulated = blockPos.isWithinDistance(pos, InsulationBlock.INSULATED_BLOCKS.getAB_SIDE().get(state.getBlock()));
+				if (insulated) {
+					break;
+				}
 			}
 		}
 

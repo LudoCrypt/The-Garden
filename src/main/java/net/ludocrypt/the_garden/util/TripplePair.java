@@ -1,11 +1,17 @@
 package net.ludocrypt.the_garden.util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 public class TripplePair<A, B, C> {
 
+	private final ArrayList<A> A_LIST = Lists.newArrayList();
+	private final ArrayList<B> B_LIST = Lists.newArrayList();
+	private final ArrayList<C> C_LIST = Lists.newArrayList();
 	private final HashMap<A, B> AB_SIDE = Maps.newHashMap();
 	private final HashMap<A, C> AC_SIDE = Maps.newHashMap();
 	private final HashMap<B, A> BA_SIDE = Maps.newHashMap();
@@ -14,6 +20,9 @@ public class TripplePair<A, B, C> {
 	private final HashMap<C, B> CB_SIDE = Maps.newHashMap();
 
 	public TripplePair<A, B, C> put(A a, B b, C c) {
+		A_LIST.add(a);
+		B_LIST.add(b);
+		C_LIST.add(c);
 		AB_SIDE.put(a, b);
 		AC_SIDE.put(a, c);
 		BA_SIDE.put(b, a);
@@ -69,6 +78,18 @@ public class TripplePair<A, B, C> {
 
 	public HashMap<C, B> getCB_SIDE() {
 		return CB_SIDE;
+	}
+
+	public List<A> getA_LIST() {
+		return A_LIST;
+	}
+
+	public List<B> getB_LIST() {
+		return B_LIST;
+	}
+
+	public List<C> getC_LIST() {
+		return C_LIST;
 	}
 
 	public static <A, B, C> TripplePair<A, B, C> newTripplePair() {
