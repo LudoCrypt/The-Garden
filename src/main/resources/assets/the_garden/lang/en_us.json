@@ -169,5 +169,10 @@
 	"the_garden.advancements.point_two.get_ivory_marrow.title": "Almost Cannibalism",
 	"the_garden.advancements.point_two.get_ivory_marrow.description": "Get Ivory Marrow",
 	"the_garden.advancements.point_two.get_ivory_note_block.title": "\"Extended\" Range",
-	"the_garden.advancements.point_two.get_ivory_note_block.description": "Craft an Ivory Note Block"
+	"the_garden.advancements.point_two.get_ivory_note_block.description": "Craft an Ivory Note Block",
+	// Credits
+	"credits.the_garden.ludocrypt.youtube": "LudoCrypt's Youtube (Main Composer)",
+	"credits.the_garden.ludocrypt.bandcamp": "LudoCrypt's Bandcamp (Main Composer)",
+	"credits.the_garden.y.youtube": "Y's Youtube (Secondary Composer)",
+	"credits.the_garden.y.soundcloud": "Y's Soundcloud (Secondary Composer)"
 }

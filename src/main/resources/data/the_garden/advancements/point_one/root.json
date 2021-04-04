@@ -13,7 +13,7 @@
 		"show_toast": false,
 		"announce_to_chat": false,
 		"hidden": false,
-		"background": "the_garden:textures/block/osb_board.png"
+		"background": "the_garden:textures/block/textured_mulch.png"
 	},
 	"criteria": {
 		"entered_point_one": {

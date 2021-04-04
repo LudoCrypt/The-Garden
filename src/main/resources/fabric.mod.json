@@ -3,17 +3,27 @@
 	"id": "the_garden",
 	"version": "${version}",
 	"name": "The Garden",
-	"description": "A strange land of Mulch, Wood, and Bones!\nTextures by Slice, shadowmaster432 and LudoCrypt.\nMusic by LudoCrypt and Y.\nDevelopment by LudoCrypt and shadowmaster435 (rendering help)",
+	"description": "The Garden. A strange land of Mulch, Wood, and Nostalgia!\nTextures by Slice, shadowmaster432 and LudoCrypt.\nMusic by LudoCrypt and Y.\nDevelopment by LudoCrypt and shadowmaster435 (rendering help)",
 	"authors": [
 		"LudoCrypt",
+		"Slice",
 		"shadowmaster435",
-		"Y",
-		"Slice"
+		"Y"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/the-garden",
 		"sources": "https://github.com/LudoCrypt/The-Garden",
 		"issues": "https://github.com/LudoCrypt/The-Garden/issues"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"credits.the_garden.ludocrypt.youtube": "https://www.youtube.com/c/LudoCrypt/",
+				"credits.the_garden.ludocrypt.bandcamp": "https://ludocrypt.bandcamp.com/",
+				"credits.the_garden.y.youtube": "https://www.youtube.com/channel/UC-oCHPAnlKrZuI6fQVdUn9w",
+				"credits.the_garden.y.soundcloud": "https://soundcloud.com/y-761461325"
+			}
+		}
 	},
 	"license": "LGPLv3",
 	"icon": "assets/the_garden/icon.png",

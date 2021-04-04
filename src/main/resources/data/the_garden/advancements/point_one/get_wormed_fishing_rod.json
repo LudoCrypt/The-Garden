@@ -1,5 +1,5 @@
 {
-	"parent": "the_garden:point_one/get_dead_tree",
+	"parent": "the_garden:point_one/cultivate_mulch",
 	"display": {
 		"icon": {
 			"item": "the_garden:wormed_fishing_rod"

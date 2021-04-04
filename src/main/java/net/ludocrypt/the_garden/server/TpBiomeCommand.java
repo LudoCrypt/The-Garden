@@ -14,6 +14,7 @@ import net.minecraft.network.packet.s2c.play.PlayerPositionLookS2CPacket;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.LocateCommand;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -41,13 +42,26 @@ public class TpBiomeCommand {
 		Biome biome = source.getMinecraftServer().getRegistryManager().get(Registry.BIOME_KEY).getOrEmpty(identifier).orElseThrow(() -> {
 			return INVALID_EXCEPTION.create(identifier);
 		});
+		ServerWorld world = source.getWorld();
 		BlockPos blockPos = new BlockPos(source.getPosition());
-		BlockPos blockPos2 = source.getWorld().locateBiome(biome, blockPos, 6400, 8);
+		BlockPos blockPos2 = world.locateBiome(biome, blockPos, 6400, 8);
+
 		String string = identifier.toString();
 		if (blockPos2 == null) {
 			throw NOT_FOUND_EXCEPTION.create(string);
 		} else {
-			TeleportCommandAccessor.teleport(source, source.getPlayer(), source.getWorld(), blockPos2.getX(), blockPos2.getY(), blockPos2.getZ(), EnumSet.noneOf(PlayerPositionLookS2CPacket.Flag.class), source.getPlayer().yaw, source.getPlayer().pitch, null);
+
+			blockPos2 = new BlockPos(blockPos2.getX(), 255, blockPos2.getZ());
+
+			while (world.getBlockState(blockPos2.down()).isAir()) {
+				blockPos2 = blockPos2.down();
+			}
+
+			if (blockPos2.getY() <= 0) {
+				blockPos2 = new BlockPos(blockPos2.getX(), 256, blockPos2.getZ());
+			}
+
+			TeleportCommandAccessor.teleport(source, source.getPlayer(), world, blockPos2.getX(), blockPos2.getY(), blockPos2.getZ(), EnumSet.noneOf(PlayerPositionLookS2CPacket.Flag.class), source.getPlayer().yaw, source.getPlayer().pitch, null);
 			return LocateCommand.sendCoordinates(source, string, blockPos, blockPos2, "commands.locatebiome.success");
 		}
 	}
