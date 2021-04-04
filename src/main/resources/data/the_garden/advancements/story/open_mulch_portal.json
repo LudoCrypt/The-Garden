@@ -1,0 +1,28 @@
+{
+	"parent": "the_garden:story/mine_cracked_obsidian",
+	"display": {
+		"icon": {
+			"item": "the_garden:charged_obsidian_shard"
+		},
+		"title": {
+			"translate": "the_garden.advancements.story.open_mulch_portal.title"
+		},
+		"description": {
+			"translate": "the_garden.advancements.story.open_mulch_portal.description"
+		},
+		"frame": "task",
+		"show_toast": true,
+		"announce_to_chat": true,
+		"hidden": false
+	},
+	"criteria": {
+		"get": {
+			"trigger": "minecraft:impossible"
+		}
+	},
+	"requirements": [
+		[
+			"get"
+		]
+	]
+}

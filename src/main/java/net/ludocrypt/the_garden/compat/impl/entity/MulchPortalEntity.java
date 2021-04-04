@@ -2,6 +2,7 @@ package net.ludocrypt.the_garden.compat.impl.entity;
 
 import com.qouteall.immersive_portals.portal.Portal;
 
+import net.ludocrypt.the_garden.config.GardenConfig;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.util.PortalUtil;
 import net.ludocrypt.the_garden.world.PointOne;
@@ -76,7 +77,7 @@ public class MulchPortalEntity extends Portal {
 	public void tick() {
 		super.tick();
 		BlockPos pos = this.getBlockPos();
-		if (!world.getBlockState(pos).isOf(GardenBlocks.MULCH_PORTAL)) {
+		if (!world.getBlockState(pos).isOf(GardenBlocks.MULCH_PORTAL) || !GardenConfig.getInstance().immersivePortals.mulchPortal) {
 			this.kill();
 		}
 	}

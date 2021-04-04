@@ -1,0 +1,30 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+		{
+			"rolls": 1.0,
+			"bonus_rolls": 0.0,
+			"entries": [
+				{
+					"type": "minecraft:alternatives",
+					"children": [
+						{
+							"type": "minecraft:item",
+							"functions": [
+								{
+									"function": "minecraft:set_count",
+									"count": {
+										"type": "minecraft:uniform",
+										"min": 0.0,
+										"max": 3.0
+									}
+								}
+							],
+							"name": "the_garden:charged_obsidian_shard"
+						}
+					]
+				}
+			]
+		}
+	]
+}

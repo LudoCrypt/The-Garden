@@ -15,6 +15,7 @@ import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.ludocrypt.the_garden.TheGarden;
+import net.ludocrypt.the_garden.blocks.CrackedObsidianBlock;
 import net.ludocrypt.the_garden.blocks.InsulationBlock;
 import net.ludocrypt.the_garden.blocks.InsulationPaddingBlock;
 import net.ludocrypt.the_garden.blocks.IvoryNoteBlock;
@@ -58,7 +59,7 @@ public class GardenBlocks {
 	private static final Map<Identifier, WoodBlocks> WOOD_BLOCKS = new LinkedHashMap<>();
 	private static final Map<Identifier, DyeUtil> DYED_BLOCKS = new LinkedHashMap<>();
 
-	public static final Block CRACKED_OBSIDIAN = add("cracked_obsidian", new Block(FabricBlockSettings.copyOf(Blocks.OBSIDIAN).strength(35.0F, 500.0F).breakByTool(FabricToolTags.PICKAXES, 3).requiresTool()), ItemGroup.BUILDING_BLOCKS);
+	public static final Block CRACKED_OBSIDIAN = add("cracked_obsidian", new CrackedObsidianBlock(FabricBlockSettings.copyOf(Blocks.OBSIDIAN).strength(35.0F, 500.0F).ticksRandomly().breakByTool(FabricToolTags.PICKAXES, 3).requiresTool()), ItemGroup.BUILDING_BLOCKS);
 	public static final Block MULCH_PORTAL = add("mulch_portal", new MulchPortalBlock(FabricBlockSettings.copyOf(Blocks.END_PORTAL).dropsNothing()));
 	public static final BlockEntityType<MulchPortalBlockEntity> MULCH_PORTAL_BLOCK_ENTITY = add("mulch_portal", MULCH_PORTAL, MulchPortalBlockEntity::new);
 

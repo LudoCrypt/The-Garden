@@ -15,9 +15,8 @@ public class GardenConfig implements ConfigData {
 	@ConfigEntry.Gui.Tooltip()
 	public int baitMultiplier = 4;
 
-	@ConfigEntry.Gui.Tooltip()
-	@ConfigEntry.Gui.RequiresRestart
-	public boolean enableImmersivePortals = true;
+	@ConfigEntry.Gui.CollapsibleObject
+	public ImmersivePortals immersivePortals = new ImmersivePortals();
 
 	public static void init() {
 		AutoConfig.register(GardenConfig.class, GsonConfigSerializer::new);
@@ -27,12 +26,17 @@ public class GardenConfig implements ConfigData {
 		return AutoConfig.getConfigHolder(GardenConfig.class).getConfig();
 	}
 
-	public static class BiomeOptions {
+	public static class ImmersivePortals {
+		@ConfigEntry.Gui.Tooltip()
+		@ConfigEntry.Gui.RequiresRestart
+		public boolean connectDimensions = true;
 
 		@ConfigEntry.Gui.Tooltip()
 		@ConfigEntry.Gui.RequiresRestart
-		public boolean hasPointTwo = true;
+		public boolean mulchPortal = true;
+	}
 
+	public static class BiomeOptions {
 		@ConfigEntry.Gui.RequiresRestart
 		public boolean enablePointOne = true;
 

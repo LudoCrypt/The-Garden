@@ -121,8 +121,11 @@
 	"text.autoconfig.the_garden.option.enabledBiomes.enableHolicIsles": "Generate Holic Isles",
 	"text.autoconfig.the_garden.option.baitMultiplier": "Bait Multiplier",
 	"text.autoconfig.the_garden.option.baitMultiplier.@Tooltip": "How much Wormed Fishing Rod's increace chances",
-	"text.autoconfig.the_garden.option.enableImmersivePortals": "Enable Immersive Portals Support",
-	"text.autoconfig.the_garden.option.enableImmersivePortals.@Tooltip": "Enables/Disables Immersive Portal's Portals for The Garden",
+	"text.autoconfig.the_garden.option.immersivePortals": "Enable Immersive Portals Support",
+	"text.autoconfig.the_garden.option.immersivePortals.connectDimensions": "Connect Dimensions",
+	"text.autoconfig.the_garden.option.immersivePortals.connectDimensions.@Tooltip": "Connect Point One and Point Two with a portal",
+	"text.autoconfig.the_garden.option.immersivePortals.mulchPortal": "Mulch Portal",
+	"text.autoconfig.the_garden.option.immersivePortals.mulchPortal.@Tooltip": "Enable Mulch Portals",
 	// Biomes
 	"biome.the_garden.point_one": "Point One",
 	"biome.the_garden.pseudo_corkwood_plains": "Pseudo Corkwood Plains",
@@ -138,8 +141,8 @@
 	// Story
 	"the_garden.advancements.story.mine_cracked_obsidian.title": "These Tears Break Me",
 	"the_garden.advancements.story.mine_cracked_obsidian.description": "Obtain an Obsidian Shard",
-	"the_garden.advancements.story.charge_obsidian_shard.title": "Light to a New World",
-	"the_garden.advancements.story.charge_obsidian_shard.description": "Heat an Obsidian Shard with a Blaze Rod",
+	"the_garden.advancements.story.open_mulch_portal.title": "Light to a New World",
+	"the_garden.advancements.story.open_mulch_portal.description": "Open a Mulch Portal with a Charged Obsidian Shard",
 	"the_garden.advancements.story.go_to_point_one.title": "Crawling In My Skin",
 	"the_garden.advancements.story.go_to_point_one.description": "Go to Point One",
 	// Point One
@@ -166,7 +169,7 @@
 	"the_garden.advancements.point_two.explore.description": "Explore all Point Two Biomes",
 	"the_garden.advancements.point_two.get_ivory.title": "Bones's Little Cousin",
 	"the_garden.advancements.point_two.get_ivory.description": "Get Ivory Shards",
-	"the_garden.advancements.point_two.get_ivory_marrow.title": "Almost Cannibalism",
+	"the_garden.advancements.point_two.get_ivory_marrow.title": "Practically Cannibalism",
 	"the_garden.advancements.point_two.get_ivory_marrow.description": "Get Ivory Marrow",
 	"the_garden.advancements.point_two.get_ivory_note_block.title": "\"Extended\" Range",
 	"the_garden.advancements.point_two.get_ivory_note_block.description": "Craft an Ivory Note Block",

@@ -9,13 +9,14 @@ import com.terraformersmc.terraform.shapes.api.Position;
 import com.terraformersmc.terraform.shapes.api.Quaternion;
 import com.terraformersmc.terraform.shapes.api.Shape;
 import com.terraformersmc.terraform.shapes.impl.Shapes;
+import com.terraformersmc.terraform.shapes.impl.filler.SimpleFiller;
 import com.terraformersmc.terraform.shapes.impl.layer.pathfinder.AddLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.RotateLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.TranslateLayer;
 import com.terraformersmc.terraform.shapes.impl.validator.SafelistValidator;
 
 import net.ludocrypt.the_garden.init.GardenBlocks;
-import net.ludocrypt.the_garden.util.filler.WhitelistedSimpleFiller;
+import net.ludocrypt.the_garden.util.filler.WhitelistedFiller;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
@@ -62,7 +63,7 @@ public class DirtSpikeFeature extends Feature<DefaultFeatureConfig> {
 				.applyLayer(new TranslateLayer(Position.of(pos)))
 				/* Placement */
 				.validate(new SafelistValidator(world, VALIDATION), (validShape) -> {
-					validShape.fill(new WhitelistedSimpleFiller(world, GardenBlocks.PLAYDIRT.getDefaultState(), WHITELIST));
+					validShape.fill(new WhitelistedFiller(world, new SimpleFiller(world, GardenBlocks.PLAYDIRT.getDefaultState()), WHITELIST));
 				});
 
 		return true;

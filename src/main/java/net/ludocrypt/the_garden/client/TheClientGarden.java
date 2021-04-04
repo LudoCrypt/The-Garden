@@ -92,7 +92,7 @@ public class TheClientGarden implements ClientModInitializer {
 
 		FabricModelPredicateProviderRegistry.register(GardenItems.WORMED_FISHING_ROD, new Identifier("cast"), FishingRodPredicateAccessor::invokeMethod_27883);
 
-		if (GardenImmersivePortalsCompat.isInstalled) {
+		if (GardenImmersivePortalsCompat.isModInstalled) {
 			GardenImmersivePortalsCompat.clientInit();
 		}
 	}

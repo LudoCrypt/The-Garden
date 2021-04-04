@@ -28,7 +28,7 @@ public class EntityMixin {
 	@Inject(method = "tick", at = @At(value = "TAIL"))
 	private void theGarden_tick(CallbackInfo ci) {
 		Entity entity = ((Entity) (Object) this);
-		if (GardenConfig.getInstance().enabledBiomes.hasPointTwo && !GardenImmersivePortalsCompat.isInstalled) {
+		if ((GardenImmersivePortalsCompat.isModInstalled && !GardenConfig.getInstance().immersivePortals.connectDimensions) || !GardenImmersivePortalsCompat.isModInstalled) {
 			if (entity.world.getRegistryKey() == PointOne.WORLD) {
 				if (entity.getY() >= 256) {
 					toPointTwo();

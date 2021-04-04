@@ -23,7 +23,7 @@ public class KillWhenDisabledPortal extends VerticalConnectingPortal {
 	@Override
 	public void tick() {
 		super.tick();
-		if (!GardenConfig.getInstance().enableImmersivePortals) {
+		if (!GardenConfig.getInstance().immersivePortals.connectDimensions) {
 			this.kill();
 		}
 	}

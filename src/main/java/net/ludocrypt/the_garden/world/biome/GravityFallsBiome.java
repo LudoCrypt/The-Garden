@@ -30,6 +30,7 @@ public class GravityFallsBiome {
 		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.VINED_DIRT_PILLAR);
 		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.VINE);
 		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.TWISTED_VINE);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.IRON_ORE_POINT_TWO);
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_TWO_TILES);
 
 		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();

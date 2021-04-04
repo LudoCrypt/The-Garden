@@ -27,6 +27,7 @@ public class PointTwoBiome {
 		generationSettings.carver(GenerationStep.Carver.AIR, GardenCarvers.POINT_TWO_CONFIGURED_CARVER);
 		generationSettings.surfaceBuilder(SurfaceBuilder.NOPE.withConfig(new TernarySurfaceConfig(GardenBlocks.PLAYDIRT.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState(), GardenBlocks.PLAYDIRT.getDefaultState())));
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_TWO_TILES);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.CRACKED_OBSIDIAN_POOL);
 
 		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
 		biomeEffects.skyColor(Color.of(255, 255, 255));

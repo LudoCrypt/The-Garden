@@ -9,14 +9,15 @@ import com.terraformersmc.terraform.shapes.api.Position;
 import com.terraformersmc.terraform.shapes.api.Quaternion;
 import com.terraformersmc.terraform.shapes.api.Shape;
 import com.terraformersmc.terraform.shapes.impl.Shapes;
+import com.terraformersmc.terraform.shapes.impl.filler.RandomSimpleFiller;
+import com.terraformersmc.terraform.shapes.impl.filler.SimpleFiller;
 import com.terraformersmc.terraform.shapes.impl.layer.pathfinder.AddLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.RotateLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.TranslateLayer;
 import com.terraformersmc.terraform.shapes.impl.validator.SafelistValidator;
 
 import net.ludocrypt.the_garden.init.GardenBlocks;
-import net.ludocrypt.the_garden.util.filler.WhitelistedRandomSimpleFiller;
-import net.ludocrypt.the_garden.util.filler.WhitelistedSimpleFiller;
+import net.ludocrypt.the_garden.util.filler.WhitelistedFiller;
 import net.ludocrypt.the_garden.util.layer.HelixBendLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -87,7 +88,7 @@ public class DirtPillarFeature extends Feature<BooleanFeatureConfig> {
 					.applyLayer(new TranslateLayer(Position.of(blockPos)))
 					/* Placement */
 					.validate(new SafelistValidator(world, VALIDATION), (validShape) -> {
-						validShape.fill(new WhitelistedSimpleFiller(world, GardenBlocks.PLAYDIRT.getDefaultState(), WHITELIST));
+						validShape.fill(new WhitelistedFiller(world, new SimpleFiller(world, GardenBlocks.PLAYDIRT.getDefaultState()), WHITELIST));
 
 						if (random.nextBoolean() && config.get()) {
 							double VineWidth = random.nextDouble() * 2 + 1;
@@ -117,7 +118,7 @@ public class DirtPillarFeature extends Feature<BooleanFeatureConfig> {
 									.applyLayer(new TranslateLayer(Position.of(blockPos)))
 									/* Placement */
 									.validate(new SafelistValidator(world, VALIDATION), (vineShape) -> {
-										vineShape.fill(new WhitelistedRandomSimpleFiller(world, GardenBlocks.DEAD_TREE.leaves.getDefaultState().with(LeavesBlock.PERSISTENT, true), world.getRandom(), 0.6F, WHITELIST));
+										vineShape.fill(new WhitelistedFiller(world, new RandomSimpleFiller(world, GardenBlocks.DEAD_TREE.leaves.getDefaultState().with(LeavesBlock.PERSISTENT, true), world.getRandom(), 0.6F), WHITELIST));
 									});
 						}
 

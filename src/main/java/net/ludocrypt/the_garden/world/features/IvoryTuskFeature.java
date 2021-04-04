@@ -9,6 +9,7 @@ import com.terraformersmc.terraform.shapes.api.Position;
 import com.terraformersmc.terraform.shapes.api.Quaternion;
 import com.terraformersmc.terraform.shapes.api.Shape;
 import com.terraformersmc.terraform.shapes.impl.Shapes;
+import com.terraformersmc.terraform.shapes.impl.filler.SimpleFiller;
 import com.terraformersmc.terraform.shapes.impl.layer.pathfinder.AddLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.DilateLayer;
 import com.terraformersmc.terraform.shapes.impl.layer.transform.RotateLayer;
@@ -16,7 +17,7 @@ import com.terraformersmc.terraform.shapes.impl.layer.transform.TranslateLayer;
 import com.terraformersmc.terraform.shapes.impl.validator.SafelistValidator;
 
 import net.ludocrypt.the_garden.init.GardenBlocks;
-import net.ludocrypt.the_garden.util.filler.WhitelistedSimpleFiller;
+import net.ludocrypt.the_garden.util.filler.WhitelistedFiller;
 import net.ludocrypt.the_garden.util.layer.SquishRotateLayer;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -99,7 +100,7 @@ public class IvoryTuskFeature extends Feature<DefaultFeatureConfig> {
 				.applyLayer(new TranslateLayer(Position.of(pos)))
 				/* Placement */
 				.validate(new SafelistValidator(world, VALIDATE_WHITELIST), (validShape) -> {
-					validShape.fill(new WhitelistedSimpleFiller(world, GardenBlocks.SMOOTH_IVORY_BLOCK.getDefaultState(), WHITELIST));
+					validShape.fill(new WhitelistedFiller(world, new SimpleFiller(world, GardenBlocks.SMOOTH_IVORY_BLOCK.getDefaultState()), WHITELIST));
 				});
 
 		return true;

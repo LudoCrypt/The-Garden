@@ -10,6 +10,7 @@ import net.fabricmc.api.Environment;
 import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.blocks.entity.MulchPortalBlockEntity;
 import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
+import net.ludocrypt.the_garden.config.GardenConfig;
 import net.ludocrypt.the_garden.mixin.RenderPhaseAccessor;
 import net.ludocrypt.the_garden.util.Color;
 import net.ludocrypt.the_garden.util.GardenMulchEffects;
@@ -38,7 +39,7 @@ public class MulchPortalBlockEntityRenderer extends BlockEntityRenderer<MulchPor
 	}
 
 	public void render(MulchPortalBlockEntity entity, float f, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, int j) {
-		if (!GardenImmersivePortalsCompat.isInstalled) {
+		if ((GardenImmersivePortalsCompat.isModInstalled && !GardenConfig.getInstance().immersivePortals.mulchPortal) || !GardenImmersivePortalsCompat.isModInstalled) {
 			double distance = entity.getPos().getSquaredDistance(this.dispatcher.camera.getPos(), true);
 			int layerCount = this.getLayerCount(distance);
 			float yHeight = this.getYHeight();

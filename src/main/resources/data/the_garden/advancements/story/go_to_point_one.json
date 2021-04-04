@@ -1,5 +1,5 @@
 {
-	"parent": "the_garden:story/charge_obsidian_shard",
+	"parent": "the_garden:story/open_mulch_portal",
 	"display": {
 		"icon": {
 			"item": "the_garden:mulch_block"

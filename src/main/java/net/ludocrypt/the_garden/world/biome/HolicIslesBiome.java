@@ -34,6 +34,10 @@ public class HolicIslesBiome {
 		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.VINED_DIRT_PILLAR);
 		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.VINED_DIRT_PILLAR);
 		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.VINED_DIRT_PILLAR);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.CRACKED_OBSIDIAN_POOL);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.CRACKED_OBSIDIAN_POOL);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.CRACKED_OBSIDIAN_POOL);
+		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.CRACKED_OBSIDIAN_POOL);
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_TWO_TILES);
 
 		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();

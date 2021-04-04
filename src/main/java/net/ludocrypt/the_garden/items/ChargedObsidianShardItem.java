@@ -1,7 +1,10 @@
 package net.ludocrypt.the_garden.items;
 
+import net.ludocrypt.the_garden.TheGarden;
+import net.ludocrypt.the_garden.advancements.GardenAdvancement;
 import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
 import net.ludocrypt.the_garden.compat.impl.entity.MulchPortalEntity;
+import net.ludocrypt.the_garden.config.GardenConfig;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.world.PointOne;
 import net.minecraft.block.BlockState;
@@ -50,6 +53,7 @@ public class ChargedObsidianShardItem extends Item {
 						patternPos = patternPos.add(-2, 0, -2);
 						createPortal(patternPos, world);
 					}
+					GardenAdvancement.grantAdvancement(context.getPlayer(), TheGarden.id("story/open_mulch_portal"));
 					return ActionResult.CONSUME;
 				}
 			}
@@ -65,7 +69,7 @@ public class ChargedObsidianShardItem extends Item {
 				world.setBlockState(pos.add(i, 0, j), GardenBlocks.MULCH_PORTAL.getDefaultState(), 2);
 			}
 		}
-		if (GardenImmersivePortalsCompat.isInstalled) {
+		if (GardenImmersivePortalsCompat.isModInstalled && GardenConfig.getInstance().immersivePortals.mulchPortal) {
 			if (!world.isClient) {
 				if (world.getRegistryKey().equals(PointOne.WORLD)) {
 					MulchPortalEntity.generateToOverworld(world, pos, world.getServer());

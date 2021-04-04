@@ -6,7 +6,8 @@
 	"mixins": [
 		"BoatItemAccessor",
 		"ChunkGeneratorSettingsAccessor",
-		"CryingObsidianBlockMixin",
+		"BlockMixin",
+		"AbstractBlockMixin",
 		"EntityMixin",
 		"MineshaftPartMixin",
 		"MultiNoiseBiomeSourceAccessor",
