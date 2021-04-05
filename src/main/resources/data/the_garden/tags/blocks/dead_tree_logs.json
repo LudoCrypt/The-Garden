@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"the_garden:dead_tree_log",
+		"the_garden:dead_tree_wood",
+		"the_garden:stripped_dead_tree_log",
+		"the_garden:stripped_dead_tree_wood"
+	]
+}

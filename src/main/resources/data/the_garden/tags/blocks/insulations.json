@@ -1,0 +1,13 @@
+{
+	"replace": false,
+	"values": [
+		"the_garden:white_insulation",
+		"the_garden:brown_insulation",
+		"the_garden:green_insulation",
+		"the_garden:pink_insulation",
+		"the_garden:white_insulation_padding",
+		"the_garden:brown_insulation_padding",
+		"the_garden:green_insulation_padding",
+		"the_garden:pink_insulation_padding"
+	]
+}

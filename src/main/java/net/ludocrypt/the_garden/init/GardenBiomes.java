@@ -76,7 +76,7 @@ public class GardenBiomes {
 			PointTwo.addBiome(POINT_TWO, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
 		}
 		if (config.enabledBiomes.enableGravityFalls) {
-			PointTwo.addBiome(GRAVITY_FALLS, new MixedNoisePoint(0.0F, 0.3F, 0.0F, 0.0F, 0.0F));
+			PointTwo.addBiome(GRAVITY_FALLS, new MixedNoisePoint(0.0F, 0.2F, 0.0F, 0.0F, 0.0F));
 		}
 		if (config.enabledBiomes.enableIvoryShallows) {
 			PointTwo.addBiome(IVORY_SHALLOWS, new MixedNoisePoint(0.0F, 0.0F, 0.2F, 0.2F, 0.0F));

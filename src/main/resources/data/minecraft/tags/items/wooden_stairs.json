@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"the_garden:dead_tree_stairs",
+		"the_garden:osb_stairs",
+		"the_garden:cork_stairs",
+		"the_garden:cork_brick_stairs"
+	]
+}
