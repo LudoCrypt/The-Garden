@@ -8,5 +8,14 @@
 		"name": "the_garden:playgrounds",
 		"panoramaId": "the_garden:textures/panoramas/playgrounds/panorama",
 		"musicId": "the_garden:music.menu"
+	},
+	"Point Two": {
+		"name": "the_garden:point_two",
+		"panoramaId": "the_garden:textures/panoramas/point_two/panorama",
+		"musicId": "the_garden:music.menu",
+		"movementSettings": {
+			"addedY": 20,
+			"woozy": false
+		}
 	}
 }
