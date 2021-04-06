@@ -121,6 +121,8 @@
 	"text.autoconfig.the_garden.option.enabledBiomes.enableHolicIsles": "Generate Holic Isles",
 	"text.autoconfig.the_garden.option.baitMultiplier": "Bait Multiplier",
 	"text.autoconfig.the_garden.option.baitMultiplier.@Tooltip": "How much Wormed Fishing Rod's increace chances",
+	"text.autoconfig.the_garden.option.redstoneDampening": "Redstone dampening",
+	"text.autoconfig.the_garden.option.redstoneDampening.@Tooltip": "How much Insulation dampens Redstone signals",
 	"text.autoconfig.the_garden.option.immersivePortals": "Enable Immersive Portals Support",
 	"text.autoconfig.the_garden.option.immersivePortals.connectDimensions": "Connect Dimensions",
 	"text.autoconfig.the_garden.option.immersivePortals.connectDimensions.@Tooltip": "Connect Point One and Point Two with a portal",

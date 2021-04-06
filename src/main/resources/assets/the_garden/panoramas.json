@@ -2,17 +2,20 @@
 	"Point One": {
 		"name": "the_garden:point_one",
 		"panoramaId": "the_garden:textures/panoramas/point_one/panorama",
-		"musicId": "the_garden:music.menu"
+		"musicId": "the_garden:music.menu",
+		"splashTexts": "the_garden:texts/the_garden.txt"
 	},
 	"Playgrounds": {
 		"name": "the_garden:playgrounds",
 		"panoramaId": "the_garden:textures/panoramas/playgrounds/panorama",
-		"musicId": "the_garden:music.menu"
+		"musicId": "the_garden:music.menu",
+		"splashTexts": "the_garden:texts/the_garden.txt"
 	},
 	"Point Two": {
 		"name": "the_garden:point_two",
 		"panoramaId": "the_garden:textures/panoramas/point_two/panorama",
 		"musicId": "the_garden:music.menu",
+		"splashTexts": "the_garden:texts/the_garden.txt",
 		"movementSettings": {
 			"addedY": 20,
 			"woozy": false

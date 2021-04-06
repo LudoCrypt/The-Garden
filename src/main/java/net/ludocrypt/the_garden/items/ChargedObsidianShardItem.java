@@ -11,8 +11,11 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.pattern.BlockPattern;
 import net.minecraft.block.pattern.BlockPatternBuilder;
 import net.minecraft.block.pattern.CachedBlockPosition;
-import net.minecraft.item.Item;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.predicate.block.BlockStatePredicate;
 import net.minecraft.sound.SoundCategory;
@@ -21,10 +24,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ChargedObsidianShardItem extends Item {
+public class ChargedObsidianShardItem extends SwordItem {
 
-	public ChargedObsidianShardItem(Settings settings) {
-		super(settings);
+	public ChargedObsidianShardItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
+		super(toolMaterial, attackDamage, attackSpeed, settings);
 	}
 
 	@Override
@@ -59,8 +62,15 @@ public class ChargedObsidianShardItem extends Item {
 			}
 		}
 
-		return ActionResult.PASS;
+		return super.useOnBlock(context);
+	}
 
+	@Override
+	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		super.postHit(stack, target, attacker);
+		super.postHit(stack, target, attacker);
+		target.setOnFireFor(3);
+		return super.postHit(stack, target, attacker);
 	}
 
 	private void createPortal(BlockPos pos, World world) {

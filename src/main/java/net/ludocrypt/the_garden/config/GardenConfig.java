@@ -15,6 +15,9 @@ public class GardenConfig implements ConfigData {
 	@ConfigEntry.Gui.Tooltip()
 	public int baitMultiplier = 4;
 
+	@ConfigEntry.Gui.Tooltip()
+	public int redstoneDampening = 4;
+
 	@ConfigEntry.Gui.CollapsibleObject
 	public ImmersivePortals immersivePortals = new ImmersivePortals();
 
