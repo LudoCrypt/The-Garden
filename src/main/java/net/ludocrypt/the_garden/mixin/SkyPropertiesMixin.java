@@ -1,11 +1,10 @@
 package net.ludocrypt.the_garden.mixin;
 
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.Shadow;
 
-import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.ludocrypt.the_garden.client.sky.GardenSkies;
@@ -18,10 +17,13 @@ import net.minecraft.util.Identifier;
 @Mixin(SkyProperties.class)
 public class SkyPropertiesMixin {
 
-	@Inject(method = "method_29092(Lit/unimi/dsi/fastutil/objects/Object2ObjectArrayMap;)V", at = @At("HEAD"))
-	private static void theGarden_addSkyProperty(Object2ObjectArrayMap<Identifier, SkyProperties> map, CallbackInfo ci) {
-		map.put(PointOne.SKY, GardenSkies.pointOneSky);
-		map.put(PointTwo.SKY, GardenSkies.pointTwoSky);
+	@Shadow
+	@Final
+	private static Object2ObjectMap<Identifier, SkyProperties> BY_IDENTIFIER;
+
+	static {
+		BY_IDENTIFIER.put(PointOne.SKY, GardenSkies.pointOneSky);
+		BY_IDENTIFIER.put(PointTwo.SKY, GardenSkies.pointTwoSky);
 	}
 
 }

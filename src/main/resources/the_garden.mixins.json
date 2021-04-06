@@ -30,7 +30,7 @@
 		"SkyPropertiesMixin",
 		"WaterSuspendParticleAccessor",
 		"WorldRendererMixin",
-		"FishingRodPredicateAccessor",
+		"ModelPredicateProviderRegistryMixin",
 		"FishingBobberEntityRendererMixin"
 	],
 	"injectors": {

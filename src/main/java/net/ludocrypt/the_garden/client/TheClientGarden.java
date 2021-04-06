@@ -10,7 +10,6 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
-import net.fabricmc.fabric.api.object.builder.v1.client.model.FabricModelPredicateProviderRegistry;
 import net.fabricmc.fabric.impl.client.rendering.ColorProviderRegistryImpl;
 import net.ludocrypt.the_garden.client.entity.block.MulchPortalBlockEntityRenderer;
 import net.ludocrypt.the_garden.client.particle.CorkSporeFactory;
@@ -22,9 +21,7 @@ import net.ludocrypt.the_garden.client.particle.TwigParticle;
 import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.init.GardenBoats;
-import net.ludocrypt.the_garden.init.GardenItems;
 import net.ludocrypt.the_garden.init.GardenParticles;
-import net.ludocrypt.the_garden.mixin.FishingRodPredicateAccessor;
 import net.ludocrypt.the_garden.util.Color;
 import net.ludocrypt.the_garden.util.GardenMulchEffects;
 import net.minecraft.client.MinecraftClient;
@@ -33,7 +30,6 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.util.SpriteIdentifier;
-import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class TheClientGarden implements ClientModInitializer {
@@ -89,8 +85,6 @@ public class TheClientGarden implements ClientModInitializer {
 		ParticleFactoryRegistry.getInstance().register(GardenParticles.WHITE_INSULATION, (provider) -> new InsulationFactory(provider, Color.colorOf(162, 165, 160)));
 
 		BlockEntityRendererRegistry.INSTANCE.register(GardenBlocks.MULCH_PORTAL_BLOCK_ENTITY, MulchPortalBlockEntityRenderer::new);
-
-		FabricModelPredicateProviderRegistry.register(GardenItems.WORMED_FISHING_ROD, new Identifier("cast"), FishingRodPredicateAccessor::invokeMethod_27883);
 
 		if (GardenImmersivePortalsCompat.isModInstalled) {
 			GardenImmersivePortalsCompat.clientInit();

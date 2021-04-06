@@ -2,6 +2,7 @@ package net.ludocrypt.the_garden.world.surfaces;
 
 import java.util.List;
 
+import com.google.common.collect.Lists;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.ListCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -36,7 +37,7 @@ public class PatternSurfaceConfig implements SurfaceConfig {
 	}
 
 	public static PatternSurfaceConfig of(BlockState... pattern) {
-		return new PatternSurfaceConfig(List.of(pattern));
+		return new PatternSurfaceConfig(Lists.newArrayList(pattern));
 	}
 
 }

@@ -3,6 +3,7 @@ package net.ludocrypt.the_garden.util.filler;
 import java.util.List;
 import java.util.Random;
 
+import com.google.common.collect.Lists;
 import com.terraformersmc.terraform.shapes.api.Filler;
 import com.terraformersmc.terraform.shapes.api.Position;
 
@@ -28,7 +29,7 @@ public class ListFiller implements Filler {
 	}
 
 	public ListFiller(ModifiableWorld world, Random random, BlockState... list) {
-		this(world, 3, random, List.of(list));
+		this(world, 3, random, Lists.newArrayList(list));
 	}
 
 	public static ListFiller of(ModifiableWorld world, int flags, Random random, List<BlockState> list) {
