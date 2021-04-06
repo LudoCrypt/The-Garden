@@ -27,7 +27,7 @@ public class FishingBobberEntityRendererMixin {
 	@Unique
 	private static final RenderLayer WORM_LAYER = RenderLayer.getEntityCutout(WORM_HOOK);
 
-	@ModifyVariable(method = "render", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/client/render/VertexConsumerProvider;getBuffer(Lnet/minecraft/client/render/RenderLayer;)Lnet/minecraft/client/render/VertexConsumer;"), name = "vertexConsumer")
+	@ModifyVariable(method = "render", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/client/render/VertexConsumerProvider;getBuffer(Lnet/minecraft/client/render/RenderLayer;)Lnet/minecraft/client/render/VertexConsumer;", ordinal = 0), ordinal = 0)
 	private VertexConsumer theGarden_changeToWorm(VertexConsumer in, FishingBobberEntity fishingBobberEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
 		PlayerEntity player = fishingBobberEntity.getPlayerOwner();
 		if (player.getMainHandStack().getItem() instanceof WormRodItem || player.getOffHandStack().getItem() instanceof WormRodItem) {
@@ -37,7 +37,7 @@ public class FishingBobberEntityRendererMixin {
 	}
 
 	@Inject(method = "getTexture", at = @At("TAIL"))
-	private void theGarden_changeToWorm(FishingBobberEntity fishingBobberEntity, CallbackInfoReturnable<Identifier> ci) {
+	private void theGarden_changeTextureToWorm(FishingBobberEntity fishingBobberEntity, CallbackInfoReturnable<Identifier> ci) {
 		PlayerEntity player = fishingBobberEntity.getPlayerOwner();
 		if (player != null) {
 			if (player.getMainHandStack().getItem() instanceof WormRodItem || player.getOffHandStack().getItem() instanceof WormRodItem) {

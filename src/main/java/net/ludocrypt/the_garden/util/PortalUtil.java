@@ -2,8 +2,7 @@ package net.ludocrypt.the_garden.util;
 
 import java.util.Iterator;
 
-import net.ludocrypt.the_garden.compat.impl.GardenImmersivePortalsCompat;
-import net.ludocrypt.the_garden.compat.impl.entity.MulchPortalEntity;
+import net.ludocrypt.the_garden.compat.GardenCompat;
 import net.ludocrypt.the_garden.config.GardenConfig;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.world.PointOne;
@@ -128,10 +127,10 @@ public class PortalUtil {
 				destination.setBlockState(blockPos, GardenBlocks.MULCH_PORTAL.getDefaultState(), 2);
 			});
 
-			if (GardenImmersivePortalsCompat.isModInstalled && GardenConfig.getInstance().immersivePortals.mulchPortal) {
+			if (GardenCompat.isImmersivePortalsModInstalled && GardenConfig.getInstance().immersivePortals.mulchPortal) {
 				if (!world.isClient) {
 					if (destination.getRegistryKey().equals(PointOne.WORLD)) {
-						MulchPortalEntity.generateFromPointOne(world, portal, pos, destination.getServer());
+						GardenCompat.attemptGenerateFromPointOne(world, portal, pos, destination.getServer());
 					}
 				}
 			}

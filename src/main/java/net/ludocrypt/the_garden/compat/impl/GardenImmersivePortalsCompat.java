@@ -9,8 +9,8 @@ import com.qouteall.immersive_portals.render.PortalEntityRenderer;
 
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.fabricmc.loader.api.FabricLoader;
 import net.ludocrypt.the_garden.TheGarden;
+import net.ludocrypt.the_garden.compat.GardenCompat;
 import net.ludocrypt.the_garden.compat.impl.entity.KillWhenDisabledPortal;
 import net.ludocrypt.the_garden.compat.impl.entity.MulchPortalEntity;
 import net.ludocrypt.the_garden.config.GardenConfig;
@@ -25,10 +25,8 @@ import net.minecraft.world.World;
 
 public class GardenImmersivePortalsCompat {
 
-	public static boolean isModInstalled = FabricLoader.getInstance().isModLoaded("immersive_portals");
-
 	public static void init() {
-		if (isModInstalled) {
+		if (GardenCompat.isImmersivePortalsModInstalled) {
 			serverInit();
 		}
 	}

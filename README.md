@@ -1,4 +1,4 @@
-# The Garden
+![The Garden](https://raw.githubusercontent.com/LudoCrypt/LudoCrypts-Haven/master/The%20Fucking%20Garden%20Logo.png)
 A magical garden of mulch, bones, and almond milk.
 Head over to the [Wiki](https://github.com/LudoCrypt/The-Garden/wiki) to real all about this mod!
 ![Point One Image](https://raw.githubusercontent.com/LudoCrypt/LudoCrypts-Haven/master/2021-04-06_14.01.21.png)
