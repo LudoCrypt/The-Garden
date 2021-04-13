@@ -31,10 +31,18 @@ public class PortalUtil {
 		}
 
 		WorldBorder worldBorder = destination.getWorldBorder();
-		double d = Math.max(-2.9999872E7D, worldBorder.getBoundWest() + 16.0D);
-		double e = Math.max(-2.9999872E7D, worldBorder.getBoundNorth() + 16.0D);
-		double f = Math.min(2.9999872E7D, worldBorder.getBoundEast() - 16.0D);
-		double g = Math.min(2.9999872E7D, worldBorder.getBoundSouth() - 16.0D);
+		double d = -2.9999872E7D;
+		double e = -2.9999872E7D;
+		double f = 2.9999872E7D;
+		double g = 2.9999872E7D;
+
+		if (worldBorder != null) {
+			d = Math.max(-2.9999872E7D, worldBorder.getBoundWest() + 16.0D);
+			e = Math.max(-2.9999872E7D, worldBorder.getBoundNorth() + 16.0D);
+			f = Math.min(2.9999872E7D, worldBorder.getBoundEast() - 16.0D);
+			g = Math.min(2.9999872E7D, worldBorder.getBoundSouth() - 16.0D);
+		}
+
 		double h = DimensionType.method_31109(world.getDimension(), destination.getDimension());
 		if (bl) {
 			pos = new BlockPos(MathHelper.clamp(pos.getX() * h, d, f), 0, MathHelper.clamp(pos.getZ() * h, e, g));
