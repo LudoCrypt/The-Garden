@@ -16,8 +16,6 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.ludocrypt.the_garden.TheGarden;
-import net.ludocrypt.the_garden.access.BiomeEffectsMulchColors;
-import net.ludocrypt.the_garden.util.Color;
 import net.ludocrypt.the_garden.world.PointOne;
 import net.ludocrypt.the_garden.world.PointTwo;
 import net.minecraft.client.MinecraftClient;
@@ -56,7 +54,6 @@ public class WorldRendererMixin {
 	private void theGarden_worldEvents(PlayerEntity source, int eventId, BlockPos pos, int data, CallbackInfo ci, Random random) {
 		switch (eventId) {
 		case 5485720:
-//			this.client.getSoundManager().play(PositionedSoundInstance.ambient(SoundEvents.BLOCK_GRAVEL_STEP, 0.5F, 0.25F));
 			break;
 		}
 	}
@@ -72,7 +69,6 @@ public class WorldRendererMixin {
 
 	@Unique
 	private void renderPointOneSky(MatrixStack matrices) {
-		Color mulchColor = Color.colorOf(BiomeEffectsMulchColors.getOrDefaultMulchColor(world.getBiome(client.player.getBlockPos()).getEffects()));
 		RenderSystem.disableAlphaTest();
 		RenderSystem.enableBlend();
 		RenderSystem.defaultBlendFunc();
@@ -86,11 +82,11 @@ public class WorldRendererMixin {
 		matrices.multiply(Vector3f.POSITIVE_X.getDegreesQuaternion(180.0F));
 
 		Matrix4f matrix4f = matrices.peek().getModel();
-		bufferBuilder.begin(7, VertexFormats.POSITION_TEXTURE_COLOR);
-		bufferBuilder.vertex(matrix4f, -100, -20, -100).texture(0.0F, 0.0F).color(mulchColor.getRed(), mulchColor.getGreen(), mulchColor.getBlue(), 255).next();
-		bufferBuilder.vertex(matrix4f, -100, -20, 100).texture(0.0F, 1.0F).color(mulchColor.getRed(), mulchColor.getGreen(), mulchColor.getBlue(), 255).next();
-		bufferBuilder.vertex(matrix4f, 100, -20, 100).texture(1.0F, 1.0F).color(mulchColor.getRed(), mulchColor.getGreen(), mulchColor.getBlue(), 255).next();
-		bufferBuilder.vertex(matrix4f, 100, -20, -100).texture(1.0F, 0.0F).color(mulchColor.getRed(), mulchColor.getGreen(), mulchColor.getBlue(), 255).next();
+		bufferBuilder.begin(7, VertexFormats.POSITION_TEXTURE);
+		bufferBuilder.vertex(matrix4f, -100, -20, -100).texture(0.0F, 0.0F).next();
+		bufferBuilder.vertex(matrix4f, -100, -20, 100).texture(0.0F, 1.0F).next();
+		bufferBuilder.vertex(matrix4f, 100, -20, 100).texture(1.0F, 1.0F).next();
+		bufferBuilder.vertex(matrix4f, 100, -20, -100).texture(1.0F, 0.0F).next();
 		tessellator.draw();
 		matrices.pop();
 

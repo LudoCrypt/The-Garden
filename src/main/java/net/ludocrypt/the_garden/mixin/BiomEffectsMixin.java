@@ -23,7 +23,7 @@ public class BiomEffectsMixin implements BiomeEffectsMulchColors {
 	@Unique
 	private Optional<Integer> mulchColor = Optional.empty();
 
-	@Inject(method = "method_28445(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;", at = @At("TAIL"), cancellable = true)
+	@Inject(method = "method_28445(Lcom/mojang/serialization/codecs/RecordCodecBuilder$Instance;)Lcom/mojang/datafixers/kinds/App;", at = @At("TAIL"), cancellable = true, remap = false)
 	private static void theGarden_addMulchColorsToEffects(RecordCodecBuilder.Instance<BiomeEffects> codecBuilder, CallbackInfoReturnable<App<Mu<BiomeEffects>, BiomeEffects>> ci) {
 		ci.setReturnValue(codecBuilder.group(ci.getReturnValue(), Codec.INT.optionalFieldOf("mulch_color").forGetter((biomeEffects) -> {
 			return BiomeEffectsMulchColors.getMulchColor(biomeEffects);

@@ -21,7 +21,7 @@ import net.minecraft.util.registry.RegistryKey;
 @Mixin(DynamicRegistryManager.class)
 public abstract class DynamicRegistryManagerMixin {
 
-	@Inject(method = "method_30531()Lcom/google/common/collect/ImmutableMap;", at = @At(value = "RETURN", shift = At.Shift.BEFORE, ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true)
+	@Inject(method = "method_30531()Lcom/google/common/collect/ImmutableMap;", at = @At(value = "RETURN", shift = At.Shift.BEFORE, ordinal = 0), locals = LocalCapture.CAPTURE_FAILHARD, cancellable = true, remap = false)
 	private static void theGarden_dynamicRegistries(CallbackInfoReturnable<Map<RegistryKey<? extends Registry<?>>, DynamicRegistryManager.Info<?>>> ci, Builder<RegistryKey<? extends Registry<?>>, DynamicRegistryManager.Info<?>> builder) {
 		register(builder, GardenGeneration.POINT_ONE_BIOMES_KEY, BiomeNoisePairRegistry.CODEC);
 		register(builder, GardenGeneration.POINT_TWO_BIOMES_KEY, BiomeNoisePairRegistry.CODEC);
