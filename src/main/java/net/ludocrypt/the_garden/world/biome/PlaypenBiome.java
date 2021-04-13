@@ -7,6 +7,7 @@ import net.ludocrypt.the_garden.init.GardenParticles;
 import net.ludocrypt.the_garden.init.GardenSounds;
 import net.ludocrypt.the_garden.init.GardenSurfaces;
 import net.ludocrypt.the_garden.util.Color;
+import net.ludocrypt.the_garden.util.GardenBiomeEffects;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -18,8 +19,6 @@ import net.minecraft.world.gen.GenerationStep.Feature;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 
 public class PlaypenBiome {
-
-	public static int mulchColor = Color.of(182, 82, 120);
 
 	public static Biome create() {
 		Biome.Builder biome = new Biome.Builder();
@@ -38,12 +37,13 @@ public class PlaypenBiome {
 		generationSettings.structureFeature(GardenFeatures.PLAYGROUND);
 		generationSettings.structureFeature(GardenFeatures.DEAD_TREE_MINESHAFT);
 
-		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
+		GardenBiomeEffects biomeEffects = new GardenBiomeEffects();
 		biomeEffects.skyColor(Color.of(255, 255, 255));
 		biomeEffects.waterColor(Color.of(182, 82, 120));
 		biomeEffects.waterFogColor(Color.of(182, 82, 120));
 		biomeEffects.fogColor(Color.of(255, 255, 255));
 		biomeEffects.grassColor(Color.of(226, 202, 132));
+		biomeEffects.mulchColor(Color.of(182, 82, 120));
 		biomeEffects.moodSound(BiomeMoodSound.CAVE);
 		biomeEffects.music(GardenSounds.POINT_ONE);
 		biomeEffects.particleConfig(new BiomeParticleConfig(GardenParticles.THROWN_TWIG, 0.000629776F));

@@ -20,7 +20,10 @@
 		"TeleportCommandAccessor",
 		"InstrumentMixin",
 		"ServerAdvancementLoaderMixin",
-		"HoeItemMixin"
+		"HoeItemMixin",
+		"BiomEffectsMixin",
+		"DynamicRegistryManagerMixin",
+		"BuiltinRegistriesAccessor"
 	],
 	"client": [
 		"ClientWorldMixin",

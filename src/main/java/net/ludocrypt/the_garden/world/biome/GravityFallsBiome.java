@@ -6,6 +6,7 @@ import net.ludocrypt.the_garden.init.GardenCarvers;
 import net.ludocrypt.the_garden.init.GardenFeatures;
 import net.ludocrypt.the_garden.init.GardenSounds;
 import net.ludocrypt.the_garden.util.Color;
+import net.ludocrypt.the_garden.util.GardenBiomeEffects;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -33,7 +34,7 @@ public class GravityFallsBiome {
 		generationSettings.feature(Feature.LOCAL_MODIFICATIONS, GardenFeatures.IRON_ORE_POINT_TWO);
 		generationSettings.feature(Feature.RAW_GENERATION, GardenFeatures.POINT_TWO_TILES);
 
-		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
+		GardenBiomeEffects biomeEffects = new GardenBiomeEffects();
 		biomeEffects.skyColor(Color.of(255, 255, 255));
 		biomeEffects.waterColor(Color.of(169, 114, 91));
 		biomeEffects.waterFogColor(Color.of(169, 114, 91));

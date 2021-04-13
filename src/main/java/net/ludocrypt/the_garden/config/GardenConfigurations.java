@@ -7,7 +7,7 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 
 @Config(name = "the_garden")
-public class GardenConfig implements ConfigData {
+public class GardenConfigurations implements ConfigData {
 
 	@ConfigEntry.Gui.CollapsibleObject
 	public BiomeOptions enabledBiomes = new BiomeOptions();
@@ -22,11 +22,11 @@ public class GardenConfig implements ConfigData {
 	public ImmersivePortals immersivePortals = new ImmersivePortals();
 
 	public static void init() {
-		AutoConfig.register(GardenConfig.class, GsonConfigSerializer::new);
+		AutoConfig.register(GardenConfigurations.class, GsonConfigSerializer::new);
 	}
 
-	public static GardenConfig getInstance() {
-		return AutoConfig.getConfigHolder(GardenConfig.class).getConfig();
+	public static GardenConfigurations getInstance() {
+		return AutoConfig.getConfigHolder(GardenConfigurations.class).getConfig();
 	}
 
 	public static class ImmersivePortals {
@@ -40,6 +40,13 @@ public class GardenConfig implements ConfigData {
 	}
 
 	public static class BiomeOptions {
+
+		@ConfigEntry.Gui.RequiresRestart
+		public boolean enablePointOneDatapackBiomes = true;
+
+		@ConfigEntry.Gui.RequiresRestart
+		public boolean enablePointTwoDatapackBiomes = true;
+
 		@ConfigEntry.Gui.RequiresRestart
 		public boolean enablePointOne = true;
 

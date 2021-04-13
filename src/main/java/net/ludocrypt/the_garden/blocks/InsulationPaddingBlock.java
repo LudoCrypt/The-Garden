@@ -4,9 +4,12 @@ import net.ludocrypt.the_garden.util.TripplePair;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.block.Waterloggable;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
@@ -22,7 +25,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class InsulationPaddingBlock extends InsulationBlock {
+public class InsulationPaddingBlock extends InsulationBlock implements Waterloggable {
 
 	public static final BooleanProperty NORTH = Properties.NORTH;
 	public static final BooleanProperty EAST = Properties.EAST;
@@ -40,12 +43,12 @@ public class InsulationPaddingBlock extends InsulationBlock {
 
 	public InsulationPaddingBlock(Settings settings, int range, ParticleEffect effect) {
 		super(settings, range, effect);
-		setDefaultState(getStateManager().getDefaultState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false).with(UP, false).with(DOWN, false));
+		setDefaultState(getStateManager().getDefaultState().with(NORTH, false).with(EAST, false).with(SOUTH, false).with(WEST, false).with(UP, false).with(DOWN, false).with(Properties.WATERLOGGED, false));
 	}
 
 	@Override
 	protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
-		stateManager.add(NORTH, EAST, SOUTH, WEST, UP, DOWN);
+		stateManager.add(NORTH, EAST, SOUTH, WEST, UP, DOWN, Properties.WATERLOGGED);
 	}
 
 	@Override
@@ -69,6 +72,10 @@ public class InsulationPaddingBlock extends InsulationBlock {
 			}
 		} else {
 			state = state.with(DIRECTION_PROPERTIES.getAFromB(side), true);
+		}
+
+		if (ctx.getWorld().isWater(ctx.getBlockPos())) {
+			state = state.with(Properties.WATERLOGGED, true);
 		}
 
 		return state;
@@ -105,6 +112,11 @@ public class InsulationPaddingBlock extends InsulationBlock {
 	@Override
 	public void onLandedUpon(World world, BlockPos pos, Entity entity, float distance) {
 		entity.handleFallDamage(distance, 0.9F);
+	}
+
+	@Override
+	public FluidState getFluidState(BlockState state) {
+		return state.get(Properties.WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
 	}
 
 	@Override

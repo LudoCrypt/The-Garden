@@ -6,6 +6,7 @@ import net.ludocrypt.the_garden.init.GardenFeatures;
 import net.ludocrypt.the_garden.init.GardenSounds;
 import net.ludocrypt.the_garden.init.GardenSurfaces;
 import net.ludocrypt.the_garden.util.Color;
+import net.ludocrypt.the_garden.util.GardenBiomeEffects;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
@@ -18,8 +19,6 @@ import net.minecraft.world.gen.GenerationStep.Feature;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 
 public class ChurchparkBiome {
-
-	public static int mulchColor = Color.of(160, 54, 44);
 
 	public static Biome create() {
 		Biome.Builder biome = new Biome.Builder();
@@ -44,12 +43,13 @@ public class ChurchparkBiome {
 		generationSettings.structureFeature(GardenFeatures.DEAD_TREE_MINESHAFT);
 		generationSettings.structureFeature(GardenFeatures.DEAD_TREE_MINESHAFT);
 
-		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
+		GardenBiomeEffects biomeEffects = new GardenBiomeEffects();
 		biomeEffects.skyColor(Color.of(255, 255, 255));
 		biomeEffects.waterColor(Color.of(178, 135, 79));
 		biomeEffects.waterFogColor(Color.of(178, 135, 79));
 		biomeEffects.fogColor(Color.of(255, 255, 255));
 		biomeEffects.grassColor(Color.of(226, 202, 132));
+		biomeEffects.mulchColor(Color.of(160, 54, 44));
 		biomeEffects.moodSound(BiomeMoodSound.CAVE);
 		biomeEffects.music(GardenSounds.POINT_ONE);
 		biomeEffects.particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.00364785F));

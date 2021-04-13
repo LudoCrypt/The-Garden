@@ -2,7 +2,7 @@ package net.ludocrypt.the_garden.compat.impl.entity;
 
 import com.qouteall.immersive_portals.portal.Portal;
 
-import net.ludocrypt.the_garden.config.GardenConfig;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.util.PortalUtil;
 import net.ludocrypt.the_garden.world.PointOne;
@@ -50,9 +50,12 @@ public class MulchPortalEntity extends Portal {
 
 	public static void generateFromOverworld(World current, BlockPos pos, BlockPos targetInfo, MinecraftServer server) {
 		ServerWorld overworld = server.getOverworld();
-		ServerWorld pointOne = server.getWorld(PointOne.WORLD);
+		ServerWorld currentWorld = (ServerWorld) current;
 
-		generateMulchPortals(overworld, pointOne, Vec3d.ofCenter(pos).add(-1.5D, 2.5D, 0.5D), Vec3d.ofCenter(targetInfo).add(0.5D, -0.625D, -0.5D));
+		System.out.println("BlockPos: " + pos.toString());
+		System.out.println("Target: " + targetInfo.toString());
+
+		generateMulchPortals(overworld, currentWorld, Vec3d.ofCenter(pos).add(-1.5D, 2.5D, 0.5D), Vec3d.ofCenter(targetInfo).add(0.5D, -0.625D, -0.5D));
 	}
 
 	public static void generateMulchPortals(ServerWorld world, ServerWorld destinationWorld, Vec3d destination, Vec3d portalCenter) {
@@ -77,7 +80,7 @@ public class MulchPortalEntity extends Portal {
 	public void tick() {
 		super.tick();
 		BlockPos pos = this.getBlockPos();
-		if (!world.getBlockState(pos).isOf(GardenBlocks.MULCH_PORTAL) || !GardenConfig.getInstance().immersivePortals.mulchPortal) {
+		if (!world.getBlockState(pos).isOf(GardenBlocks.MULCH_PORTAL) || !GardenConfigurations.getInstance().immersivePortals.mulchPortal) {
 			this.kill();
 		}
 	}

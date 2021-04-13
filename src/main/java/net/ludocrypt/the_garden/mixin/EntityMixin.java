@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.ludocrypt.the_garden.compat.GardenCompat;
-import net.ludocrypt.the_garden.config.GardenConfig;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.world.PointOne;
 import net.ludocrypt.the_garden.world.PointTwo;
@@ -28,7 +28,7 @@ public class EntityMixin {
 	@Inject(method = "tick", at = @At(value = "TAIL"))
 	private void theGarden_tick(CallbackInfo ci) {
 		Entity entity = ((Entity) (Object) this);
-		if ((GardenCompat.isImmersivePortalsModInstalled && !GardenConfig.getInstance().immersivePortals.connectDimensions) || !GardenCompat.isImmersivePortalsModInstalled) {
+		if ((GardenCompat.isImmersivePortalsModInstalled && !GardenConfigurations.getInstance().immersivePortals.connectDimensions) || !GardenCompat.isImmersivePortalsModInstalled) {
 			if (entity.world.getRegistryKey() == PointOne.WORLD) {
 				if (entity.getY() >= 256) {
 					toPointTwo();

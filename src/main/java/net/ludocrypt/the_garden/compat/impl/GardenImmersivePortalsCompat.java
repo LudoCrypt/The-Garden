@@ -13,7 +13,7 @@ import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.compat.GardenCompat;
 import net.ludocrypt.the_garden.compat.impl.entity.KillWhenDisabledPortal;
 import net.ludocrypt.the_garden.compat.impl.entity.MulchPortalEntity;
-import net.ludocrypt.the_garden.config.GardenConfig;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
 import net.ludocrypt.the_garden.world.PointOne;
 import net.ludocrypt.the_garden.world.PointTwo;
 import net.minecraft.entity.EntityDimensions;
@@ -36,13 +36,13 @@ public class GardenImmersivePortalsCompat {
 		Registry.register(Registry.ENTITY_TYPE, TheGarden.id("mulch_portal"), MulchPortalEntity.entityType);
 		KillWhenDisabledPortal.entityType = FabricEntityTypeBuilder.create(SpawnGroup.MISC, KillWhenDisabledPortal::new).dimensions(new EntityDimensions(1, 1, true)).fireImmune().trackRangeBlocks(96).trackedUpdateRate(20).forceTrackedVelocityUpdates(true).build();
 		Registry.register(Registry.ENTITY_TYPE, TheGarden.id("kill_when_disabled_portal"), KillWhenDisabledPortal.entityType);
-		if (GardenConfig.getInstance().immersivePortals.connectDimensions) {
+		if (GardenConfigurations.getInstance().immersivePortals.connectDimensions) {
 			ModMain.postServerTickSignal.connect(GardenImmersivePortalsCompat::serverTick);
 		}
 	}
 
 	private static void serverTick() {
-		if (GardenConfig.getInstance().immersivePortals.connectDimensions) {
+		if (GardenConfigurations.getInstance().immersivePortals.connectDimensions) {
 			if (McHelper.getGlobalPortals(McHelper.getServerWorld(PointOne.WORLD)).isEmpty() && McHelper.getGlobalPortals(McHelper.getServerWorld(PointTwo.WORLD)).isEmpty()) {
 				createConnectionBetween(PointOne.WORLD, PointTwo.WORLD);
 			}

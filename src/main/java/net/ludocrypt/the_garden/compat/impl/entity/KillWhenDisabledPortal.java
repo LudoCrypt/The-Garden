@@ -6,7 +6,7 @@ import com.qouteall.immersive_portals.my_util.DQuaternion;
 import com.qouteall.immersive_portals.portal.PortalExtension;
 import com.qouteall.immersive_portals.portal.global_portals.VerticalConnectingPortal;
 
-import net.ludocrypt.the_garden.config.GardenConfig;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
 import net.minecraft.entity.EntityType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
@@ -23,7 +23,7 @@ public class KillWhenDisabledPortal extends VerticalConnectingPortal {
 	@Override
 	public void tick() {
 		super.tick();
-		if (!GardenConfig.getInstance().immersivePortals.connectDimensions) {
+		if (!GardenConfigurations.getInstance().immersivePortals.connectDimensions) {
 			this.kill();
 		}
 	}

@@ -5,8 +5,8 @@ import java.util.Map;
 
 import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.advancements.GardenAdvancement;
-import net.ludocrypt.the_garden.config.GardenConfig;
-import net.ludocrypt.the_garden.config.GardenConfig.BiomeOptions;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
+import net.ludocrypt.the_garden.config.GardenConfigurations.BiomeOptions;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.item.ItemStack;
@@ -18,7 +18,7 @@ public class GardenAdvancements {
 	public static final Map<Identifier, Advancement.Task> ADVANCEMENTS = new HashMap<Identifier, Advancement.Task>();
 
 	public static final Advancement.Task EXPLORE_POINT_ONE = add("point_one/explore", GardenAdvancement.complexWithEXP(TheGarden.id("point_one/root"), new ItemStack(Items.COMPASS), "the_garden.advancements.point_one.explore", 500, (advancement) -> {
-		BiomeOptions config = GardenConfig.getInstance().enabledBiomes;
+		BiomeOptions config = GardenConfigurations.getInstance().enabledBiomes;
 
 		if (config.enablePointOne) {
 			GardenAdvancement.addBiome(advancement, GardenBiomes.POINT_ONE);
@@ -49,7 +49,7 @@ public class GardenAdvancements {
 	}, AdvancementFrame.GOAL).getAdvancement());
 
 	public static final Advancement.Task EXPLORE_POINT_TWO = add("point_two/explore", GardenAdvancement.complexWithEXP(TheGarden.id("point_two/root"), new ItemStack(Items.COMPASS), "the_garden.advancements.point_two.explore", 500, (advancement) -> {
-		BiomeOptions config = GardenConfig.getInstance().enabledBiomes;
+		BiomeOptions config = GardenConfigurations.getInstance().enabledBiomes;
 
 		if (config.enablePointTwo) {
 			GardenAdvancement.addBiome(advancement, GardenBiomes.POINT_TWO);

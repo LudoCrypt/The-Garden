@@ -8,7 +8,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import net.ludocrypt.the_garden.init.GardenBlocks;
-import net.ludocrypt.the_garden.world.PointTwo;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -22,12 +21,10 @@ public class AbstractBlockMixin {
 
 	@Inject(method = "randomTick", at = @At("HEAD"), cancellable = true)
 	private void theGarden_tickCryingObsidian(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
-		if (world.getRegistryKey().equals(PointTwo.WORLD)) {
-			if (state.isOf(Blocks.CRYING_OBSIDIAN)) {
-				if (world.getBlockState(pos.down()).isOf(Blocks.OBSIDIAN)) {
-					world.setBlockState(pos.down(), GardenBlocks.CRACKED_OBSIDIAN.getDefaultState(), 2);
-					world.playSound(null, pos, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
-				}
+		if (state.isOf(Blocks.CRYING_OBSIDIAN)) {
+			if (world.getBlockState(pos.down()).isOf(Blocks.OBSIDIAN)) {
+				world.setBlockState(pos.down(), GardenBlocks.CRACKED_OBSIDIAN.getDefaultState(), 2);
+				world.playSound(null, pos, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 1.0F, 1.0F);
 			}
 		}
 	}

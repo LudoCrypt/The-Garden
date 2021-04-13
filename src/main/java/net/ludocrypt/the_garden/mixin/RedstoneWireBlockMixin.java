@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.ludocrypt.the_garden.blocks.InsulationBlock;
-import net.ludocrypt.the_garden.config.GardenConfig;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.RedstoneWireBlock;
 import net.minecraft.util.math.BlockPos;
@@ -25,7 +25,7 @@ public class RedstoneWireBlockMixin {
 		int power = ci.getReturnValueI();
 
 		if (isInsulated(world, pos)) {
-			power = Math.max(0, power - GardenConfig.getInstance().redstoneDampening);
+			power = Math.max(0, power - GardenConfigurations.getInstance().redstoneDampening);
 		}
 
 		ci.setReturnValue(power);

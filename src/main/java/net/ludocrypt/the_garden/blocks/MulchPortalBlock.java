@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableList;
 import net.fabricmc.fabric.api.dimension.v1.FabricDimensions;
 import net.ludocrypt.the_garden.blocks.entity.MulchPortalBlockEntity;
 import net.ludocrypt.the_garden.compat.GardenCompat;
-import net.ludocrypt.the_garden.config.GardenConfig;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.init.GardenParticles;
 import net.ludocrypt.the_garden.util.PortalUtil;
@@ -40,7 +40,7 @@ public class MulchPortalBlock extends Block implements BlockEntityProvider {
 
 	@Override
 	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-		if (GardenCompat.isImmersivePortalsModInstalled && GardenConfig.getInstance().immersivePortals.mulchPortal) {
+		if (GardenCompat.isImmersivePortalsModInstalled && GardenConfigurations.getInstance().immersivePortals.mulchPortal) {
 			return VoxelShapes.empty();
 		}
 		return Block.createCuboidShape(0, 0, 0, 16, 14, 16);
@@ -48,7 +48,7 @@ public class MulchPortalBlock extends Block implements BlockEntityProvider {
 
 	@Override
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-		if ((GardenCompat.isImmersivePortalsModInstalled && !GardenConfig.getInstance().immersivePortals.mulchPortal) || !GardenCompat.isImmersivePortalsModInstalled) {
+		if ((GardenCompat.isImmersivePortalsModInstalled && !GardenConfigurations.getInstance().immersivePortals.mulchPortal) || !GardenCompat.isImmersivePortalsModInstalled) {
 			if (!world.isClient) {
 				ServerWorld serverWorld = (ServerWorld) world;
 				teleport(serverWorld, entity, pos, PointOne.WORLD);

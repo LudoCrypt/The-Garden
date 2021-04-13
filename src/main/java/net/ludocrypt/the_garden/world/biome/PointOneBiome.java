@@ -7,6 +7,7 @@ import net.ludocrypt.the_garden.init.GardenParticles;
 import net.ludocrypt.the_garden.init.GardenSounds;
 import net.ludocrypt.the_garden.init.GardenSurfaces;
 import net.ludocrypt.the_garden.util.Color;
+import net.ludocrypt.the_garden.util.GardenBiomeEffects;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -18,8 +19,6 @@ import net.minecraft.world.gen.GenerationStep.Feature;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 
 public class PointOneBiome {
-
-	public static int mulchColor = Color.of(169, 114, 91);
 
 	public static Biome create() {
 		Biome.Builder biome = new Biome.Builder();
@@ -38,12 +37,13 @@ public class PointOneBiome {
 		generationSettings.feature(Feature.UNDERGROUND_ORES, GardenFeatures.COAL_ORE_POINT_ONE);
 		generationSettings.structureFeature(GardenFeatures.DEAD_TREE_MINESHAFT);
 
-		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
+		GardenBiomeEffects biomeEffects = new GardenBiomeEffects();
 		biomeEffects.skyColor(Color.of(255, 255, 255));
 		biomeEffects.waterColor(Color.of(169, 114, 91));
 		biomeEffects.waterFogColor(Color.of(169, 114, 91));
 		biomeEffects.fogColor(Color.of(255, 255, 255));
 		biomeEffects.grassColor(Color.of(226, 202, 132));
+		biomeEffects.mulchColor(Color.of(169, 114, 91));
 		biomeEffects.moodSound(BiomeMoodSound.CAVE);
 		biomeEffects.music(GardenSounds.POINT_ONE);
 		biomeEffects.particleConfig(new BiomeParticleConfig(GardenParticles.THROWN_TWIG, 0.000629776F));

@@ -7,6 +7,7 @@ import net.ludocrypt.the_garden.init.GardenParticles;
 import net.ludocrypt.the_garden.init.GardenSounds;
 import net.ludocrypt.the_garden.init.GardenSurfaces;
 import net.ludocrypt.the_garden.util.Color;
+import net.ludocrypt.the_garden.util.GardenBiomeEffects;
 import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -17,8 +18,6 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.GenerationStep.Feature;
 
 public class SkinnedHousepartsBiome {
-
-	public static int mulchColor = Color.of(137, 97, 105);
 
 	public static Biome create() {
 		Biome.Builder biome = new Biome.Builder();
@@ -38,12 +37,13 @@ public class SkinnedHousepartsBiome {
 		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.BROWN_INSULATION_BALL);
 		generationSettings.feature(Feature.TOP_LAYER_MODIFICATION, GardenFeatures.PSEUDO_BASE);
 
-		BiomeEffects.Builder biomeEffects = new BiomeEffects.Builder();
+		GardenBiomeEffects biomeEffects = new GardenBiomeEffects();
 		biomeEffects.skyColor(Color.of(255, 255, 255));
 		biomeEffects.waterColor(Color.of(153, 111, 142));
 		biomeEffects.waterFogColor(Color.of(153, 111, 142));
 		biomeEffects.fogColor(Color.of(255, 255, 255));
 		biomeEffects.grassColor(Color.of(226, 202, 132));
+		biomeEffects.mulchColor(Color.of(137, 97, 105));
 		biomeEffects.moodSound(BiomeMoodSound.CAVE);
 		biomeEffects.music(GardenSounds.POINT_ONE);
 		biomeEffects.particleConfig(new BiomeParticleConfig(GardenParticles.SAWDUST, 0.053846894F));

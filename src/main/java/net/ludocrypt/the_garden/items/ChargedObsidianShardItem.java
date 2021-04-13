@@ -3,7 +3,7 @@ package net.ludocrypt.the_garden.items;
 import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.advancements.GardenAdvancement;
 import net.ludocrypt.the_garden.compat.GardenCompat;
-import net.ludocrypt.the_garden.config.GardenConfig;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.ludocrypt.the_garden.world.PointOne;
 import net.minecraft.block.BlockState;
@@ -78,7 +78,7 @@ public class ChargedObsidianShardItem extends SwordItem {
 				world.setBlockState(pos.add(i, 0, j), GardenBlocks.MULCH_PORTAL.getDefaultState(), 2);
 			}
 		}
-		if (GardenCompat.isImmersivePortalsModInstalled && GardenConfig.getInstance().immersivePortals.mulchPortal) {
+		if (GardenCompat.isImmersivePortalsModInstalled && GardenConfigurations.getInstance().immersivePortals.mulchPortal) {
 			if (!world.isClient) {
 				if (world.getRegistryKey().equals(PointOne.WORLD)) {
 					GardenCompat.attemptGenerateToOverworld(world, pos, world.getServer());

@@ -3,3 +3,5 @@ accessible class net/minecraft/structure/MineshaftGenerator$MineshaftPart
 accessible class net/minecraft/world/biome/source/MultiNoiseBiomeSource$NoiseParameters
 extendable class net/minecraft/server/command/TeleportCommand$LookTarget
 accessible class net/minecraft/server/command/TeleportCommand$LookTarget
+extendable class net/minecraft/util/registry/DynamicRegistryManager$Info
+accessible class net/minecraft/util/registry/DynamicRegistryManager$Info
