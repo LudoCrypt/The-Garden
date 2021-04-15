@@ -9,7 +9,6 @@ import net.ludocrypt.the_garden.init.GardenBoats;
 import net.ludocrypt.the_garden.init.GardenCarvers;
 import net.ludocrypt.the_garden.init.GardenCommands;
 import net.ludocrypt.the_garden.init.GardenFeatures;
-import net.ludocrypt.the_garden.init.GardenGeneration;
 import net.ludocrypt.the_garden.init.GardenGroups;
 import net.ludocrypt.the_garden.init.GardenItems;
 import net.ludocrypt.the_garden.init.GardenParticles;
@@ -24,7 +23,6 @@ public class TheGarden implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		GardenConfigurations.init();
-		GardenGeneration.init();
 		GardenParticles.init();
 		GardenCommands.init();
 		GardenFeatures.init();

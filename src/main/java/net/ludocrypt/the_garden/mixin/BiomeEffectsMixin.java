@@ -14,11 +14,12 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.mojang.serialization.codecs.RecordCodecBuilder.Mu;
 
 import net.ludocrypt.the_garden.access.BiomeEffectsMulchColors;
+import net.ludocrypt.the_garden.util.Color;
 import net.ludocrypt.the_garden.util.GardenMulchEffects;
 import net.minecraft.world.biome.BiomeEffects;
 
 @Mixin(BiomeEffects.class)
-public class BiomEffectsMixin implements BiomeEffectsMulchColors {
+public class BiomeEffectsMixin implements BiomeEffectsMulchColors {
 
 	@Unique
 	private Optional<Integer> mulchColor = Optional.empty();
@@ -28,7 +29,7 @@ public class BiomEffectsMixin implements BiomeEffectsMulchColors {
 		ci.setReturnValue(codecBuilder.group(ci.getReturnValue(), Codec.INT.optionalFieldOf("mulch_color").forGetter((biomeEffects) -> {
 			return BiomeEffectsMulchColors.getMulchColor(biomeEffects);
 		})).apply(codecBuilder, (biomeEffects, mulch) -> {
-			BiomeEffectsMulchColors.setMulchColor(biomeEffects, mulch.isPresent() ? mulch.get() : GardenMulchEffects.defaultMulchColor.getRGB());
+			BiomeEffectsMulchColors.setMulchColor(biomeEffects, mulch.isPresent() ? mulch.get() : biomeEffects.getGrassColor().isPresent() ? Color.colorOf(biomeEffects.getGrassColor().get()).sepia().getRGB() : GardenMulchEffects.defaultMulchColor.getRGB());
 			return biomeEffects;
 		}));
 	}

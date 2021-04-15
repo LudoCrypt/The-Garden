@@ -6,6 +6,7 @@ import java.util.Map;
 import com.chocohead.mm.api.ClassTinkerers;
 
 import net.ludocrypt.the_garden.TheGarden;
+import net.ludocrypt.the_garden.config.GardenConfigurations;
 import net.ludocrypt.the_garden.world.PointOne;
 import net.ludocrypt.the_garden.world.PointTwo;
 import net.ludocrypt.the_garden.world.biome.ChurchparkBiome;
@@ -23,6 +24,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.Biome.MixedNoisePoint;
 
 public class GardenBiomes {
 
@@ -48,16 +50,38 @@ public class GardenBiomes {
 			Registry.register(BuiltinRegistries.BIOME, id, BIOMES.get(id));
 		}
 
-		GardenGeneration.POINT_ONE_BIOMES.getEntries().stream().filter((bnpr) -> {
-			return !bnpr.getValue().equals(GardenGeneration.DEFAULT_POINT_ONE);
-		}).forEach((bnpr) -> {
-			PointOne.addBiome(bnpr.getValue().getBiomeToGenerate(), bnpr.getValue().getNoiseToPair());
-		});
-		GardenGeneration.POINT_TWO_BIOMES.getEntries().stream().filter((bnpr) -> {
-			return !bnpr.getValue().equals(GardenGeneration.DEFAULT_POINT_TWO);
-		}).forEach((bnpr) -> {
-			PointTwo.addBiome(bnpr.getValue().getBiomeToGenerate(), bnpr.getValue().getNoiseToPair());
-		});
+		GardenConfigurations config = GardenConfigurations.getInstance();
+		if (config.enabledBiomes.enablePointOne) {
+			PointOne.addBiome(GardenBiomes.POINT_ONE, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enablePseudoCorkwoodPlains) {
+			PointOne.addBiome(GardenBiomes.PLAYPEN, new MixedNoisePoint(0.0F, -0.2F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enableCorkwoodPlains) {
+			PointOne.addBiome(GardenBiomes.CORKWOOD_PLAINS, new MixedNoisePoint(0.0F, -0.375F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enablePlaypen) {
+			PointOne.addBiome(GardenBiomes.PSEUDO_CORKWOOD_PLAINS, new MixedNoisePoint(0.0F, 0.3F, 0.0F, 0.0F, 0.275F));
+		}
+		if (config.enabledBiomes.enableChurchpark) {
+			PointOne.addBiome(GardenBiomes.CHURCHPARK, new MixedNoisePoint(0.0F, 0.0F, 0.4F, 0.0F, 0.325F));
+		}
+		if (config.enabledBiomes.enableSkinnedHouseparts) {
+			PointOne.addBiome(GardenBiomes.SKINNED_HOUSEPARTS, new MixedNoisePoint(0.0F, 0.25F, 0.1F, 0.0F, 0.25F));
+		}
+
+		if (config.enabledBiomes.enablePointTwo) {
+			PointTwo.addBiome(GardenBiomes.POINT_TWO, new MixedNoisePoint(0.0F, 0.0F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enableGravityFalls) {
+			PointTwo.addBiome(GardenBiomes.GRAVITY_FALLS, new MixedNoisePoint(0.0F, 0.2F, 0.0F, 0.0F, 0.0F));
+		}
+		if (config.enabledBiomes.enableIvoryShallows) {
+			PointTwo.addBiome(GardenBiomes.IVORY_SHALLOWS, new MixedNoisePoint(0.0F, 0.0F, 0.2F, 0.2F, 0.0F));
+		}
+		if (config.enabledBiomes.enableHolicIsles) {
+			PointTwo.addBiome(GardenBiomes.HOLIC_ISLES, new MixedNoisePoint(0.2F, 0.0F, 0.2F, -0.25F, 0.0F));
+		}
 
 	}
 

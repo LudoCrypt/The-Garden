@@ -21,9 +21,7 @@
 		"InstrumentMixin",
 		"ServerAdvancementLoaderMixin",
 		"HoeItemMixin",
-		"BiomEffectsMixin",
-		"DynamicRegistryManagerMixin",
-		"BuiltinRegistriesAccessor"
+		"BiomeEffectsMixin"
 	],
 	"client": [
 		"ClientWorldMixin",
