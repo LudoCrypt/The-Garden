@@ -8,13 +8,13 @@ import java.util.Random;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import com.google.common.collect.UnmodifiableIterator;
-import com.ibm.icu.impl.Pair;
 import com.mojang.serialization.Codec;
 
 import net.ludocrypt.the_garden.blocks.InsulationPaddingBlock;
 import net.ludocrypt.the_garden.init.GardenBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.noise.OctavePerlinNoiseSampler;
 import net.minecraft.world.biome.Biome;
@@ -41,8 +41,8 @@ public class SkinnedHousepartsSurfaceBuilder extends SurfaceBuilder<PatternSurfa
 		SurfaceBuilder.DEFAULT.generate(random, chunk, biome, x, z, height, noise, defaultBlock, defaultFluid, seaLevel, seed, new TernarySurfaceConfig(state, state, state));
 
 		BlockState topLayer = this.noisemapOne.stream().max(Comparator.comparing((entry) -> {
-			return ((Pair<BlockState, OctavePerlinNoiseSampler>) entry).second.sample(x, z, height);
-		})).get().first;
+			return ((Pair<BlockState, OctavePerlinNoiseSampler>) entry).getRight().sample(x, z, height);
+		})).get().getLeft();
 
 		chunk.setBlockState(new BlockPos(x, height, z), topLayer, false);
 	}
@@ -61,7 +61,7 @@ public class SkinnedHousepartsSurfaceBuilder extends SurfaceBuilder<PatternSurfa
 
 		for (UnmodifiableIterator<BlockState> var4 = states.iterator(); var4.hasNext(); ++seed) {
 			BlockState layer = var4.next();
-			builder.add(Pair.of(layer, new OctavePerlinNoiseSampler(new ChunkRandom(seed), ImmutableList.of(-6, -3))));
+			builder.add(new Pair<BlockState, OctavePerlinNoiseSampler>(layer, new OctavePerlinNoiseSampler(new ChunkRandom(seed), ImmutableList.of(-6, -3))));
 		}
 
 		return ImmutableList.copyOf(builder);
