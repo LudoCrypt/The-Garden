@@ -21,7 +21,7 @@ public class EdgingFaceBlock extends EdgingBlock {
 		for (Direction dir : Direction.values()) {
 			if (!dir.equals(Direction.UP) && !dir.equals(Direction.DOWN)) {
 				if (state.get(DIRECTION_PROPERTIES.getAFromB(dir))) {
-					shape = VoxelShapes.union(shape, DIRECTION_PROPERTIES.getCFromB(dir).second);
+					shape = VoxelShapes.union(shape, DIRECTION_PROPERTIES.getCFromB(dir).getRight());
 				}
 			}
 		}

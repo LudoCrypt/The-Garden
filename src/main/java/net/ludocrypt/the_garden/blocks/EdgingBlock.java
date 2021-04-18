@@ -1,7 +1,5 @@
 package net.ludocrypt.the_garden.blocks;
 
-import com.ibm.icu.impl.Pair;
-
 import net.ludocrypt.the_garden.util.TripplePair;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -17,6 +15,7 @@ import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager.Builder;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.Pair;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
@@ -64,7 +63,7 @@ public class EdgingBlock extends Block implements Waterloggable {
 		for (Direction dir : Direction.values()) {
 			if (!dir.equals(Direction.UP) && !dir.equals(Direction.DOWN)) {
 				if (state.get(DIRECTION_PROPERTIES.getAFromB(dir))) {
-					shape = VoxelShapes.union(shape, DIRECTION_PROPERTIES.getCFromB(dir).first);
+					shape = VoxelShapes.union(shape, DIRECTION_PROPERTIES.getCFromB(dir).getLeft());
 				}
 			}
 		}
@@ -81,7 +80,7 @@ public class EdgingBlock extends Block implements Waterloggable {
 		for (Direction dir : Direction.values()) {
 			if (!dir.equals(Direction.UP) && !dir.equals(Direction.DOWN)) {
 				if (state.get(DIRECTION_PROPERTIES.getAFromB(dir)) && !(below.getBlock() instanceof EdgingFaceBlock && below.get(DIRECTION_PROPERTIES.getAFromB(dir)))) {
-					shape = VoxelShapes.union(shape, DIRECTION_PROPERTIES.getCFromB(dir).first);
+					shape = VoxelShapes.union(shape, DIRECTION_PROPERTIES.getCFromB(dir).getLeft());
 				}
 			}
 		}
@@ -126,10 +125,10 @@ public class EdgingBlock extends Block implements Waterloggable {
 	}
 
 	static {
-		DIRECTION_PROPERTIES.put(NORTH, Direction.NORTH, Pair.of(NORTH_SMALL_SHAPE, NORTH_BIG_SHAPE));
-		DIRECTION_PROPERTIES.put(EAST, Direction.EAST, Pair.of(EAST_SMALL_SHAPE, EAST_BIG_SHAPE));
-		DIRECTION_PROPERTIES.put(SOUTH, Direction.SOUTH, Pair.of(SOUTH_SMALL_SHAPE, SOUTH_BIG_SHAPE));
-		DIRECTION_PROPERTIES.put(WEST, Direction.WEST, Pair.of(WEST_SMALL_SHAPE, WEST_BIG_SHAPE));
+		DIRECTION_PROPERTIES.put(NORTH, Direction.NORTH, new Pair<VoxelShape, VoxelShape>(NORTH_SMALL_SHAPE, NORTH_BIG_SHAPE));
+		DIRECTION_PROPERTIES.put(EAST, Direction.EAST, new Pair<VoxelShape, VoxelShape>(EAST_SMALL_SHAPE, EAST_BIG_SHAPE));
+		DIRECTION_PROPERTIES.put(SOUTH, Direction.SOUTH, new Pair<VoxelShape, VoxelShape>(SOUTH_SMALL_SHAPE, SOUTH_BIG_SHAPE));
+		DIRECTION_PROPERTIES.put(WEST, Direction.WEST, new Pair<VoxelShape, VoxelShape>(WEST_SMALL_SHAPE, WEST_BIG_SHAPE));
 	}
 
 }
