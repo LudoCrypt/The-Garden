@@ -5,9 +5,7 @@ import com.qouteall.immersive_portals.ModMain;
 import com.qouteall.immersive_portals.api.PortalAPI;
 import com.qouteall.immersive_portals.portal.Portal;
 import com.qouteall.immersive_portals.portal.global_portals.VerticalConnectingPortal;
-import com.qouteall.immersive_portals.render.PortalEntityRenderer;
 
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.ludocrypt.the_garden.TheGarden;
 import net.ludocrypt.the_garden.compat.GardenCompat;
@@ -69,12 +67,6 @@ public class GardenImmersivePortalsCompat {
 				portal.fuseView = true;
 			}
 		}
-	}
-
-	public static void clientInit() {
-		EntityRendererRegistry.INSTANCE.register(MulchPortalEntity.entityType, (entityRenderDispatcher, context) -> new PortalEntityRenderer(entityRenderDispatcher));
-		EntityRendererRegistry.INSTANCE.register(KillWhenDisabledPortal.entityType, (entityRenderDispatcher, context) -> new PortalEntityRenderer(entityRenderDispatcher));
-
 	}
 
 }

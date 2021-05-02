@@ -19,12 +19,6 @@ public class GardenCompat {
 		}
 	}
 
-	public static void attemptIMPLClientInit() {
-		if (GardenCompat.isImmersivePortalsModInstalled) {
-			GardenImmersivePortalsCompat.clientInit();
-		}
-	}
-
 	public static void attemptGenerateToPointOne(World current, BlockPos pos, MinecraftServer server) {
 		if (isImmersivePortalsModInstalled) {
 			MulchPortalEntity.generateToPointOne(current, pos, server);
