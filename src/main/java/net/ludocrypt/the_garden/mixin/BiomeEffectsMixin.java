@@ -29,7 +29,7 @@ public class BiomeEffectsMixin implements BiomeEffectsMulchColors {
 		ci.setReturnValue(codecBuilder.group(ci.getReturnValue(), Codec.INT.optionalFieldOf("mulch_color").forGetter((biomeEffects) -> {
 			return BiomeEffectsMulchColors.getMulchColor(biomeEffects);
 		})).apply(codecBuilder, (biomeEffects, mulch) -> {
-			BiomeEffectsMulchColors.setMulchColor(biomeEffects, mulch.isPresent() ? mulch.get() : biomeEffects.getGrassColor().isPresent() ? Color.colorOf(biomeEffects.getGrassColor().get()).sepia().getRGB() : GardenMulchEffects.defaultMulchColor.getRGB());
+			BiomeEffectsMulchColors.setMulchColor(biomeEffects, mulch.isPresent() ? mulch.get() : get(biomeEffects).getOptionalGrassColor().isPresent() ? Color.colorOf(get(biomeEffects).getOptionalGrassColor().get()).sepia().getRGB() : GardenMulchEffects.defaultMulchColor.getRGB());
 			return biomeEffects;
 		}));
 	}
@@ -42,6 +42,10 @@ public class BiomeEffectsMixin implements BiomeEffectsMulchColors {
 	@Override
 	public void setMulchColor(int color) {
 		mulchColor = Optional.of(color);
+	}
+
+	private static BiomeEffectsAccessor get(BiomeEffects effects) {
+		return ((BiomeEffectsAccessor) effects);
 	}
 
 }

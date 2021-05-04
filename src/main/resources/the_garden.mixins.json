@@ -21,7 +21,8 @@
 		"InstrumentMixin",
 		"ServerAdvancementLoaderMixin",
 		"HoeItemMixin",
-		"BiomeEffectsMixin"
+		"BiomeEffectsMixin",
+		"BiomeEffectsAccessor"
 	],
 	"client": [
 		"ClientWorldMixin",
